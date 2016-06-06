@@ -44,32 +44,6 @@ module.exports = function(grunt) {
   grunt.initConfig(config);
   grunt.config.merge(loadConfig('./tasks'));
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-yuidoc');
-  grunt.loadNpmTasks('grunt-mocha-test');
-  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-mkdocs');
-  grunt.loadNpmTasks('grunt-gh-pages');
-  grunt.loadNpmTasks('grunt-rename');
-  grunt.loadNpmTasks('grunt-remove');
-
-  // Listen to changes on SCSS files and generate CSS files
-  grunt.registerTask('default', ['compass:dev', 'watch']);
-
-  // Minify and concat back end AngularJS Javascript files
-  grunt.registerTask('concatPlugin', ['uglify:dist', 'concat:lib', 'concat:js']);
-
-  // Prepare project for production
-  grunt.registerTask('prod', ['compass:dist', 'concatPlugin']);
-
-  // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
-
-  // Deploy documentation to github pages
-  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
 
 };

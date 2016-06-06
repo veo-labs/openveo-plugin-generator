@@ -7,11 +7,13 @@ module.exports = {
   // Validate the whole project
   validate: {
     src: [
-      'generators/*/config/*.js',
-      'generators/*/src/*.js',
-      'generators/*/index.js',
+      'index.js',
+      'conf.js',
       'Gruntfile.js',
-      'tasks/*/*.js'
+      'tasks/**/*.js',
+      'tests/**/*.js',
+      'app/**/*.js',
+      'migrations/**/*.js'
     ]
   }
 };

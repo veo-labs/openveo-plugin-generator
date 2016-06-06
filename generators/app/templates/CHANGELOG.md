@@ -1,4 +1,4 @@
-# 0.2.0 / 2016-06-06
+# 0.2.0 / 2016-06-
 
 Initialization of an OpenVeo plugin generator with Yeoman
 

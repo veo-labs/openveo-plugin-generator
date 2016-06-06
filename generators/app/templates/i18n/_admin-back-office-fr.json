@@ -1,0 +1,11 @@
+{
+	"MENU": {
+		"LIST": "<%= Plugin %> liste",
+		"<%= PLUGIN %>": "<%= Plugin %>"
+	},
+	"LIST": {
+		"PAGE_TITLE": "<%= Plugin %> liste"
+	},
+	"TITLE": "<%= Plugin %> liste",
+	"INFO": "Informations de la page du <%= plugin %> liste"
+}

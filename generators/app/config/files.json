@@ -1,0 +1,73 @@
+{
+  "src": [
+    "CHANGELOG.md",
+
+    "app/client/admin/compass/sass/base/_base.scss",
+    "app/client/admin/compass/sass/base/_browser-support.scss",
+    "app/client/admin/compass/sass/base/_colors.scss",
+    "app/client/admin/compass/sass/base/_on-responsive.scss",
+    "app/client/admin/compass/sass/base/_setting-responsive.scss",
+    "app/client/admin/compass/sass/base/_typography.scss",
+
+    "app/client/admin/compass/sass/mixins/library/_mq.scss",
+    "app/client/admin/compass/sass/mixins/_animation.scss",
+    "app/client/admin/compass/sass/mixins/_browser.scss",
+    "app/client/admin/compass/sass/mixins/_responsive.scss",
+    "app/client/admin/compass/sass/mixins/_retina.scss",
+    "app/client/admin/compass/sass/modules/_all.scss",
+
+    "app/server/httpErrors.js",
+
+    "docs/developers/back-end.md",
+    "docs/developers/compilation.md",
+    "docs/developers/end-to-end-tests.md",
+    "docs/developers/installation.md",
+    "docs/developers/unit-tests.md",
+    "docs/index.md"
+  ],
+  "tasks": [
+    "tasks/eslint.js",
+    "tasks/gh-pages.js",
+    "tasks/karma.js",
+    "tasks/mochaTest.js",
+    "tasks/project.js",
+    "tasks/remove.js",
+    "tasks/rename.js",
+    "tasks/watch.js"
+  ],
+  "templated": [
+    "bower.json",
+    "package.json",
+    "README.md",
+    "conf.js",
+
+    "Gruntfile.js",
+
+    "tasks/compass.js",
+    "tasks/concat.js",
+    "tasks/mkdocs.js",
+    "tasks/uglify.js",
+    "tasks/yuidoc.js",
+
+    "i18n/admin-back-office-en.json",
+    "i18n/admin-back-office-fr.json",
+
+    "app/client/admin/compass/sass/{{plugin}}.scss",
+    
+    "app/client/admin/js/ov/{{Plugin}}App.js",
+    "app/server/{{Plugin}}Plugin.js"
+  ],
+  "folders": [
+    "app/client/admin/js/ov"
+  ],
+  "dots": [
+    ".gitattributes",
+    ".gitignore",
+    ".npmignore",
+    ".eslintrc",
+    ".bowerrc",
+
+    "app/client/.eslintrc"
+
+  ]
+}
