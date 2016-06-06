@@ -124,9 +124,6 @@
     // Disallow process.exit()
     "no-process-exit": 2,
 
-    // Disallow synchronous methods
-    "no-sync": 2,
-
     // Disallow spaces inside of brackets
     "array-bracket-spacing": 2,
 

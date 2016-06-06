@@ -31,9 +31,7 @@ module.exports = function() {
   var copyTemplatedFile = function(file) {
     var basename = path.basename(file);
     var prefixed = file.replace(basename, UNDERSCORE + basename);
-    console.log(basename);
-    console.log(prefixed);
-    console.log(this.properties.templated);
+
     this.fs.copyTpl(
       this.templatePath(prefixed),
       this.destinationPath(plugin(file)),

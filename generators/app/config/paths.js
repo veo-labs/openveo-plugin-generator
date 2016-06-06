@@ -2,7 +2,7 @@
 
 module.exports = {
   project: {
-  	app: '<%= project.app %>',
+    app: '<%= project.app %>',
     be: '<%= project.be %>',
     front: '<%= project.front %>',
     beJS: '<%= project.beJS %>',
