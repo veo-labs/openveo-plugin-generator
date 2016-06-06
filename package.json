@@ -1,5 +1,5 @@
 {
-  "name": "@openveo/generator-openveo-plugin",
+  "name": "generator-openveo-plugin",
   "version": "0.2.0",
   "description": "A yeoman generator for Openveo plugins",
   "keywords": [
