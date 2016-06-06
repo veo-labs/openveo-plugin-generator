@@ -12,7 +12,7 @@
     "grunt",
     "angular"
   ],
-  "homepage": "https://github.com/veo-labs/openveo-core",
+  "homepage": "https://github.com/veo-labs/openveo-plugin-boilerplate",
   "bugs": {
     "url": "https://github.com/veo-labs/openveo-plugin-boilerplate/issues"
   },
@@ -20,7 +20,7 @@
   "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/veo-labs/openveo-plugin-boilerplate"
+    "url": "https://github.com/veo-labs/openveo-plugin-boilerplate.git"
   },
   "main": "app/index.js",
   "files": [
