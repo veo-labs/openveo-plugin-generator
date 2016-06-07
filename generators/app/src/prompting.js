@@ -20,7 +20,14 @@ module.exports = function() {
     name: 'plugin',
     message: 'What name do you want to give to your OpenVeo plugin?',
     default: path.basename(process.cwd())
-  }];
+  },
+    {
+      type: 'confirm',
+      name: 'entityGenerator',
+      message: 'Would you like to generate an entity?',
+      default: true
+    }
+  ];
 
   return this.prompt(prompts).then(function(answers) {
     this.properties.answers = answers;

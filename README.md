@@ -7,6 +7,12 @@ You need to install yeoman and OpenVeo plugin generator and then you can create 
 ```
 
 npm install -g yo generator-openveo-plugin
+# Go to the Openveo core plugin folder
+cd openveo/node_modules/@openveo
+# Create a folder with the name of your plugin
+mkdir plugin
+# Go to the plugin folder
+cd plugin
 yo openveo-plugin
 ```
 

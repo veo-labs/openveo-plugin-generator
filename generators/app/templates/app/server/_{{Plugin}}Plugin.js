@@ -5,7 +5,6 @@ var util = require('util');
 var express = require('express');
 var async = require('async');
 var openVeoAPI = require('@openveo/api');
-//var BoilerProvider = process.require<%= Plugin %>('app/server/providers/BoilerProvider.js');
 
 /**
  * Creates a <%= Plugin %>Plugin.
@@ -76,7 +75,8 @@ util.inherits(<%= Plugin %>Plugin, openVeoAPI.Plugin);
   var database = openVeoAPI.applicationStorage.getDatabase();
   var asyncFunctions = [];
   var providers = [
-    //new <%= Plugin %>Provider(database)
+    // Set new providers
+    // new ExampleProvider(database)
   ];
 
   providers.forEach(function(provider) {

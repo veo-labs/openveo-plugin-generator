@@ -10,8 +10,6 @@ var config = require('./config/files.json');
 
 module.exports = yeoman.Base.extend({
   initializing: function() {
-    this.pkg = require('../../package.json');
-
     this.properties = {
       templated: {}
     };
@@ -31,6 +29,16 @@ module.exports = yeoman.Base.extend({
 
       fs.renameSync(destinationPath + '/' + folder, destinationPath + '/' + renamed);
     });
+
+    // create folders
+    fs.mkdirSync(this.destinationPath('app/server/controllers'));
+    fs.mkdirSync(this.destinationPath('app/server/models'));
+    fs.mkdirSync(this.destinationPath('app/server/providers'));
+
+    // Call sub-generator
+    if (this.properties.answers.entityGenerator) {
+      this.composeWith('openveo-plugin:entity');
+    }
 
     this.installDependencies({
       skipInstall: this.options['skip-install']
