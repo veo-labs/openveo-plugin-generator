@@ -15,20 +15,3 @@ function <%= Entity %>Provider(database) {
 // <%= Entity %>Provider must extend EntityProvider
 module.exports = <%= Entity %>Provider;
 util.inherits(<%= Entity %>Provider, openVeoAPI.EntityProvider);
-
-<%= Entity %>Provider.prototype.get = function(filter, callback) {
-  var <%= entity %>s = {
-    1: {
-      content: '<%= Entity %> content 1'
-    },
-    2: {
-      content: '<%= Entity %> content 2'
-    },
-    3: {
-      content: '<%= Entity %> content 3'
-    }
-  };
-
-  callback(null, <%= entity %>s);
-};
-

@@ -57,21 +57,7 @@ module.exports = function() {
     }.bind(this);
 
     var updateConf = function() {
-
-      conf.routes.private['get /get' + entityCapitalize + 's'] = 'app/server/controllers/' + entityCapitalize +
-      'Controller.get' + entityCapitalize + 'sAction';
       conf.entities[entityLowercase + 's'] = 'app/server/controllers/' + entityCapitalize + 'Controller';
-      conf.permissions.push({
-        id: entityLowercase + '-access-list',
-        name: this.properties.templated.ENTITY + '.PERMISSIONS.ACCESS_LIST',
-        paths: [
-          'get /' + entityLowercase + '/get' + entityCapitalize + 's'
-        ]
-      });
-      conf.backOffice.scriptFiles.dev.push('/' + pluginLowercase + '/ov' + pluginCapitalize +
-        '/' + entityCapitalize + 'Controller.js');
-      conf.backOffice.scriptFiles.dev.push('/' + pluginLowercase + '/ov' + pluginCapitalize +
-        '/' + entityCapitalize + 'Service.js');
 
       this.properties.templated.conf = JSON.stringify(conf, null, 2).replace(/\"([^(\"|\s)"]+)\":/g, '$1:')
       .replace(/"/g, '\'');

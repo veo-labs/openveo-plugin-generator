@@ -14,7 +14,6 @@
     "app/client/admin/compass/sass/mixins/_browser.scss",
     "app/client/admin/compass/sass/mixins/_responsive.scss",
     "app/client/admin/compass/sass/mixins/_retina.scss",
-    "app/client/admin/compass/sass/modules/_all.scss",
 
     "app/server/httpErrors.js",
 
@@ -40,6 +39,7 @@
     "package.json",
     "README.md",
     "conf.js",
+    "index.js",
 
     "Gruntfile.js",
 
@@ -53,8 +53,13 @@
     "i18n/admin-back-office-fr.json",
 
     "app/client/admin/compass/sass/{{plugin}}.scss",
+    "app/client/admin/compass/sass/modules/_all.scss",
+
+    "assets/be/views/{{plugin}}.html",
     
     "app/client/admin/js/ov/{{Plugin}}App.js",
+    "app/client/admin/js/ov/{{Plugin}}Controller.js",
+    "app/client/admin/js/ov/{{Plugin}}Service.js",
     "app/server/{{Plugin}}Plugin.js"
   ],
   "folders": [

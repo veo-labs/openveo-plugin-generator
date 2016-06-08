@@ -2,9 +2,9 @@
 
 var util = require('util');
 var openVeoAPI = require('@openveo/api');
-var <%= Entity %>Model = process.require<%= Entity %>('app/server/models/<%= Entity %>Model.js');
+var <%= Entity %>Model = process.require<%= Plugin %>('app/server/models/<%= Entity %>Model.js');
 var EntityController = openVeoAPI.controllers.EntityController;
-var errors = process.require<%= Entity %>('app/server/httpErrors.js');
+var errors = process.require<%= Plugin %>('app/server/httpErrors.js');
 
 /**
  * Creates a <%= Entity %>Controller
@@ -15,24 +15,3 @@ function <%= Entity %>Controller() {
 
 module.exports = <%= Entity %>Controller;
 util.inherits(<%= Entity %>Controller, EntityController);
-
-/**
- * Gets all entities. [example]
- *
- * @method get<%= Entity %>sAction
- */
-<%= Entity %>Controller.prototype.get<%= Entity %>sAction = function(request, response, next) {
-  var model = new this.Entity(request.user);
-  var filters = null;
-
-  model.get(filters, function(error, <%= entity %>s) {
-    if (error) {
-      process.logger.error(error.message, {error: error, method: 'get<%= Entity %>sAction'});
-      next(errors.UNKNOWN_ERROR);
-    } else {
-      response.send({
-        <%= entity %>s: <%= entity %>s || []
-      });
-    }
-  });
-};

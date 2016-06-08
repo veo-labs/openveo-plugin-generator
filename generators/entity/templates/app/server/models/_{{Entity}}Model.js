@@ -4,7 +4,7 @@
 var util = require('util');
 var openVeoAPI = require('@openveo/api');
 
-var <%= Entity %>Provider = process.require<%= Entity %>('app/server/providers/<%= Entity %>Provider.js');
+var <%= Entity %>Provider = process.require<%= Plugin %>('app/server/providers/<%= Entity %>Provider.js');
 
 /**
  * Creates a <%= Entity %>Model.

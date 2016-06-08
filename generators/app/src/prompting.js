@@ -18,10 +18,12 @@ module.exports = function() {
   var prompts = [{
     type: 'input',
     name: 'plugin',
-    message: 'What name do you want to give to your OpenVeo plugin?',
-    default: path.basename(process.cwd())
+    message: 'What name do you want to give to your OpenVeo plugin?'
   },
     {
+      when: function(response) {
+        return response.plugin;
+      },
       type: 'confirm',
       name: 'entityGenerator',
       message: 'Would you like to generate an entity?',
@@ -30,6 +32,10 @@ module.exports = function() {
   ];
 
   return this.prompt(prompts).then(function(answers) {
+    if (!answers.plugin) {
+      this.log(chalk.red('You must provide a plugin name!'));
+      process.exit(1);
+    }
     this.properties.answers = answers;
 
     this.properties.templated.plugin = _.lowerCase(answers.plugin);

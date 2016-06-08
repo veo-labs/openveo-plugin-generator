@@ -4,10 +4,7 @@
   "templated": [
     "app/server/controllers/{{Entity}}Controller.js",
     "app/server/models/{{Entity}}Model.js",
-    "app/server/providers/{{Entity}}Provider.js",
-
-    "app/client/admin/js/ov/{{Entity}}Controller.js",
-    "app/client/admin/js/ov/{{Entity}}Service.js"
+    "app/server/providers/{{Entity}}Provider.js"
   ],
   "dots": [
   ]

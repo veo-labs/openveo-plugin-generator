@@ -1,0 +1,11 @@
+/**
+ * Import all modules CSS
+ */
+
+.<%= plugin %> {
+	.todo {
+		font-weight: bold;
+		text-transform: uppercase;
+		color: red;
+	}
+}

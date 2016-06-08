@@ -40,7 +40,7 @@ module.exports = function() {
         var entity = {
           entity: _.lowerCase(answers.entity),
           Entity: _.capitalize(answers.entity),
-          ENTITY: _.capitalize(answers.entity)
+          ENTITY: _.upperCase(answers.entity)
         };
 
         this.properties.templated.entities.push(entity);
