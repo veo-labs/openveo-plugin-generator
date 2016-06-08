@@ -5,7 +5,7 @@
   /**
    * Defines the <%= entity %> controller
    */
-  function <%= Entity %>Controller($scope, boilers) {
+  function <%= Entity %>Controller($scope, <%= entity %>s) {
     $scope.<%= entity %>s = <%= entity %>s.data || {};
   }
 

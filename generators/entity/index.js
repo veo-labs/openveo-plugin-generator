@@ -8,7 +8,9 @@ var writing = require('./src/writing');
 module.exports = yeoman.Base.extend({
   initializing: function() {
     this.properties = {
-      templated: {}
+      templated: {
+        entities: []
+      }
     };
   },
 
@@ -17,6 +19,10 @@ module.exports = yeoman.Base.extend({
   writing: writing,
 
   install: function() {
+  },
 
+  end: function() {
+    this.log('\n');
+    process.abort();
   }
 });

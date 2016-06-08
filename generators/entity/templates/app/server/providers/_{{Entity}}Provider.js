@@ -13,8 +13,8 @@ function <%= Entity %>Provider(database) {
 }
 
 // <%= Entity %>Provider must extend EntityProvider
-module.exports = BoilerProvider;
-util.inherits(BoilerProvider, openVeoAPI.EntityProvider);
+module.exports = <%= Entity %>Provider;
+util.inherits(<%= Entity %>Provider, openVeoAPI.EntityProvider);
 
 <%= Entity %>Provider.prototype.get = function(filter, callback) {
   var <%= entity %>s = {

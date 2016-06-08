@@ -1,3 +1,8 @@
+# 0.3.0 / 2016-06-08
+
+Possibility to call the entity generator from the plugin generator.
+Possibility to generate multiple entities from the entoty generator.
+
 # 0.2.0 / 2016-06-06
 
 Initialization of an OpenVeo plugin generator with Yeoman

@@ -12,53 +12,58 @@ var PATTERN_URL = /app\/client\/admin\/js\/ov/;
 
 module.exports = function() {
 
-  var entityLowercase = this.properties.templated.entity;
-  var entityCapitalize = this.properties.templated.Entity;
+  var entities = this.properties.templated.entities;
   var pluginLowercase = this.properties.templated.plugin;
   var pluginCapitalize = this.properties.templated.Plugin;
   var URL_UPDATED = 'app/client/admin/js/ov' + pluginCapitalize;
+  var conf = require(this.destinationPath('conf'));
 
-  var entity = function(dest) {
-    dest = dest.replace(PATTERN_LOWERCASE, entityLowercase);
-    dest = dest.replace(PATTERN_CAPITALIZE, entityCapitalize);
+  // Remove conf.js to avoid conflict
+  fs.unlinkSync(this.destinationPath('conf.js'));
 
-    // Update Url
-    dest = dest.replace(PATTERN_URL, URL_UPDATED);
+  for (var i = 0; i < entities.length; i++) {
 
-    return dest;
-  };
+    this.properties.templated.ENTITY = entities[i].ENTITY;
+    var entityLowercase = this.properties.templated.entity = entities[i].entity;
+    var entityCapitalize = this.properties.templated.Entity = entities[i].Entity;
 
-  var copyFile = function(source, destination) {
-    destination = ('string' === typeof destination) ? destination : source;
-    this.fs.copy(
-      this.templatePath(source),
-      this.destinationPath(entity(destination))
-    );
-  }.bind(this);
+    var entity = function(dest) {
+      dest = dest.replace(PATTERN_LOWERCASE, entityLowercase);
+      dest = dest.replace(PATTERN_CAPITALIZE, entityCapitalize);
 
-  var copyTemplatedFile = function(file) {
-    var basename = path.basename(file);
-    var prefixed = file.replace(basename, UNDERSCORE + basename);
+      // Update Url
+      dest = dest.replace(PATTERN_URL, URL_UPDATED);
 
-    this.fs.copyTpl(
-      this.templatePath(prefixed),
-      this.destinationPath(entity(file)),
-      this.properties.templated
-    );
-  }.bind(this);
+      return dest;
+    };
 
-  var updateConf = function() {
-    var conf = require(this.destinationPath('conf'));
-    var self = this;
+    var copyFile = function(source, destination) {
+      destination = ('string' === typeof destination) ? destination : source;
+      this.fs.copy(
+        this.templatePath(source),
+        this.destinationPath(entity(destination))
+      );
+    }.bind(this);
 
-    // Remove conf.js to avoid conflict
-    fs.unlink(this.destinationPath('conf.js'), function(err) {
+    var copyTemplatedFile = function(file) {
+      var basename = path.basename(file);
+      var prefixed = file.replace(basename, UNDERSCORE + basename);
+
+      this.fs.copyTpl(
+        this.templatePath(prefixed),
+        this.destinationPath(entity(file)),
+        this.properties.templated
+      );
+    }.bind(this);
+
+    var updateConf = function() {
+
       conf.routes.private['get /get' + entityCapitalize + 's'] = 'app/server/controllers/' + entityCapitalize +
       'Controller.get' + entityCapitalize + 'sAction';
       conf.entities[entityLowercase + 's'] = 'app/server/controllers/' + entityCapitalize + 'Controller';
       conf.permissions.push({
         id: entityLowercase + '-access-list',
-        name: self.properties.templated.ENTITY + '.PERMISSIONS.ACCESS_LIST',
+        name: this.properties.templated.ENTITY + '.PERMISSIONS.ACCESS_LIST',
         paths: [
           'get /' + entityLowercase + '/get' + entityCapitalize + 's'
         ]
@@ -68,15 +73,16 @@ module.exports = function() {
       conf.backOffice.scriptFiles.dev.push('/' + pluginLowercase + '/ov' + pluginCapitalize +
         '/' + entityCapitalize + 'Service.js');
 
-      self.properties.templated.conf = JSON.stringify(conf, null, 2).replace(/\"([^(\"|\s)"]+)\":/g, '$1:')
+      this.properties.templated.conf = JSON.stringify(conf, null, 2).replace(/\"([^(\"|\s)"]+)\":/g, '$1:')
       .replace(/"/g, '\'');
 
       copyTemplatedFile('conf.js');
-    });
 
-  }.bind(this);
+    }.bind(this);
 
-  config.src.forEach(copyFile);
-  config.templated.forEach(copyTemplatedFile);
-  updateConf();
+    config.src.forEach(copyFile);
+    config.templated.forEach(copyTemplatedFile);
+    updateConf();
+  }
+
 };

@@ -7,6 +7,8 @@ var _ = require('lodash');
 
 module.exports = function() {
 
+  var callback = this.async();
+
   // Have Yeoman greet the user.
   this.log(yosay(
     chalk.red('Welcome!') + '\n' +
@@ -14,25 +16,41 @@ module.exports = function() {
     chalk.green('Your plugin is : ' + path.basename(process.cwd()))
   ));
 
-  // Define all questions asked to the user
-  var prompts = [{
-    type: 'input',
-    name: 'entity',
-    message: 'What name do you want to give to your new entity? (Press Enter to exit)'
-  }];
+  // Set aplication name
+  this.properties.templated.plugin = path.basename(process.cwd());
+  this.properties.templated.Plugin = _.capitalize(path.basename(process.cwd()));
 
-  return this.prompt(prompts).then(function(answers) {
-    if (!answers.entity) {
-      process.abort();
-    }
-    this.properties.answers = answers;
+  /**
+   * Prompts question to generate a new entity
+   */
+  function generateEntity(callback) {
+    // Define all questions asked to the user
+    var prompts = [{
+      type: 'input',
+      name: 'entity',
+      message: 'What name do you want to give to your new entity? (Press Enter to exit)'
+    }];
 
-    this.properties.templated.entity = _.lowerCase(answers.entity);
-    this.properties.templated.Entity = _.capitalize(answers.entity);
-    this.properties.templated.ENTITY = _.upperCase(answers.entity);
-    this.properties.templated.plugin = path.basename(process.cwd());
-    this.properties.templated.Plugin = _.capitalize(path.basename(process.cwd()));
+    this.prompt(prompts).then(function(answers) {
+      if (!answers.entity) {
+        callback();
+      } else {
+        this.properties.answers = answers;
 
-  }.bind(this));
+        var entity = {
+          entity: _.lowerCase(answers.entity),
+          Entity: _.capitalize(answers.entity),
+          ENTITY: _.capitalize(answers.entity)
+        };
+
+        this.properties.templated.entities.push(entity);
+
+        generateEntity.call(this, callback);
+      }
+
+    }.bind(this));
+  }
+
+  generateEntity.call(this, callback);
 
 };

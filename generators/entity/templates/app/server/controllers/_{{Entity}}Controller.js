@@ -19,13 +19,13 @@ util.inherits(<%= Entity %>Controller, EntityController);
 /**
  * Gets all entities. [example]
  *
- * @method getBoilersAction
+ * @method get<%= Entity %>sAction
  */
 <%= Entity %>Controller.prototype.get<%= Entity %>sAction = function(request, response, next) {
   var model = new this.Entity(request.user);
   var filters = null;
 
-  model.get(filters, function(error, boilers) {
+  model.get(filters, function(error, <%= entity %>s) {
     if (error) {
       process.logger.error(error.message, {error: error, method: 'get<%= Entity %>sAction'});
       next(errors.UNKNOWN_ERROR);
