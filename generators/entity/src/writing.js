@@ -13,7 +13,6 @@ var PATTERN_URL = /app\/client\/admin\/js\/ov/;
 module.exports = function() {
 
   var entities = this.properties.templated.entities;
-  var pluginLowercase = this.properties.templated.plugin;
   var pluginCapitalize = this.properties.templated.Plugin;
   var URL_UPDATED = 'app/client/admin/js/ov' + pluginCapitalize;
   var conf = require(this.destinationPath('conf'));

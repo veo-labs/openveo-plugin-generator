@@ -1,7 +1,6 @@
 'use strict';
 
 var chalk = require('chalk');
-var path = require('path');
 var yosay = require('yosay');
 var _ = require('lodash');
 var paths = require('../config/paths');
@@ -33,8 +32,7 @@ module.exports = function() {
 
   return this.prompt(prompts).then(function(answers) {
     if (!answers.plugin) {
-      this.log(chalk.red('You must provide a plugin name!'));
-      process.exit(1);
+      this.env.error(chalk.red('You must provide a plugin name!'));
     }
     this.properties.answers = answers;
 
