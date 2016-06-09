@@ -1,7 +1,5 @@
 {
   "src": [
-    "CHANGELOG.md",
-
     "app/client/admin/compass/sass/base/_base.scss",
     "app/client/admin/compass/sass/base/_browser-support.scss",
     "app/client/admin/compass/sass/base/_colors.scss",
@@ -35,11 +33,13 @@
     "tasks/watch.js"
   ],
   "templated": [
+    "CHANGELOG.md",
     "bower.json",
     "package.json",
     "README.md",
     "conf.js",
     "index.js",
+    "install.js",
 
     "Gruntfile.js",
 

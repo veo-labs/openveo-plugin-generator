@@ -58,7 +58,7 @@
   },
   "scripts": {
     "prepublish": "grunt prod",
-    "postinstall": "bower install",
+    "postinstall": "bower install && node install.js",
     "eslint": "grunt eslint",
     "mocha": "grunt mochaTest",
     "karma": "grunt karma"
