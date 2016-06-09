@@ -2,7 +2,7 @@
 A [Yeoman](http://yeoman.io/) plugin generator for [OpenVeo](http://veo-labs.github.io/openveo-core) used to improve OpenVeo plugin development
 
 # Getting Started
-You need to install yeoman and OpenVeo plugin generator and then you can create your OpenVeo plugin:
+You need to install Yeoman and OpenVeo plugin generator and then you can create your OpenVeo plugin:
 
 ```
 # Install Yeoman and OpenVeo Plugin
@@ -15,8 +15,8 @@ yo openveo-plugin
 # Available generators
 OpenVeo plugins provide some generators:
 
-    - [openveo-plugin](#app) (default: openveo-plugin:app)
-    - [openveo-plugin:entity](#entity)
+  - [openveo-plugin](#app) (default: openveo-plugin:app)
+  - [openveo-plugin:entity](#entity)
 
 
 ## App
