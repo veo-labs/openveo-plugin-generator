@@ -1,17 +1,21 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
 
 var prompting = require('./src/prompting');
 var writing = require('./src/writing');
 
 module.exports = yeoman.Base.extend({
   initializing: function() {
-    this.properties = {
-      templated: {
-        entities: []
-      }
-    };
+    if (!this.properties) {
+      this.properties = {
+        templated: {
+          entities: []
+        },
+        url: ''
+      };
+    }
   },
 
   prompting: prompting,
@@ -22,7 +26,6 @@ module.exports = yeoman.Base.extend({
   },
 
   end: function() {
-    this.log('\n');
-    process.abort();
+    this.log(chalk.green('\n Your entities has been successfully created! \n'));
   }
 });

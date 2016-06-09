@@ -36,9 +36,9 @@ module.exports = function() {
     }
     this.properties.answers = answers;
 
-    this.properties.templated.plugin = _.lowerCase(answers.plugin);
-    this.properties.templated.Plugin = _.capitalize(answers.plugin);
-    this.properties.templated.PLUGIN = _.upperCase(answers.plugin);
+    this.properties.templated.plugin = _.camelCase(_.lowerCase(answers.plugin));
+    this.properties.templated.Plugin = _.upperFirst(_.camelCase(answers.plugin));
+    this.properties.templated.PLUGIN = _.toUpper(_.snakeCase(answers.plugin));
 
     this.properties.templated.project = paths.project;
     this.properties.templated.pkg = paths.pkg;

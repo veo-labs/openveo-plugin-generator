@@ -1,7 +1,12 @@
+# 0.4.0 / 2016-06-09
+
+The plugin and entity generators must be used from the OpenVeo Core folder
+Clean code to remove unnecessary functions
+
 # 0.3.0 / 2016-06-08
 
-Possibility to call the entity generator from the plugin generator.
-Possibility to generate multiple entities from the entoty generator.
+Possibility to call the entity generator from the plugin generator
+Possibility to generate multiple entities from the entoty generator
 
 # 0.2.0 / 2016-06-06
 

@@ -24,7 +24,7 @@ module.exports = function() {
     destination = ('string' === typeof destination) ? destination : source;
     this.fs.copy(
       this.templatePath(source),
-      this.destinationPath(plugin(destination))
+      plugin(this.properties.url + destination)
     );
   }.bind(this);
 
@@ -34,7 +34,7 @@ module.exports = function() {
 
     this.fs.copyTpl(
       this.templatePath(prefixed),
-      this.destinationPath(plugin(file)),
+      plugin(this.properties.url + file),
       this.properties.templated
     );
   }.bind(this);

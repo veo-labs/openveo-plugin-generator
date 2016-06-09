@@ -15,10 +15,10 @@ module.exports = function() {
   var entities = this.properties.templated.entities;
   var pluginCapitalize = this.properties.templated.Plugin;
   var URL_UPDATED = 'app/client/admin/js/ov' + pluginCapitalize;
-  var conf = require(this.destinationPath('conf'));
+  var conf = require(this.properties.url + 'conf');
 
   // Remove conf.js to avoid conflict
-  fs.unlinkSync(this.destinationPath('conf.js'));
+  fs.unlinkSync(this.properties.url + 'conf.js');
 
   for (var i = 0; i < entities.length; i++) {
 
@@ -40,7 +40,7 @@ module.exports = function() {
       destination = ('string' === typeof destination) ? destination : source;
       this.fs.copy(
         this.templatePath(source),
-        this.destinationPath(entity(destination))
+        entity(this.properties.url + destination)
       );
     }.bind(this);
 
@@ -50,7 +50,7 @@ module.exports = function() {
 
       this.fs.copyTpl(
         this.templatePath(prefixed),
-        this.destinationPath(entity(file)),
+        entity(this.properties.url + file),
         this.properties.templated
       );
     }.bind(this);
