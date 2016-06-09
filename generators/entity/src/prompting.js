@@ -75,7 +75,13 @@ module.exports = function() {
         this.properties.url = this.destinationPath(URL + answers.plugin + '/');
       }
 
-      if (!answers.entity) {
+      // Verify entity does not exist
+      if (this.fs.exists(this.properties.url + 'app/server/controllers/' +
+        _.upperFirst(_.camelCase(answers.entity)) + 'Controller.js')) {
+        this.log(chalk.red('The plugin entity "' + _.capitalize(answers.entity) + '" already exists! \n'));
+        answers.entity = null;
+        generateEntity.call(this, callback);
+      } else if (!answers.entity) {
         callback();
       } else {
         this.properties.answers = answers;

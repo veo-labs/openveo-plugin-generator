@@ -13,7 +13,9 @@ module.exports = function() {
 
   // Create plugin folder
   fs.mkdir(this.properties.url, function(err) {
-    if (err) {
+    if (err && err.errno === -17) {
+      self.env.error(chalk.red('The "' + self.properties.templated.Plugin + '" plugin already exist. \n'));
+    } else if (err) {
       self.env.error(chalk.red(err));
     }
   });
