@@ -21,7 +21,9 @@ OpenVeo plugins provide some generators:
 
 ## App
 Sets up a new Openveo plugin, generating all the boilerplate you need to get started.
+
 This plugin provide many grunt tasks to generate and publish documentation, to minify and compile your code, to start tests ...
+
 After that, you can start you OpenVeo server and see your plugin in your menu with an access to a TODO page
 
 ## Entity
