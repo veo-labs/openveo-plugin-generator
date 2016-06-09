@@ -11,8 +11,8 @@
    */
   app.config(['$routeProvider', function($routeProvider) {
 
-  	// route example
-  	$routeProvider.when('/<%= plugin %>/todo', {
+    // route example
+    $routeProvider.when('/<%= plugin %>/todo', {
       templateUrl: '/<%= plugin %>/be/views/<%= plugin %>.html',
       controller: '<%= Plugin %>Controller',
       title: '<%= PLUGIN %>.TODO.PAGE_TITLE',
