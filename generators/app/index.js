@@ -8,7 +8,7 @@ var prompting = require('./src/prompting');
 var writing = require('./src/writing');
 var configuring = require('./src/configuring');
 var install = require('./src/install');
-var paths = require('./config/paths');
+var end = require('./src/end');
 
 module.exports = yeoman.Base.extend({
   initializing: function() {
@@ -26,14 +26,5 @@ module.exports = yeoman.Base.extend({
 
   install: install,
 
-  end: function() {
-    // Remove @openveo folder
-    fs.rmdir(paths.openveo, function(err) {
-      if (!err) {
-        this.log(chalk.green('\n Your plugin has been successfully installed! \n'));
-      } else {
-        this.log(chalk.red(err));
-      }
-    });
-  }
+  end: end
 });
