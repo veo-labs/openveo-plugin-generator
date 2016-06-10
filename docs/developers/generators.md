@@ -4,7 +4,6 @@ OpenVeo plugins provide some generators:
   - [openveo-plugin](#app) (default: openveo-plugin:app)
   - [openveo-plugin:entity](#entity)
 
-
 ## App
 Sets up a new Openveo plugin, generating all the boilerplate you need to get started.
 

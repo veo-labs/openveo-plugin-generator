@@ -9,6 +9,7 @@ pages:
 - 'INTRODUCTION': 'index.md'
 - 'DEVELOPERS':
   - 'Installation': 'developers/installation.md'
+  - 'Generators': 'developers/generators.md'
   - 'conf.js': 'developers/conf.md'
   - 'Back end AngularJS': 'developers/back-end.md'
   - 'Write a plugin': 'developers/write-plugin.md'

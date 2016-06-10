@@ -1,6 +1,6 @@
 # Introduction
 
-A consequent part of the development of openveo-core (and plugins) is made in **conf.js** file at project root. **conf.js** is used to :
+A consequent part of the development of openveo-core and plugins is made in **conf.js** file at project root. **conf.js** is used to :
 
 - [Map routes on actions](#map-routes-on-actions)
 - [Create entities](#create-entities)
@@ -110,7 +110,7 @@ module.exports = {
 
 # Create entities
 
-Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete). OpenVeo core defines 5 entities :
+Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete). For exemple, OpenVeo core defines 5 entities :
 
 - applications - Web Service client applications
 - users - Back end users
@@ -120,7 +120,9 @@ Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete
 
 Each entity will automatically have 3 associated back end permissions : add, update and delete.
 
-To create a new entity you need to create a new EntityController, EntityModel and EntityProvider. Let's say we want to create a new entity called **book**.
+To create a new entity you need to create a new EntityController, EntityModel and EntityProvider. You can also use the [entity generator](/developers/generators#entity).
+
+Let's say we want to create a new entity called **book**.
 
 ## Create entity provider
 
@@ -136,7 +138,7 @@ var openVeoAPI = require('@openveo/api');
 function BookProvider(database) {
 
   // In BookProvider collection "books"
-  openVeoAPI.EntityProvidercall(this, database, 'book-books');
+  openVeoAPI.EntityProvidercall(this, database, 'book_books');
 }
 
 // BookProvider must extend EntityProvider

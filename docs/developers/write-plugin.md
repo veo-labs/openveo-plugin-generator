@@ -2,7 +2,7 @@
 
 As OpenVeo server starts, all plugins found in **node_modules/@openveo/** will be loaded. Each plugin can add routes and add its own pages in the back end.
 
-If your using [openveo-plugin-generator](https://github.com/veo-labs/openveo-plugin-generator), most of files detailled after will be automatically created and ready to use in OpenVeo.
+If your using [openveo-plugin-generator](/developers/generators#app), most of files detailed after will be automatically created and ready to use in OpenVeo.
 
 Let's pretend we want to create a plugin called **book** to manage a list of books.
 

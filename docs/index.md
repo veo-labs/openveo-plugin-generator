@@ -10,7 +10,8 @@ The generated plugin provides many features:
   - A Node.js server with Express.js ready to start
   - No JQuery dependency
   - Responsive Design
-  - The Sass preprocessor and Bootstrap
+  - The Sass preprocessor
+  - Use of Bootstrap inherited from OpenVeo Core
   - Unit tests and e2e tests using [Protractor](http://www.protractortest.org/)
   - All the features of the OpenVeo Core are available in your plugin like i18n translation, alerts, CRUD controllers to manage your entities, a logger ...
   - The possibility to override all functions inherited from OpenVeo Core
