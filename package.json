@@ -12,15 +12,15 @@
     "grunt",
     "angular"
   ],
-  "homepage": "https://github.com/veo-labs/openveo-plugin-boilerplate",
+  "homepage": "https://github.com/veo-labs/openveo-plugin-generator",
   "bugs": {
-    "url": "https://github.com/veo-labs/openveo-plugin-boilerplate/issues"
+    "url": "https://github.com/veo-labs/openveo-plugin-generator/issues"
   },
   "license": "AGPL-3.0",
   "author": "Veo-Labs <info@veo-labs.com> (http://www.veo-labs.com/)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/veo-labs/openveo-plugin-boilerplate.git"
+    "url": "https://github.com/veo-labs/openveo-plugin-generator.git"
   },
   "main": "app/index.js",
   "files": [
@@ -39,6 +39,10 @@
     "grunt": "0.4.5",
     "grunt-cli": "1.2.0",
     "grunt-eslint": "18.1.0",
+    "grunt-remove": "0.1.0",
+    "grunt-rename": "0.1.4",
+    "grunt-gh-pages": "1.1.0",
+    "grunt-contrib-yuidoc": "1.0.0",
     "pre-commit": "1.1.2"
   },
   "scripts": {

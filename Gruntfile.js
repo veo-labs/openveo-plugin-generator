@@ -44,6 +44,17 @@ module.exports = function(grunt) {
   grunt.initConfig(config);
   grunt.config.merge(loadConfig('./tasks'));
 
+  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-eslint');
+  grunt.loadNpmTasks('grunt-mkdocs');
+  grunt.loadNpmTasks('grunt-gh-pages');
+  grunt.loadNpmTasks('grunt-rename');
+  grunt.loadNpmTasks('grunt-remove');
+
+  // Generate documentation
+  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
+
+  // Deploy documentation to github pages
+  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
 
 };
