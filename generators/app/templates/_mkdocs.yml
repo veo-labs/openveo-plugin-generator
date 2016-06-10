@@ -1,0 +1,15 @@
+site_name: Openveo <%= Plugin %>
+repo_url: https://github.com/veo-labs/openveo-<%= plugin %>
+theme: readthedocs
+site_dir: site/version
+markdown_extensions:
+  - fenced_code
+  - tables
+pages:
+- 'INTRODUCTION': 'index.md'
+- 'DEVELOPERS':
+  - 'Installation': 'developers/installation.md'
+  - 'Back end AngularJS': 'developers/back-end.md'
+  - 'CSS / SASS / JS compilation': 'developers/compilation.md'
+  - 'Unit tests': 'developers/unit-tests.md'
+  - 'End to end tests': 'developers/end-to-end-tests.md'

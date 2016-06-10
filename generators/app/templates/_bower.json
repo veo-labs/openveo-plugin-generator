@@ -1,0 +1,6 @@
+{
+  "name": "openveo-<%= plugin %>",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}

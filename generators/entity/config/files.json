@@ -1,0 +1,11 @@
+{
+  "src": [
+  ],
+  "templated": [
+    "app/server/controllers/{{Entity}}Controller.js",
+    "app/server/models/{{Entity}}Model.js",
+    "app/server/providers/{{Entity}}Provider.js"
+  ],
+  "dots": [
+  ]
+}
