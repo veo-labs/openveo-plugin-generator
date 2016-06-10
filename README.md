@@ -1,39 +1,25 @@
 # Generator OpenVeo Plugin
 A [Yeoman](http://yeoman.io/) plugin generator for [OpenVeo](http://veo-labs.github.io/openveo-core) used to improve OpenVeo plugin development
 
-# Getting Started
-You need to install Yeoman and OpenVeo plugin generator and then you can create your OpenVeo plugin:
+The generated plugin provides many features:
 
-```
-# Install Yeoman and OpenVeo Plugin
-npm install -g yo generator-openveo-plugin
-# You must run the generator from the Openveo core folder
-# Run openveo-plugin and follow the instructions
-yo openveo-plugin
-```
-
-# Available generators
-OpenVeo plugins provide some generators:
-
-  - [openveo-plugin](#app) (default: openveo-plugin:app)
-  - [openveo-plugin:entity](#entity)
-
-
-## App
-Sets up a new Openveo plugin, generating all the boilerplate you need to get started.
-
-This plugin provide many grunt tasks to generate and publish documentation, to minify and compile your code, to start tests ...
-
-After that, you can start you OpenVeo server and see your plugin in your menu with an access to a TODO page.
-
-## Entity
-Generates a new entity for the plugin with all files you need and the associated configuration (model, controller, provider)
-
-# Yo options
-yo openveo-plugin --help or yo openveo-plugin -h for help. If not provided, default values will be used.
-
-  - `--skip-install` do not run `bower install` and `npm install` after generating the app, default is false (not skipping install)
+- Many Grunt tasks to manage (compile, minify, generate documention) your code
+- Ready to production
+- Angular.js to manage back-end and front-end
+- A Node.js server with Express.js ready to start
+- No JQuery dependency
+- Responsive Design
+- The Sass preprocessor and Bootstrap
+- Unit tests and e2e tests using Protractor
+- All the features of the OpenVeo Core are available in your plugin like i18n translation, alerts, CRUD controllers to manage your entities, a logger ...
+- The possibility to override all functions inherited from OpenVeo Core
+- A full documentation to get into the OpenVeo solution
 
 # Documentation
-There is a documentation to help you to write your plugin.
-See the OpvenVeo Core documentation to have more informations to [write a plugin](http://veo-labs.github.io/openveo-core/2.0.0/developers/write-plugin).
+Documentation is available on [Github pages](http://veo-labs.github.io/openveo-plugin-generator/1.0.0).
+
+# Contributors
+Maintainer : [Veo-Labs](http://www.veo-labs.com/)
+
+# License
+[AGPL](http://www.gnu.org/licenses/agpl-3.0.en.html)
