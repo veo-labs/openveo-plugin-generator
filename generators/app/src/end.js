@@ -8,9 +8,10 @@ var paths = require('../config/paths');
 module.exports = function() {
 
   var rmdir = function(dirPath) {
-    try { 
-      var files = fs.readdirSync(dirPath);
-    } catch (e) { 
+    var files;
+    try {
+      files = fs.readdirSync(dirPath);
+    } catch (e) {
       return;
     }
     if (files.length > 0) {

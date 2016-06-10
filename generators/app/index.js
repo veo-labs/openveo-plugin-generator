@@ -1,8 +1,6 @@
 'use strict';
 
 var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var fs = require('fs');
 
 var prompting = require('./src/prompting');
 var writing = require('./src/writing');
