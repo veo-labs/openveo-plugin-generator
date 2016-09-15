@@ -8,7 +8,7 @@ The back end relies on a couple of libraries :
 - **angular-animate** for CSS animations
 - **angular-cookies** for cookie management
 - **angular-i18n** for AngularJS default translations
-- **angular-touch** to manage gesture
+- **fastclick** to remove click delays on browsers with touch UIs
 - **[angular-bootstrap](https://angular-ui.github.io/bootstrap/)** for basic user interface components
 - **[angular-formly](http://angular-formly.com/)** to build formulars from a JavaScript literal object
 - **[angular-ui-tree](http://angular-ui-tree.github.io/angular-ui-tree)** to build an UI tree (not directly used by openveo-core)
