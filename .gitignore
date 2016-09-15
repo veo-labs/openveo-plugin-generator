@@ -18,5 +18,9 @@ ehthumbs.db
 # Logs
 *.log
 
+# Documentation
+/site
+/.grunt
+
 # Project npm dependencies
 /node_modules

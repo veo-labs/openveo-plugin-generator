@@ -52,7 +52,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-remove');
 
   // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
+  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
   // Deploy documentation to github pages
   grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
