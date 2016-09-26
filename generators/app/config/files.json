@@ -15,12 +15,9 @@
 
     "app/server/httpErrors.js",
 
-    "docs/developers/back-end.md",
     "docs/developers/compilation.md",
     "docs/developers/end-to-end-tests.md",
-    "docs/developers/installation.md",
-    "docs/developers/unit-tests.md",
-    "docs/index.md"
+    "docs/developers/unit-tests.md"
   ],
   "tasks": [
     "tasks/eslint.js",
@@ -42,6 +39,10 @@
     "install.js",
 
     "Gruntfile.js",
+
+    "docs/index.md",
+    "docs/developers/back-end.md",
+    "docs/developers/installation.md",
 
     "tasks/compass.js",
     "tasks/concat.js",
