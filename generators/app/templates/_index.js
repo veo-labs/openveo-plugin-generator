@@ -1,16 +1,6 @@
 'use strict';
 
-// Module dependencies
-var path = require('path');
+require('./processRequire.js');
 
-// Set module root directory
-process.root<%= Plugin %> = __dirname;
-
-// Define a new method on process object to be able to require
-// a module with a path relative to plugin's root directory
-process.require<%= Plugin %> = function(filePath) {
-  return require(path.join(process.root<%= Plugin %>, filePath));
-};
-
-// Expose the BoilerPlugin
+// Expose the plugin
 module.exports = process.require<%= Plugin %>('app/server/<%= Plugin %>Plugin.js');

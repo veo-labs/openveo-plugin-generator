@@ -13,7 +13,7 @@ var applicationConf = process.require<%= Plugin %>('conf.js');
 function getMinifiedJSFiles(files) {
   var minifiedFiles = [];
   files.forEach(function(path) {
-    minifiedFiles.push('<%- project.uglify %>/' + path.replace('.js', '.min.js').replace('/<%= plugin %>/', ''));
+    minifiedFiles.push('<%- project.uglify %>/' + path.replace('.js', '.min.js').replace('/<%= originalPluginName %>/', ''));
   });
   return minifiedFiles;
 }

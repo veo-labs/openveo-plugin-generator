@@ -227,7 +227,10 @@
     "spaced-comment": [2, "always"],
 
     // Limit Maximum Length of Line
-    "max-len": [2, 120, 2, {"ignoreUrls": true}]
+    "max-len": [2, 120, 2, {"ignoreUrls": true}],
+
+    // Disallow trailing commas
+    "comma-dangle": 2
 
   }
 }

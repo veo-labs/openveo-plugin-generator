@@ -41,6 +41,3 @@ nbproject/
 # Documentation
 /site
 /.grunt
-
-# End to end tests
-/tests/client/e2eTests/build

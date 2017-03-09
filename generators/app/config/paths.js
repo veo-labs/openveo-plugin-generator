@@ -15,6 +15,5 @@ module.exports = {
   },
   pkg: {
     version: '<%= pkg.version %>'
-  },
-  openveo: 'node_modules/@openveo/'
+  }
 };

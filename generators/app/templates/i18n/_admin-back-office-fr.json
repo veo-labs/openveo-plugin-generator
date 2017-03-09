@@ -1,11 +1,12 @@
 {
-	"MENU": {
-		"TODO": "<%= Plugin %> exemple",
-		"<%= PLUGIN %>": "<%= Plugin %>"
-	},
-	"TODO": {
-		"PAGE_TITLE": "<%= Plugin %> exemple"
-	},
-	"TITLE": "<%= Plugin %> exemple",
-	"INFO": "Informations de la page : <%= plugin %>"
+  "MENU": {
+    "TODO": "<%= Plugin %> exemple",
+    "<%= PLUGIN %>": "<%= Plugin %>"
+  },
+  "TODO": {
+    "PAGE_TITLE": "<%= Plugin %> exemple",
+    "TITLE": "Exemple"
+  },
+  "TITLE": "<%= Plugin %> exemple",
+  "INFO": "Informations : <%= plugin %>"
 }

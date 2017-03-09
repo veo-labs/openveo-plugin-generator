@@ -1,3 +1,9 @@
-# 0.0.1 / 
+# 0.0.0 / YYYY-MM-DD
 
-Firt version of [OpenVeo](https://github.com/veo-labs/openveo-core) <%= plugin %>
+## BREAKING CHANGES
+
+## NEW FEATURES
+
+## BUG FIXES
+
+## DEPENDENCIES

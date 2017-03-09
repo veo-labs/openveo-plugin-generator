@@ -1,68 +1,81 @@
 'use strict';
 
-// Module dependencies
 var util = require('util');
 var express = require('express');
-var async = require('async');
-var openVeoAPI = require('@openveo/api');
+var openVeoApi = require('@openveo/api');
+var <%= Plugin %>PluginApi = process.require<%= Plugin %>('app/server/<%= Plugin %>PluginApi.js');
 
 /**
- * Creates a <%= Plugin %>Plugin.
+ * Defines the <%= Plugin %>Plugin that will be loaded by the core application.
  *
+ * @module <%= plugin %>
+ * @main <%= plugin %>
  * @class <%= Plugin %>Plugin
- * @constructor
  * @extends Plugin
+ * @constructor
  */
 function <%= Plugin %>Plugin() {
+  <%= Plugin %>Plugin.super_.call();
 
-  /**
-   * Creates a public router
-   * It will be automatically mounted on /<%= plugin %>/ by the core
-   *
-   * <%= Plugin %> public router.
-   *
-   * @property router
-   * @type Router
-   */
-  this.router = express.Router();
+  Object.defineProperties(this, {
 
-  /**
-   * Creates a private router
-   * All routes associated to the private router require a back end authentication
-   * It will be automatically mounted on /be/<%= plugin %>/ by the core
-   *
-   * <%= Plugin %> private router.
-   *
-   * @property router
-   * @type Router
-   */
-  this.privateRouter = express.Router();
+    /**
+     * Creates an HTTP public router.
+     *
+     * It will be automatically mounted on /<%= plugin %>/ by the core.
+     *
+     * <%= Plugin %>'s public router.
+     *
+     * @property router
+     * @type Router
+     */
+    router: {value: express.Router()},
 
-  /**
-   * Creates a Web Service router
-   * All routes associated to the Web Service router will be part of the Web Service
-   * It will be automatically mounter on /<%= plugin %>/ by the core (but on another server)
-   *
-   * <%= Plugin %> web service router.
-   *
-   * @property router
-   * @type Router
-   */
-  this.webServiceRouter = express.Router();
+    /**
+     * Creates an HTTP private router.
+     *
+     * All routes associated to the private router require a back end authentication.
+     * It will be automatically mounted on /be/<%= plugin %>/ by the core.
+     *
+     * <%= Plugin %>'s private router.
+     *
+     * @property router
+     * @type Router
+     */
+    privateRouter: {value: express.Router()},
+
+    /**
+     * Creates a Web Service router.
+     *
+     * All routes associated to the Web Service router will be part of the Web Service and will
+     * require a web service authentication.
+     * It will be automatically mounted on /<%= plugin %>/ by the core (on web service's server).
+     *
+     * <%= Plugin %>'s web service router.
+     *
+     * @property router
+     * @type Router
+     */
+    webServiceRouter: {value: express.Router()},
+
+    /**
+     * <%= Plugin %>'s APIs.
+     *
+     * @property api
+     * @type PluginApi
+     */
+    api: {value: new <%= Plugin %>PluginApi()}
+
+  });
 
   // Define routes directly here or in the configuration file
 
 }
 
-// Expose <%= Plugin %>Plugin
 module.exports = <%= Plugin %>Plugin;
-
-// Extends Plugin
-util.inherits(<%= Plugin %>Plugin, openVeoAPI.Plugin);
+util.inherits(<%= Plugin %>Plugin, openVeoApi.plugin.Plugin);
 
 /**
- * Prepares plugin by creating required database indexes.
- *
  * Optional "init" method automatically called by core application
  * after plugin is loaded and before it is started.
  *
@@ -72,24 +85,8 @@ util.inherits(<%= Plugin %>Plugin, openVeoAPI.Plugin);
  *  - **Error** An error if something went wrong, null otherwise
  */
 <%= Plugin %>Plugin.prototype.init = function(callback) {
-  var database = openVeoAPI.applicationStorage.getDatabase();
-  var asyncFunctions = [];
-  var providers = [
-    // Set new providers
-    // new ExampleProvider(database)
-  ];
-
-  providers.forEach(function(provider) {
-    if (provider.createIndexes) {
-      asyncFunctions.push(function(callback) {
-        provider.createIndexes(callback);
-      });
-    }
-  });
-
-  async.parallel(asyncFunctions, function(error, results) {
-    callback(error);
-  });
+  process.logger.debug('<%= plugin %> plugin initializing');
+  callback();
 };
 
 /**

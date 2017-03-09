@@ -1,8 +1,69 @@
+# 2.0.0 /
+
+## BREAKING CHANGES
+
+- Drop support for Node.js &lt;7.4.0
+- Drop support for NPM &lt;4.0.5
+- Drop support for OpenVeo &lt;4.0.0
+- Entity generation has been removed. The generated entities weren't fully functional and the generation could lead to errors as it was based on JavaScript parsing.
+- Generated plugins doesn't belong to the NPM scope @openveo but are prefixed by openveo-
+
+## NEW FEATURES
+
+- Fully functional examples have been added for client side unit tests, server side unit tests and end to end tests
+- You can now generate your plugin without be prompt for plugin name using **yo openveo-plugin PLUGIN_NAME**
+- Add plugin name validation when generating. Plugin name must only contains letters from the latin alphabet and dashes
+- Add grunt task to plugin to generate the server side documentation : **grunt doc**
+
+## BUG FIXES
+
+- Fix warning when compiling SASS files on the generated plugin
+
+## DEPENDENCIES
+
+### GENERATOR
+
+- **lodash** has been updated from 4.16.2 to **4.17.4**
+- **yeoman-assert** has been updated from 2.2.1 to **2.2.2**
+- **yeoman-generator** has been updated from 0.24.1 to **1.0.1**
+- **yeoman-test** has been updated from 1.5.1 to **1.6.0**
+- **yosay** has been updated from 1.2.0 to **1.2.1**
+- **grunt** has been updated from 0.4.5 to **1.0.1**
+- **grunt-eslint** has been updated from 18.1.0 to **19.0.0**
+- **grunt-gh-pages** has been updated from 1.1.0 to **2.0.0**
+- **grunt-mkdocs** has been updated from 0.1.3 to **0.2.0**
+- **pre-commit** has been updated from 1.1.2 to **1.2.2**
+- **glob** has been removed
+- **grunt-remove** has been removed
+- **grunt-rename** has been removed
+
+### PLUGINS
+
+- **grunt** has been updated from 0.4.5 to **1.0.1**
+- **grunt-contrib-uglify** has been updated from 1.0.1 to **2.0.0**
+- **grunt-eslint** has been updated from 18.1.0 to **19.0.0**
+- **grunt-gh-pages** has been updated from 1.1.0 to **2.0.0**
+- **grunt-karma** has been updated from 1.0.0 to **2.0.0**
+- **grunt-mkdocs** has been updated from 0.1.3 to **0.2.0**
+- **grunt-mocha-test** has been updated from 0.12.7 to **0.13.2**
+- **karma** has been updated from 0.13.22 to **1.3.0**
+- **karma-chrome-launcher** has been updated from 1.0.1 to **2.0.0**
+- **karma-mocha** has been updated from 1.0.1 to **1.3.0**
+- **karma-phantomjs-launcher** has been updated from 1.0.0 to **1.0.2**
+- **mocha** has been updated from 2.4.5 to **3.2.0**
+- **pre-commit** has been updated from 1.1.2 to **1.2.2**
+- **glob** has been removed
+- **grunt-remove** has been removed
+- **grunt-extend-config** has been removed
+- **grunt-init** has been removed
+- **chai-as-promised** has been added to devDependencies
+- **express** has been added to dependencies
+
 # 1.0.0 / 2016-06-10
 
 Firt version of [OpenVeo](https://github.com/veo-labs/openveo-core) plugin generator.
 
-It provide a general structure for the development of an OpenVeo plugin.
+It provides a general structure for the development of an OpenVeo plugin.
 
 - Initialization of an OpenVeo plugin generator with Yeoman
 - Possibility to call the entity generator from the plugin generator
@@ -11,7 +72,3 @@ It provide a general structure for the development of an OpenVeo plugin.
 - Generating a specific logger conf for the generated plugin
 - Throw an error if user try to generate an existing pluging
 - Display an error message to user if he try to generate an existing entity and ask again the question
-
-
-
-

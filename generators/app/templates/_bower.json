@@ -1,6 +1,11 @@
 {
-  "name": "openveo-<%= plugin %>",
+  "name": "<%= pluginName %>",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+  },
+  "devDependencies": {
+    "angular": "1.5.5",
+    "angular-route": "1.5.5",
+    "angular-mocks": "1.5.5"
+  }
 }

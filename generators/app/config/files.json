@@ -13,15 +13,21 @@
     "app/client/admin/compass/sass/mixins/_responsive.scss",
     "app/client/admin/compass/sass/mixins/_retina.scss",
 
-    "app/server/httpErrors.js",
+    "app/server/controllers/README.md",
+    "app/server/models/README.md",
+    "app/server/providers/README.md",
 
     "docs/developers/compilation.md",
     "docs/developers/end-to-end-tests.md",
-    "docs/developers/unit-tests.md"
+    "docs/developers/unit-tests.md",
+
+    "tests/client/unitTests/i18n/I18nApp.js",
+    "tests/client/e2eTests/resources/data.json",
+
+    "migrations/README.md"
   ],
   "tasks": [
     "tasks/eslint.js",
-    "tasks/gh-pages.js",
     "tasks/karma.js",
     "tasks/mochaTest.js",
     "tasks/project.js",
@@ -36,12 +42,12 @@
     "README.md",
     "conf.js",
     "index.js",
-    "install.js",
+    "processRequire.js",
+    "mkdocs.yml",
 
     "Gruntfile.js",
 
     "docs/index.md",
-    "docs/developers/back-end.md",
     "docs/developers/installation.md",
 
     "tasks/compass.js",
@@ -56,12 +62,22 @@
     "app/client/admin/compass/sass/{{plugin}}.scss",
     "app/client/admin/compass/sass/modules/_all.scss",
 
-    "assets/be/views/{{plugin}}.html",
-    
+    "assets/be/views/{{originalPluginName}}.html",
+
     "app/client/admin/js/ov/{{Plugin}}App.js",
     "app/client/admin/js/ov/{{Plugin}}Controller.js",
-    "app/client/admin/js/ov/{{Plugin}}Service.js",
-    "app/server/{{Plugin}}Plugin.js"
+    "app/server/{{Plugin}}Plugin.js",
+    "app/server/{{Plugin}}PluginApi.js",
+    "app/server/controllers/httpErrors.js",
+
+    "tests/client/karmaConf.js",
+    "tests/client/protractorSuites.json",
+    "tests/client/unitTests/{{Plugin}}App.js",
+    "tests/client/e2eTests/pages/TodoPage.js",
+    "tests/client/e2eTests/tests/todo/page.js",
+
+    "tests/server/init.js",
+    "tests/server/plugin/{{Plugin}}PluginApi.js"
   ],
   "folders": [
     "app/client/admin/js/ov"
@@ -73,7 +89,9 @@
     ".eslintrc",
     ".bowerrc",
 
-    "app/client/.eslintrc"
+    "app/client/.eslintrc",
 
+    "tests/client/.eslintrc",
+    "tests/server/.eslintrc"
   ]
 }

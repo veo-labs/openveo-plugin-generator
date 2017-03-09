@@ -7,15 +7,18 @@ var config = require('../config/files');
 var UNDERSCORE = '_';
 var PATTERN_LOWERCASE = /\{\{plugin\}\}/;
 var PATTERN_CAPITALIZE = /\{\{Plugin\}\}/;
+var PATTERN_ORIGINAL = /\{\{originalPluginName\}\}/;
 
 module.exports = function() {
 
   var pluginLowercase = this.properties.templated.plugin;
   var pluginCapitalize = this.properties.templated.Plugin;
+  var pluginOriginal = this.properties.templated.originalPluginName;
 
   var plugin = function(dest) {
     dest = dest.replace(PATTERN_LOWERCASE, pluginLowercase);
     dest = dest.replace(PATTERN_CAPITALIZE, pluginCapitalize);
+    dest = dest.replace(PATTERN_ORIGINAL, pluginOriginal);
 
     return dest;
   };
@@ -24,7 +27,7 @@ module.exports = function() {
     destination = ('string' === typeof destination) ? destination : source;
     this.fs.copy(
       this.templatePath(source),
-      plugin(this.properties.url + destination)
+      plugin(path.join(this.properties.url, destination))
     );
   }.bind(this);
 
@@ -34,7 +37,7 @@ module.exports = function() {
 
     this.fs.copyTpl(
       this.templatePath(prefixed),
-      plugin(this.properties.url + file),
+      plugin(path.join(this.properties.url + file)),
       this.properties.templated
     );
   }.bind(this);
@@ -49,5 +52,4 @@ module.exports = function() {
   config.tasks.forEach(copyFile);
   config.templated.forEach(copyTemplatedFile);
   config.dots.forEach(copyDotFile);
-
 };

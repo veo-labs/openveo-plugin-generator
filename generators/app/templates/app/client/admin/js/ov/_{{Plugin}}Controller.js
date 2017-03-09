@@ -3,13 +3,12 @@
 (function(app) {
 
   /**
-   * Defines a <%= plugin %> controller example
+   * Defines a <%= plugin %> controller example.
    */
-  function <%= Plugin %>Controller($scope, datas) {
-    $scope.todo = datas.data || {};
+  function <%= Plugin %>Controller($scope) {
   }
 
   app.controller('<%= Plugin %>Controller', <%= Plugin %>Controller);
-  <%= Plugin %>Controller.$inject = ['$scope', 'datas'];
+  <%= Plugin %>Controller.$inject = ['$scope'];
 
 })(angular.module('ov.<%= plugin %>'));
