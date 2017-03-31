@@ -8,7 +8,18 @@ Create the plugin using the Yeoman generator. Name it **library**.
 
     yo openveo-plugin library
 
-# Create an entity
+# Restart server
+
+Each time you modify a plugin **conf.js** or server sources, you need to restart your server to load your changes.
+Best practice in developpement is to use a source watcher to reload automatically your server each time you save a file. 
+
+You can use **[Nodemon](https://nodemon.io/)** or **[PM2](http://pm2.keymetrics.io/docs/usage/watch-and-restart/)**
+
+---
+
+# ENTITY
+
+## Create an entity
 
 Let's pretend we want to create an entity called **books**. An entity is a content with built-in CRUD (Create Read Update Delete) operations.
 
@@ -47,7 +58,7 @@ OpenVeo will also automatically create the following permissions :
   - **LIBRARY.PERMISSIONS.UPDATE_BOOKS_NAME**
   - **LIBRARY.PERMISSIONS.DELETE_BOOKS_NAME**
 
-An entity must be associated to an controller, a model and a provider. Let's create them.
+An entity must be associated to a controller, a model and a provider. Let's create them.
 
 ## Create entity controller
 
@@ -58,8 +69,8 @@ Create file **app/server/controllers/BooksController.js** :
 
 var util = require('util');
 var openVeoApi = require('@openveo/api');
-var BooksModel = process.requireBook('app/server/models/BooksModel.js');
-var BooksProvider = process.requireBook('app/server/providers/BooksProvider.js');
+var BooksModel = process.requireLibrary'app/server/models/BooksModel.js');
+var BooksProvider = process.requireLibrary('app/server/providers/BooksProvider.js');
 
 /**
  * Creates a BooksController.
@@ -148,7 +159,11 @@ var database = process.api.getCoreApi().getDatabase();
 
 EntityProvider expects, as second parameter, the name of the database collection to use for your entity. A best practice is to prefix the collection by the name of the plugin.
 
-# Create a public page to display a book
+---
+
+# PUBLIC PAGES
+
+## Create a public page to display a book
 
 Let's pretend we want to add a public page to display information about a book.
 
@@ -247,9 +262,11 @@ viewsFolders: [
 
 You can now restart OpenVeo and navigate to **/library/books/1/read** to display the book of id **1**.
 
+---
 
+# BACK END PAGES
 
-# Create a back end page to display book information
+## Create a back end page to display book information
 
 Let's pretend we want to add a private page (back end page) to display information about a book.
 
