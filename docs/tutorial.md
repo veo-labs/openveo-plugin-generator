@@ -69,7 +69,7 @@ Create file **app/server/controllers/BooksController.js** :
 
 var util = require('util');
 var openVeoApi = require('@openveo/api');
-var BooksModel = process.requireLibrary'app/server/models/BooksModel.js');
+var BooksModel = process.requireLibrary('app/server/models/BooksModel.js');
 var BooksProvider = process.requireLibrary('app/server/providers/BooksProvider.js');
 
 /**
