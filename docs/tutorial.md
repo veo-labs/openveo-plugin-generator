@@ -11,7 +11,7 @@ Create the plugin using the Yeoman generator. Name it **library**.
 # Restart server
 
 Each time you modify a plugin **conf.js** or server sources, you need to restart your server to load your changes.
-Best practice in developpement is to use a source watcher to reload automatically your server each time you save a file. 
+Best practice in developpement is to use a source watcher to reload automatically your server each time you save a file.
 
 You can use **[Nodemon](https://nodemon.io/)** or **[PM2](http://pm2.keymetrics.io/docs/usage/watch-and-restart/)**
 
@@ -25,7 +25,7 @@ Let's pretend we want to create an entity called **books**. An entity is a conte
 
 ## Declare the entity
 
-From the root of the **library** plugin locate the file [conf.js](conf.md#map-routes-on-actions) and defines a new entity **books** :
+From the root of the **library** plugin locate the file [conf.js](conf.md#map-routes-on-actions) and defines a new entity **books**:
 
 ```js
 entities: {
@@ -33,7 +33,7 @@ entities: {
 }
 ```
 
-That's all for the conf.js file. Note that no routes and no permissions need to be created. OpenVeo will create the following HTTP routes for you :
+That's all for the conf.js file. Note that no routes and no permissions need to be created. OpenVeo will create the following HTTP routes for you:
 
 Private HTTP routes :
 
@@ -51,7 +51,7 @@ Web Service end points :
 - **put /library/books** - Add a new book
 - **delete /library/books/:id** - Delete a book
 
-OpenVeo will also automatically create the following permissions :
+OpenVeo will also automatically create the following permissions:
 
 - **LIBRARY.PERMISSIONS.GROUP_BOOKS**
   - **LIBRARY.PERMISSIONS.ADD_BOOKS_NAME**
@@ -62,7 +62,7 @@ An entity must be associated to a controller, a model and a provider. Let's crea
 
 ## Create entity controller
 
-Create file **app/server/controllers/BooksController.js** :
+Create file **app/server/controllers/BooksController.js**:
 
 ```javascript
 'use strict';
@@ -94,7 +94,7 @@ BooksController.prototype.getModel = function(request) {
   return new BooksModel(new BooksProvider(database));
 };
 
-// You should consider overriding the following methods from EntityController :
+// You should consider overriding the following methods from EntityController:
 // BooksController.prototype.getEntitiesAction
 // BooksController.prototype.getEntityAction
 // BooksController.prototype.updateEntityAction
@@ -106,7 +106,7 @@ A controller associated to an entity must inherits from **EntityController** and
 
 ## Create entity model
 
-Create file **app/server/models/BooksModel.js** :
+Create file **app/server/models/BooksModel.js**:
 
 ```javascript
 'use strict';
@@ -131,7 +131,7 @@ A model associated to an entity must inherits from **EntityModel**. EntityModel 
 
 ## Create entity provider
 
-Create file **app/server/providers/BooksProvider.js** :
+Create file **app/server/providers/BooksProvider.js**:
 
 ```javascript
 'use strict';
@@ -151,7 +151,7 @@ module.exports = BooksProvider;
 util.inherits(BooksProvider, openVeoApi.providers.EntityProvider);
 ```
 
-A provider associated to an entity must inherits from **EntityProvider**. EntityProvider provides methods to interact with the storage to manipulate the entity (CRUD). The EntityProvider expects the database instance as the first parameter. You can get the current database instance using :
+A provider associated to an entity must inherits from **EntityProvider**. EntityProvider provides methods to interact with the storage to manipulate the entity (CRUD). The EntityProvider expects the database instance as the first parameter. You can get the current database instance using:
 
 ```javascript
 var database = process.api.getCoreApi().getDatabase();
@@ -185,7 +185,7 @@ module.exports = {
 
 Requesting **/library/books/1/read** will call the **displayBookAction** method of the **BooksController**.
 
-As a reminder :
+As a reminder:
 
 - public HTTP routes will be mounted on **/library/**
 - private HTTP routes will be mounted on **/be/library/**
@@ -195,7 +195,7 @@ As a reminder :
 
 Public route **/library/books/:id/read** has been configured to call the  **displayBookAction** method of the **BooksController**. Let's create the **displayBookAction** method.
 
-Open the **app/server/controllers/BooksController.js** and add the following code at the end of the file :
+Open the **app/server/controllers/BooksController.js** and add the following code at the end of the file:
 
 ```javascript
 /**
@@ -234,7 +234,7 @@ For now our public route **/library/books/:id/read** isn't working because the *
 
 ## Create the view
 
-Create a file **app/client/front/views/book.html** :
+Create a file **app/client/front/views/book.html**:
 
 ```html
 <!DOCTYPE html>
@@ -252,7 +252,7 @@ For now our public route is still not working because Mustache template engine d
 
 ## Set template's directory
 
-Add the **app/client/front/views** directory to the list of directories handled by Mustache template engine (in [conf.js](conf.md#list-of-directories-containing-templates) file) :
+Add the **app/client/front/views** directory to the list of directories handled by Mustache template engine (in [conf.js](conf.md#list-of-directories-containing-templates) file):
 
 ```js
 viewsFolders: [
@@ -300,7 +300,7 @@ We defined a new menu entry for our plugin with label **LIBRARY.MENU.LIBRARY** (
 
 As OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.
 
-From the root of the **library** plugin locate the file **app/client/admin/js/ovLibrary/BookApp.js**. You can see the AngularJS module corresponding to the plugin. Add the new route :
+From the root of the **library** plugin locate the file **app/client/admin/js/ovLibrary/BookApp.js**. You can see the AngularJS module corresponding to the plugin. Add the new route:
 
 ```js
 // Add route /library/bookInfo
@@ -326,7 +326,7 @@ We defined a new route **/library/bookInfo** with a template, a controller, a pa
 
 ## Add back end page controller
 
-Create a file **app/client/admin/js/ovLibrary/BookController.js** :
+Create a file **app/client/admin/js/ovLibrary/BookController.js**:
 
 ```js
 'use strict';
@@ -347,7 +347,7 @@ Create a file **app/client/admin/js/ovLibrary/BookController.js** :
 })(angular.module('ov.library'));
 ```
 
-Open [conf.js](conf.md#back-end-scripts) file and add the newly created file to the list of files to be loaded by OpenVeo :
+Open [conf.js](conf.md#back-end-scripts) file and add the newly created file to the list of files to be loaded by OpenVeo:
 
 ```js
 backOffice: {
@@ -362,7 +362,7 @@ backOffice: {
 
 ## Add back end page template
 
-Create a file **assert/be/views/bookInfo.html** :
+Create a file **assert/be/views/bookInfo.html**:
 
 ```html
 <h1 ng-bind="title"></h1>
@@ -375,7 +375,7 @@ You can translate your back end pages using the back end dictionary called **adm
 
 From the root of the **library** plugin locate the **i18n** directory. You can see french and english dictionaries for the back end (**i18n/admin-back-office-en.json** and **i18n/admin-back-office-fr.json**).
 
-Add new translations in all languages (**i18n/admin-back-office-en.json**, **i18n/admin-back-office-fr.json** etc.) :
+Add new translations in all languages (**i18n/admin-back-office-en.json**, **i18n/admin-back-office-fr.json** etc.):
 
 ```json
 {

@@ -1,5 +1,5 @@
 # Structure
-When generated, the plugin's structure should look like :
+When generated, the plugin's structure should look like:
 
 ```
 .
@@ -53,18 +53,16 @@ When generated, the plugin's structure should look like :
 
 After executing the plugin's generator a directory **openveo-PLUGIN_NAME** should be available in your workspace.
 
-## Plugin's main file
+## Plugin's main files
 
-Locate the file **index.js**.
+**index.js** exposes:
 
-**index.js** defines :
+- The Plugin class. If this class does not extend the Plugin class, defined in module [@openveo/api](https://github.com/veo-labs/openveo-api), the plugin won't be loaded by the core.
+
+**processRequire.js** defines:
 
 - A **process.rootPLUGIN_NAME** property holding the absolute path of the plugin's root directory which you can use everywhere in your plugin
 - A **process.requirePLUGIN_NAME** property holding a function to require a Node.js module using a path relative to the plugin's root path. As the root of the application is the core directory using Node.js **require** function will load a module from the core root directory. Best practice is to use relative path to require a module in your plugin or use the function **process.requirePLUGIN_NAME** with a path relative to the root of your plugin.
-
-**index.js** exposes :
-
-- The Plugin class. If this class does not extend the Plugin class, defined in module [@openveo/api](https://github.com/veo-labs/openveo-api), the plugin won't be loaded by the core.
 
 ## Plugin class
 
@@ -72,10 +70,10 @@ A plugin must have a class which extends **Plugin** class (defined in module [@o
 
 Locate file **app/server/PLUGIN_NAMEPlugin.js**.
 
-**PLUGIN_NAMEPlugin.js** extends **Plugin** class and has the following properties :
+**PLUGIN_NAMEPlugin.js** extends **Plugin** class and has the following properties:
 
 - **router** The express HTTP router holding all public routes of the plugin
-- **privateRouter** The express HTTP router holding all private routes of the plugin (require a back authentication)
+- **privateRouter** The express HTTP router holding all private routes of the plugin (require a back end authentication)
 - **webServiceRouter** The express HTTP router holding all Web Service routes of the plugin (require Web Service authentication)
 - **api** The API exposed, by the plugin, to other plugins (must be an instance of **PluginApi**)
 - **init** A method part of the [plugin's life cycle](plugin-life-cycle.md), automatically called by the core before starting the servers

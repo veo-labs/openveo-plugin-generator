@@ -2,12 +2,12 @@
 
 A [Yeoman](http://yeoman.io/) plugin generator for [OpenVeo](https://github.com/veo-labs/openveo-core) used to improve OpenVeo plugin development.
 
-The OpenVeo plugin generator helps you build a basic plugin ready for development with :
+The OpenVeo plugin generator helps you build a basic plugin ready for development with:
 
 - Full operational grunt tasks for testing and compiling the plugin
 - A basic back end page example with internationalization
 
-The documentation also contains informs about how to write an [OpenVeo](https://github.com/veo-labs/openveo-core) plugin.
+The documentation also contains information about how to write an [OpenVeo](https://github.com/veo-labs/openveo-core) plugin.
 
 # Usage
 
@@ -21,7 +21,7 @@ Documentation is available on [Github pages](http://veo-labs.github.io/openveo-p
 
 # Contributors
 
-Maintainer : [Veo-Labs](http://www.veo-labs.com/)
+Maintainer: [Veo-Labs](http://www.veo-labs.com/)
 
 # License
 

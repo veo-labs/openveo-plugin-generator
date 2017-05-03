@@ -38,7 +38,7 @@ We defined a new menu entry for our plugin with **Library** as a label and a sub
 
 As OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.
 
-Open file **app/client/admin/js/ovLibrary/BookApp.js**. You can see the AngularJS module corresponding to the plugin. Add the new route :
+Open file **app/client/admin/js/ovLibrary/BookApp.js**. You can see the AngularJS module corresponding to the plugin. Add the new route:
 
 ```js
 // Add route /library/bookInfo
@@ -60,11 +60,11 @@ $routeProvider.when('/library/bookInfo', {
 });
 ```
 
-We defined a new route **/library/bookInfo** with a template, a controller, a page title and a permission to access the page. Let's create the controller, the template and the title translation.
+We defined a new route **/library/bookInfo** with a template, a controller, a page title and a permission to access the page. Let's create the controller and the template.
 
 ## Add back end page controller
 
-Create a file **app/client/admin/js/ovLibrary/BookController.js** :
+Create a file **app/client/admin/js/ovLibrary/BookController.js**:
 
 ```js
 'use strict';
@@ -85,7 +85,7 @@ Create a file **app/client/admin/js/ovLibrary/BookController.js** :
 })(angular.module('ov.library'));
 ```
 
-Open [conf.js](conf.md#back-end-scripts) file and add the newly created file to the list of files to be loaded by OpenVeo :
+Open [conf.js](conf.md#back-end-scripts) file and add the newly created file to the list of files to be loaded by OpenVeo:
 
 ```js
 backOffice: {
@@ -100,7 +100,7 @@ backOffice: {
 
 ## Add back end page template
 
-Create a file **assert/be/views/bookInfo.html** :
+Create a file **assert/be/views/bookInfo.html**:
 
 ```html
 <h1 ng-bind="title"></h1>

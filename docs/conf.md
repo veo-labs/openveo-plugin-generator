@@ -1,6 +1,6 @@
 # Introduction
 
-A consequent part of the development of plugins is made in **conf.js** file at plugin's root. **conf.js** is used to :
+A consequent part of the development of plugins is made in **conf.js** file at plugin's root. **conf.js** is used to:
 
 - [Map HTTP routes on actions](#map-routes-on-actions)
 - [Create entities](#create-entities)
@@ -38,31 +38,31 @@ http: {
 
 A route maps an HTTP method and a path to an action (JavaScript function).
 
-The route :
+The route:
 
     'get /test' : 'app/server/controllers/TestController.testGetAction'
 
-Can be interpreted as :
+Can be interpreted as:
 
   > *A GET request on /test will call the function testGetAction exposed by module app/server/controllers/TestController.js*
 
-The route :
+The route:
 
     'post /test' : 'app/server/controllers/TestController.testPostAction'
 
-Can be interpreted as :
+Can be interpreted as:
 
   > *A POST request on /test will call the function testPostAction exposed by module app/server/controllers/TestController.js*
 
-The route :
+The route:
 
     '/test' : 'app/server/controllers/TestController.testAllAction'
 
-Can be interpreted as :
+Can be interpreted as:
 
   > *All requests on /test (GET, POST, DELETE, PUT) will call the function testAllAction exposed by module app/server/controllers/TestController.js*
 
-Example of valid routes :
+Example of valid routes:
 
 ```js
 http: {
@@ -79,7 +79,7 @@ http: {
 
 ## Group routes
 
-You can group actions by routes :
+You can group actions by routes:
 
 ```js
 http: {
@@ -96,7 +96,7 @@ http: {
 
 ## Route parameters
 
-You can add parameters using colon character :
+You can add parameters using colon character:
 
 ```js
 http: {
@@ -146,7 +146,7 @@ Socket namespaces are mounted on the OpenVeo Socket server to listen to Socket m
 ## Create a socket namespace
 
 You can define new namespaces for the Socket server in **conf.js**.<br/>
-Namespaces are separated into two categories : public and private namespaces.<br/>
+Namespaces are separated into two categories: public and private namespaces.<br/>
 Let's pretend we want to create a public and a private namespace for a **library** plugin.
 
 ```js
@@ -170,21 +170,21 @@ socket: {
 
 A socket message maps a message to an action (JavaScript function).
 
-The message :
+The message:
 
     'my.test.message' : 'app/server/controllers/TestController.testMessageAction'
 
-Can be interpreted as :
+Can be interpreted as:
 
   > *A socket message 'my.test.message' will call the function testMessageAction exposed by module app/server/controllers/TestSocketController.js*
 
-The following messages are automatically sent by the socket server and does not need to be send by the socket client :
+The following messages are automatically sent by the socket server and does not need to be send by the socket client:
 
 - **connection** Client is connected to the socket server
 - **disconnect** Client has been disconnected from the socket server
 - **error** An error occurred in client / server connection
 
-Let's pretend we want to handle the default messages and custom messages in our **public-namespace** namespace :
+Let's pretend we want to handle the default messages and custom messages in our **public-namespace** namespace:
 
 ```js
 'public-namespace': {
@@ -198,7 +198,7 @@ Let's pretend we want to handle the default messages and custom messages in our 
 
 ## Create TestSocketController
 
-Create a file **app/server/controllers/TestSocketController.js** :
+Create a file **app/server/controllers/TestSocketController.js**:
 
 ```javascript
 'use strict';
@@ -296,7 +296,7 @@ We created a socket namespace **public-namespace** for the **library** plugin. N
 
 # Create entities
 
-Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete). For example, OpenVeo core defines 5 entities :
+Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete). For example, OpenVeo core defines 5 entities:
 
 - applications - Web Service client applications
 - users - Back end users
@@ -310,7 +310,7 @@ Let's say we want to create a new entity called **books** on a plugin named **li
 
 ## Create entity provider
 
-Create a file **app/server/providers/BooksProvider.js** :
+Create a file **app/server/providers/BooksProvider.js**:
 
 ```javascript
 'use strict';
@@ -332,7 +332,7 @@ util.inherits(BooksProvider, openVeoApi.providers.EntityProvider);
 
 ## Create entity model
 
-Create a file **app/server/models/BooksModel.js** :
+Create a file **app/server/models/BooksModel.js**:
 
 ```javascript
 'use strict';
@@ -355,7 +355,7 @@ util.inherits(BooksModel, openVeoApi.models.EntityModel);
 
 ## Create entity controller
 
-Create a file **app/server/controllers/BooksController.js** :
+Create a file **app/server/controllers/BooksController.js**:
 
 ```javascript
 'use strict';
@@ -390,7 +390,7 @@ BooksController.prototype.getModel = function(request) {
 
 ## Declare entity
 
-You can now declare your entity in **conf.js** :
+You can now declare your entity in **conf.js**:
 
 ```js
 entities: {
@@ -400,7 +400,7 @@ entities: {
 
 ## Use the entity
 
-Now that your entity **books** is created you can see the 3 new permissions in the back end (add, update and delete). You can also perform CRUD operations on your entity using the following private routes (with a user connected to the back end) :
+Now that your entity **books** is created you can see the 3 new permissions in the back end (add, update and delete). You can also perform CRUD operations on your entity using the following private routes (with a user connected to the back end):
 
 - **get /be/library/books/:id** - Get a particular book
 - **get /be/library/books** - Get all books
@@ -408,7 +408,7 @@ Now that your entity **books** is created you can see the 3 new permissions in t
 - **put /be/library/books** - Add a new book
 - **delete /be/library/books/:id** - Delete a book
 
-Finally you can perform CRUD operations on your entity using the Web Service (with a user connected to the Web Service) using the following end points :
+Finally you can perform CRUD operations on your entity using the Web Service (with a user connected to the Web Service) using the following end points:
 
 - **get /library/books/:id** - Get a particular book
 - **get /library/books** - Get all books
@@ -418,7 +418,7 @@ Finally you can perform CRUD operations on your entity using the Web Service (wi
 
 # Define back end permissions
 
-Each role can have n associated permissions. Permissions are described in **conf.js** :
+Each role can have n associated permissions. Permissions are described in **conf.js**:
 
 ```js
 permissions: [
@@ -436,7 +436,7 @@ permissions: [
     id: 'library-sell-books', // Permission id
     name: 'Sell', // Permission name
     description: 'Sell books', // Permission description
-    paths: [ // List of paths associated to the permission
+    paths: [ // List of routes descriptors associated to the permission
       'get /library/books/sell*'
     ]
   },
@@ -444,7 +444,7 @@ permissions: [
     id: 'library-buy-books', // Permission id
     name: 'Buy', // Permission name
     description: 'Buy books', // Permission description
-    paths: [ // List of paths associated to the permission
+    paths: [ // List of routes descriptors associated to the permission
       'get /library/books/buy*'
     ]
   }
@@ -455,7 +455,7 @@ permissions: [
 
 You can group permissions to organize the list of permissions in the back end.
 
-**Nb** : Actually OpenVeo only supports one sub level
+**Nb**: Actually OpenVeo only supports one sub level
 
 ```js
 permissions: [
@@ -490,7 +490,7 @@ You can assign your permission to a role through the back end or manipulate the 
 
 # Define back end menu items
 
-Back end menu items are described in **conf.js** :
+Back end menu items are described in **conf.js**:
 
 ```js
 backOffice: {
@@ -558,7 +558,7 @@ backOffice: {
 
 # Back end scripts
 
-The list of JavaScript files to load for the AngularJS back end application are defined in **conf.js** :
+The list of JavaScript files to load for the AngularJS back end application are defined in **conf.js**:
 
 ```js
 backOffice: {
@@ -589,7 +589,7 @@ backOffice: {
 
 # Back end CSS
 
-The list of CSS files to load for the AngularJS back end application are defined in **conf.js** :
+The list of CSS files to load for the AngularJS back end application are defined in **conf.js**:
 
 ```js
 backOffice: {
@@ -601,7 +601,7 @@ backOffice: {
 
 # List of directories containing templates
 
-OpenVeo uses [Mustache](https://github.com/janl/mustache.js) as the template engine. Mustache requires directories where to look for potential templates. The list of directories is defined in **conf.js** :
+OpenVeo uses [Mustache](https://github.com/janl/mustache.js) as the template engine. Mustache requires directories where to look for potential templates. The list of directories is defined in **conf.js**:
 
 ```js
 viewsFolders: [ // List of directories holding mustache templates
@@ -611,7 +611,7 @@ viewsFolders: [ // List of directories holding mustache templates
 
 # Define image styles
 
-You can define image styles in **conf.js** :
+You can define image styles in **conf.js**:
 
 ```js
 imageProcessing: {
@@ -636,7 +636,7 @@ Then you can call the image with your custom style **small**
 
 # Define custom configuration
 
-You can define a custom configuration object in **conf.js** :
+You can define a custom configuration object in **conf.js**:
 
 ```js
 custom: {
@@ -645,11 +645,11 @@ custom: {
 }
 ```
 
-**Nb :** Custom configuration won't be interpreted but can be retrieved later using OpenVeo API. You can use it as you like.
+**Nb:** Custom configuration won't be interpreted but can be retrieved later using OpenVeo API. You can use it as you like.
 
 # Define Web Service scopes
 
-You can define Web Service scopes in **conf.js** :
+You can define Web Service scopes in **conf.js**:
 
 ```js
 webServiceScopes: [
