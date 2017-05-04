@@ -11,13 +11,13 @@ The documentation also contains information about how to write an [OpenVeo](http
 
 # Usage
 
-From OpenVeo root directory :
+From OpenVeo root directory:
 
     yo openveo-plugin
 
 # Documentation
 
-Documentation is available on [Github pages](http://veo-labs.github.io/openveo-plugin-generator/1.0.0).
+Documentation is available on [Github pages](http://veo-labs.github.io/openveo-plugin-generator/2.0.0/).
 
 # Contributors
 
