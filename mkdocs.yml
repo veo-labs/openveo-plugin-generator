@@ -12,6 +12,7 @@ pages:
   - 'Getting started': 'getting-started.md'
   - 'Plugin structure': 'structure.md'
   - 'Plugin life cycle': 'plugin-life-cycle.md'
+  - 'Hooks': 'hooks.md'
   - 'Template engine': 'template-engine.md'
   - 'Back end AngularJS': 'back-end.md'
   - 'Tutorial': 'tutorial.md'
