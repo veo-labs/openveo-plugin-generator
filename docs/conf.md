@@ -615,23 +615,32 @@ You can define image styles in **conf.js**:
 
 ```js
 imageProcessing: {
-  imagesFolders: ['example/images'], // List of folders concerned by this style
-  cacheDir: 'example/.thumbs', // Path of the directory containing generated images
-  quality: 50, // Compression level (from 0 to 100)
-  imagesStyle: { // Style to apply
-    'small': 200 // Width (in px) of the image to generate for small style
+  folders: [ // List of folders which contain images to process on demand
+    {
+      imagesDirectory: 'example/images', // Path of the directory containing images to process relative to project root directory
+      cacheDirectory: 'example/images/.cache' // Path of the directory containing processed images relative to project root directory (default to {imagesDirectory}/.cache)
+    }
+  ],
+  styles: [ // The list of style definitions
+    {
+      id: 'book-style', // Id of the style to apply when requesting an image processing
+      width: 200, // Expected width (in px) of the image (default to 10)
+      quality: 50 // Expected quality from 0 to 100 (default to 90 with 100 the best)
+    }
   }
 }
 ```
 
-Default width is 10px if no image style is specified for the directory.<br/>
-Default **cacheDir** is .thumbs directory at the root of the application.<br/>
-Default quality is 90.
-
-Then you can call the image with your custom style **small**
+Then you can call the image with your custom style **book-style**:
 
 ```html
-<img src="book/example/images/image1.jpg?thumb=small"/>
+<img src="book/example/images/image1.jpg?style=book-style"/>
+```
+
+Note that the original image is still available:
+
+```html
+<img src="book/example/images/image1.jpg"/>
 ```
 
 # Define custom configuration
