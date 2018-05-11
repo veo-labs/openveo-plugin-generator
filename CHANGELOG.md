@@ -5,6 +5,10 @@
 - Drop support for OpenVeo &lt;5.0.0
 - Drop support for NodeJS &lt; 8.9.4 and NPM &lt; 5.6.0
 
+## NEW FEATURES
+
+- Add NPM package-lock.json file
+
 ## DEPENDENCIES
 
 - **chai** has been upgraded from 3.5.0 to **4.0.2**
