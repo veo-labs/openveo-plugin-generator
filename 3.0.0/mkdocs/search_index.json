@@ -1,0 +1,529 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "What's OpenVeo Plugin Generator?\n\n\nOpenVeo Plugin Generator is a \nYeoman\n plugin generator for \nOpenVeo\n used to improve OpenVeo plugin development.\n\n\nIt helps you create a plugin ready for development with:\n\n\n\n\nFull operational grunt tasks for:\n\n\nunit testing server and client sides\n\n\ncompiling JavaScript and CSS for client side\n\n\ngenerating code documentation (using \nYUI\n)\n\n\ngenerating markdown documentation (using \nMkDocs\n)\n\n\n\n\n\n\nA basic back end page example with internationalization\n\n\nDefault plugin files with minimum configuration",
+            "title": "INTRODUCTION"
+        },
+        {
+            "location": "/#whats-openveo-plugin-generator",
+            "text": "OpenVeo Plugin Generator is a  Yeoman  plugin generator for  OpenVeo  used to improve OpenVeo plugin development.  It helps you create a plugin ready for development with:   Full operational grunt tasks for:  unit testing server and client sides  compiling JavaScript and CSS for client side  generating code documentation (using  YUI )  generating markdown documentation (using  MkDocs )    A basic back end page example with internationalization  Default plugin files with minimum configuration",
+            "title": "What's OpenVeo Plugin Generator?"
+        },
+        {
+            "location": "/prerequisites/",
+            "text": "OpenVeo Plugin Generator requires:\n\n\n\n\nYeoman\n - The OpenVeo Plugin Generator is a Yeoman plugin\n\n\nOpenVeo\n - Generated plugins needs OpenVeo Core in development environment",
+            "title": "Prerequisites"
+        },
+        {
+            "location": "/getting-started/",
+            "text": "Generate a plugin\n\n\nOpenVeo Plugin Generator helps you creates a new \nOpenVeo\n plugin by generating the default plugin's structure. To generate a plugin, run the generator using:\n\n\ncd /WORKSPACE_PATH\nyo openveo-plugin\n\n\n\nYou will be prompted for information. Don't worry if you made a mistake, nothing is immutable. \n\nAt the end of the installation a new directory has been created containing the sources of your plugin.\n\n\nYour workspace should look like this:\n\n\n.\n\u251c\u2500\u2500 openveo-core\n\u251c\u2500\u2500 openveo-PLUGIN_NAME\n\n\n\n\nLink your plugin\n\n\nTo easily install your plugin into OpenVeo core you need to make it a global NPM package using \nNPM links\n:\n\n\ncd /WORKSPACE_PATH/openveo-PLUGIN_NAME\nnpm link\n\n\n\nBuild your plugin\n\n\nPlugin front end has to be built.\n\n\ncd /WORKSPACE_PATH/openveo-PLUGIN_NAME\ngrunt prod\n\n\n\nInstall your plugin\n\n\nOnce a link has been made on your plugin you can install it using:\n\n\ncd /WORKSPACE_PATH/openveo-core\nnpm link openveo-PLUGIN_NAME\n\n\n\nStart / Restart OpenVeo\n\n\nYour plugin is now created. You can start / restart OpenVeo:\n\n\ncd /WORKSPACE_PATH/openveo-core\nnode server.js\n\n\n\nVerify that your plugin is working\n\n\nYou can now access OpenVeo back end. From back end menu you should see a new entry with the name of your plugin. It should lead you to a TODO page.\n\n\nWhat's next?\n\n\nNow that you have a full operational plugin, you probably want to know more about it. The next pages will lead you to all you have to know about plugin's development.",
+            "title": "Getting started"
+        },
+        {
+            "location": "/getting-started/#generate-a-plugin",
+            "text": "OpenVeo Plugin Generator helps you creates a new  OpenVeo  plugin by generating the default plugin's structure. To generate a plugin, run the generator using:  cd /WORKSPACE_PATH\nyo openveo-plugin  You will be prompted for information. Don't worry if you made a mistake, nothing is immutable.  \nAt the end of the installation a new directory has been created containing the sources of your plugin.  Your workspace should look like this:  .\n\u251c\u2500\u2500 openveo-core\n\u251c\u2500\u2500 openveo-PLUGIN_NAME",
+            "title": "Generate a plugin"
+        },
+        {
+            "location": "/getting-started/#link-your-plugin",
+            "text": "To easily install your plugin into OpenVeo core you need to make it a global NPM package using  NPM links :  cd /WORKSPACE_PATH/openveo-PLUGIN_NAME\nnpm link",
+            "title": "Link your plugin"
+        },
+        {
+            "location": "/getting-started/#build-your-plugin",
+            "text": "Plugin front end has to be built.  cd /WORKSPACE_PATH/openveo-PLUGIN_NAME\ngrunt prod",
+            "title": "Build your plugin"
+        },
+        {
+            "location": "/getting-started/#install-your-plugin",
+            "text": "Once a link has been made on your plugin you can install it using:  cd /WORKSPACE_PATH/openveo-core\nnpm link openveo-PLUGIN_NAME",
+            "title": "Install your plugin"
+        },
+        {
+            "location": "/getting-started/#start-restart-openveo",
+            "text": "Your plugin is now created. You can start / restart OpenVeo:  cd /WORKSPACE_PATH/openveo-core\nnode server.js",
+            "title": "Start / Restart OpenVeo"
+        },
+        {
+            "location": "/getting-started/#verify-that-your-plugin-is-working",
+            "text": "You can now access OpenVeo back end. From back end menu you should see a new entry with the name of your plugin. It should lead you to a TODO page.",
+            "title": "Verify that your plugin is working"
+        },
+        {
+            "location": "/getting-started/#whats-next",
+            "text": "Now that you have a full operational plugin, you probably want to know more about it. The next pages will lead you to all you have to know about plugin's development.",
+            "title": "What's next?"
+        },
+        {
+            "location": "/structure/",
+            "text": "Structure\n\n\nWhen generated, the plugin's structure should look like:\n\n\n.\n\u251c\u2500\u2500 app // Project's sources\n\u2502   \u251c\u2500\u2500 client // Client side sources (executed in a browser)\n\u2502   \u2502   \u251c\u2500\u2500 admin // Client side sources for the back end pages\n\u2502   \u2502   \u2502   \u251c\u2500\u2500 compass // SCSS files of the back end pages\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 js // JavaScript files of the back end pages\n\u2502   \u2502   \u2502       \u2514\u2500\u2500 ovPluginName // All JavaScript files of the plugin's AngularJS module\n\u2502   \u2502   \u2514\u2500\u2500 front // Client side sources for front end pages\n\u2502   \u2514\u2500\u2500 server // Server side sources (executed by Node.js)\n\u2502       \u251c\u2500\u2500 controllers // Controllers (extending Controller)\n\u2502       \u2502   \u2514\u2500\u2500 httpErrors.js // Holds the list of HTTP errors used by controllers\n\u2502       \u251c\u2500\u2500 providers // Providers (extending Provider)\n\u2502       \u251c\u2500\u2500 PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)\n\u2502       \u2514\u2500\u2500 PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)\n\u251c\u2500\u2500 assets // Public directory for static files (mounted on /PLUGIN_NAME/)\n\u2502   \u251c\u2500\u2500 be // Back end pages resources\n\u2502   \u2502   \u251c\u2500\u2500 css // Generated CSS files for the back end pages\n\u2502   \u2502   \u251c\u2500\u2500 js // Generated JavaScript files for the back end pages\n\u2502   \u2502   \u2514\u2500\u2500 views // AngularJS partials for the back end pages\n\u2502   \u2514\u2500\u2500 lib // Client side libraries (installed through bower)\n\u251c\u2500\u2500 docs // Markdown documentation of the project\n\u251c\u2500\u2500 i18n // Translation dictionaries\n\u251c\u2500\u2500 migrations // Migration scripts\n\u251c\u2500\u2500 tasks // Grunt tasks\n\u251c\u2500\u2500 tests // Tests\n\u2502   \u251c\u2500\u2500 client // Client side tests\n\u2502   \u2502   \u251c\u2500\u2500 unitTests // Unit tests\n\u2502   \u2502   \u2514\u2500\u2500 e2eTests // End to end tests using protractor\n\u2502   \u2514\u2500\u2500 server // Server side unit tests\n\u251c\u2500\u2500 .bowerrc // Bower configuration file\n\u251c\u2500\u2500 .eslintrc // Eslint rules\n\u251c\u2500\u2500 .gitattributes // Git attributes configuration file\n\u251c\u2500\u2500 .npmignore // NPM ignore configuration file\n\u251c\u2500\u2500 CHANGELOG.md // Plugin's change logs\n\u251c\u2500\u2500 Gruntfile.js // Grunt configuration file\n\u251c\u2500\u2500 README.md // Plugin's README\n\u251c\u2500\u2500 bower.json // Bower configuration file\n\u251c\u2500\u2500 conf.js // Plugin's configuration file\n\u251c\u2500\u2500 index.js // Plugin's main file\n\u251c\u2500\u2500 mkdocs.yml // MkDocs configuration file\n\u2514\u2500\u2500 package.json // NPM configuration file\n\n\n\n\nDive into plugin's files\n\n\nPlugin's directory\n\n\nAfter executing the plugin's generator a directory \nopenveo-PLUGIN_NAME\n should be available in your workspace.\n\n\nPlugin's main files\n\n\nindex.js\n exposes:\n\n\n\n\nThe Plugin class. If this class does not extend the Plugin class, defined in module \n@openveo/api\n, the plugin won't be loaded by the core.\n\n\n\n\nprocessRequire.js\n defines:\n\n\n\n\nA \nprocess.rootPLUGIN_NAME\n property holding the absolute path of the plugin's root directory which you can use everywhere in your plugin\n\n\nA \nprocess.requirePLUGIN_NAME\n property holding a function to require a Node.js module using a path relative to the plugin's root path. As the root of the application is the core directory using Node.js \nrequire\n function will load a module from the core root directory. Best practice is to use relative path to require a module in your plugin or use the function \nprocess.requirePLUGIN_NAME\n with a path relative to the root of your plugin.\n\n\n\n\nPlugin class\n\n\nA plugin must have a class which extends \nPlugin\n class (defined in module \n@openveo/api\n).\n\n\nLocate file \napp/server/PLUGIN_NAMEPlugin.js\n.\n\n\nPLUGIN_NAMEPlugin.js\n extends \nPlugin\n class and has the following properties:\n\n\n\n\nrouter\n The express HTTP router holding all public routes of the plugin\n\n\nprivateRouter\n The express HTTP router holding all private routes of the plugin (require a back end authentication)\n\n\nwebServiceRouter\n The express HTTP router holding all Web Service routes of the plugin (require Web Service authentication)\n\n\napi\n The API exposed, by the plugin, to other plugins (must be an instance of \nPluginApi\n)\n\n\ninit\n A method part of the \nplugin's life cycle\n, automatically called by the core before starting the servers\n\n\nstart\n A method part of the \nplugin's life cycle\n, automatically called by the core after the init step\n\n\n\n\nAll these properties are optional.\n\n\nPlugin API\n\n\nA plugin can expose APIs to other plugins by creating a class extending the PluginApi class.\n\n\nLocate file \napp/server/PLUGIN_NAMEPluginApi.js\n.\n\n\nPLUGIN_NAMEPluginApi.js\n extends \nPluginApi\n. All methods and properties will be exposed to other plugins through the \napi\n property of the Plugin.\n\n\nResources\n\n\nAll files inside \nassets\n directory are served by the HTTP server as they are. You can put here images, front JavaScript files, CSS files and so on. The core will mount this directory on \n/PLUGIN_NAME/\n, thus to access image \nassets/test.jpg\n you have to call \n/PLUGIN_NAME/test.jpg\n.",
+            "title": "Plugin structure"
+        },
+        {
+            "location": "/structure/#structure",
+            "text": "When generated, the plugin's structure should look like:  .\n\u251c\u2500\u2500 app // Project's sources\n\u2502   \u251c\u2500\u2500 client // Client side sources (executed in a browser)\n\u2502   \u2502   \u251c\u2500\u2500 admin // Client side sources for the back end pages\n\u2502   \u2502   \u2502   \u251c\u2500\u2500 compass // SCSS files of the back end pages\n\u2502   \u2502   \u2502   \u2514\u2500\u2500 js // JavaScript files of the back end pages\n\u2502   \u2502   \u2502       \u2514\u2500\u2500 ovPluginName // All JavaScript files of the plugin's AngularJS module\n\u2502   \u2502   \u2514\u2500\u2500 front // Client side sources for front end pages\n\u2502   \u2514\u2500\u2500 server // Server side sources (executed by Node.js)\n\u2502       \u251c\u2500\u2500 controllers // Controllers (extending Controller)\n\u2502       \u2502   \u2514\u2500\u2500 httpErrors.js // Holds the list of HTTP errors used by controllers\n\u2502       \u251c\u2500\u2500 providers // Providers (extending Provider)\n\u2502       \u251c\u2500\u2500 PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)\n\u2502       \u2514\u2500\u2500 PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)\n\u251c\u2500\u2500 assets // Public directory for static files (mounted on /PLUGIN_NAME/)\n\u2502   \u251c\u2500\u2500 be // Back end pages resources\n\u2502   \u2502   \u251c\u2500\u2500 css // Generated CSS files for the back end pages\n\u2502   \u2502   \u251c\u2500\u2500 js // Generated JavaScript files for the back end pages\n\u2502   \u2502   \u2514\u2500\u2500 views // AngularJS partials for the back end pages\n\u2502   \u2514\u2500\u2500 lib // Client side libraries (installed through bower)\n\u251c\u2500\u2500 docs // Markdown documentation of the project\n\u251c\u2500\u2500 i18n // Translation dictionaries\n\u251c\u2500\u2500 migrations // Migration scripts\n\u251c\u2500\u2500 tasks // Grunt tasks\n\u251c\u2500\u2500 tests // Tests\n\u2502   \u251c\u2500\u2500 client // Client side tests\n\u2502   \u2502   \u251c\u2500\u2500 unitTests // Unit tests\n\u2502   \u2502   \u2514\u2500\u2500 e2eTests // End to end tests using protractor\n\u2502   \u2514\u2500\u2500 server // Server side unit tests\n\u251c\u2500\u2500 .bowerrc // Bower configuration file\n\u251c\u2500\u2500 .eslintrc // Eslint rules\n\u251c\u2500\u2500 .gitattributes // Git attributes configuration file\n\u251c\u2500\u2500 .npmignore // NPM ignore configuration file\n\u251c\u2500\u2500 CHANGELOG.md // Plugin's change logs\n\u251c\u2500\u2500 Gruntfile.js // Grunt configuration file\n\u251c\u2500\u2500 README.md // Plugin's README\n\u251c\u2500\u2500 bower.json // Bower configuration file\n\u251c\u2500\u2500 conf.js // Plugin's configuration file\n\u251c\u2500\u2500 index.js // Plugin's main file\n\u251c\u2500\u2500 mkdocs.yml // MkDocs configuration file\n\u2514\u2500\u2500 package.json // NPM configuration file",
+            "title": "Structure"
+        },
+        {
+            "location": "/structure/#dive-into-plugins-files",
+            "text": "",
+            "title": "Dive into plugin's files"
+        },
+        {
+            "location": "/structure/#plugins-directory",
+            "text": "After executing the plugin's generator a directory  openveo-PLUGIN_NAME  should be available in your workspace.",
+            "title": "Plugin's directory"
+        },
+        {
+            "location": "/structure/#plugins-main-files",
+            "text": "index.js  exposes:   The Plugin class. If this class does not extend the Plugin class, defined in module  @openveo/api , the plugin won't be loaded by the core.   processRequire.js  defines:   A  process.rootPLUGIN_NAME  property holding the absolute path of the plugin's root directory which you can use everywhere in your plugin  A  process.requirePLUGIN_NAME  property holding a function to require a Node.js module using a path relative to the plugin's root path. As the root of the application is the core directory using Node.js  require  function will load a module from the core root directory. Best practice is to use relative path to require a module in your plugin or use the function  process.requirePLUGIN_NAME  with a path relative to the root of your plugin.",
+            "title": "Plugin's main files"
+        },
+        {
+            "location": "/structure/#plugin-class",
+            "text": "A plugin must have a class which extends  Plugin  class (defined in module  @openveo/api ).  Locate file  app/server/PLUGIN_NAMEPlugin.js .  PLUGIN_NAMEPlugin.js  extends  Plugin  class and has the following properties:   router  The express HTTP router holding all public routes of the plugin  privateRouter  The express HTTP router holding all private routes of the plugin (require a back end authentication)  webServiceRouter  The express HTTP router holding all Web Service routes of the plugin (require Web Service authentication)  api  The API exposed, by the plugin, to other plugins (must be an instance of  PluginApi )  init  A method part of the  plugin's life cycle , automatically called by the core before starting the servers  start  A method part of the  plugin's life cycle , automatically called by the core after the init step   All these properties are optional.",
+            "title": "Plugin class"
+        },
+        {
+            "location": "/structure/#plugin-api",
+            "text": "A plugin can expose APIs to other plugins by creating a class extending the PluginApi class.  Locate file  app/server/PLUGIN_NAMEPluginApi.js .  PLUGIN_NAMEPluginApi.js  extends  PluginApi . All methods and properties will be exposed to other plugins through the  api  property of the Plugin.",
+            "title": "Plugin API"
+        },
+        {
+            "location": "/structure/#resources",
+            "text": "All files inside  assets  directory are served by the HTTP server as they are. You can put here images, front JavaScript files, CSS files and so on. The core will mount this directory on  /PLUGIN_NAME/ , thus to access image  assets/test.jpg  you have to call  /PLUGIN_NAME/test.jpg .",
+            "title": "Resources"
+        },
+        {
+            "location": "/plugin-life-cycle/",
+            "text": "Plugin's life cycle\n\n\nWhen starting the OpenVeo process, the core will automatically execute methods of plugins in the following order:\n\n\n\n\ninit\n When called, core API is available, connection to database has been established, plugins are loaded and migrations scripts have been executed. This is a good place to create database indexes for all providers of the plugin and do some init stuff\n\n\nstart\n When called, init steps have been performed on all plugins",
+            "title": "Plugin life cycle"
+        },
+        {
+            "location": "/plugin-life-cycle/#plugins-life-cycle",
+            "text": "When starting the OpenVeo process, the core will automatically execute methods of plugins in the following order:   init  When called, core API is available, connection to database has been established, plugins are loaded and migrations scripts have been executed. This is a good place to create database indexes for all providers of the plugin and do some init stuff  start  When called, init steps have been performed on all plugins",
+            "title": "Plugin's life cycle"
+        },
+        {
+            "location": "/hooks/",
+            "text": "Hooks\n\n\nOpenVeo core and plugins may define hooks which you can use to execute an action when a hook is called. Hooks on OpenVeo are more like events waiting for all actions to be complete. Hook actions are executed in the order of registration.\n\n\nRegister an action to an existing hook\n\n\nTo add an action to an existing hook do it in the \ninit step\n of the \nplugin's life cycle\n:\n\n\nMyPlugin.prototype.init = function() {\n\n  // First get the plugin API defining the hook you want to listen to\n  var coreApi = process.api.getCoreApi();\n\n  // Get the list of hooks from the plugin\n  var CORE_HOOKS = coreApi.getHooks();\n\n  // Register an action on a hook\n  // CORE_HOOKS.ROLES_DELETED hook gives the list of deleted role ids as parameter and the\n  // function to call when action is done\n  coreApi.registerAction(CORE_HOOKS.ROLES_DELETED, function(ids, callback) {\n    console.log(ids);\n    console.log('Do something');\n    callback();\n  });\n\n};\n\n\n\n\nCreate a hook for other plugins\n\n\nTo create a hook which could be handled by other plugins do as follow:\n\n\n// Get the API of your plugin\nvar api = process.api.getApi('my-plugin');\n\n// Define data to send to actions\nvar data = {};\n\n// Execute all actions registered to the hook\napi.executeHook(api.getHooks().MY_CUSTOM_HOOK, data, function(error) {\n  console.log('All actions of the hook done if no error');\n});",
+            "title": "Hooks"
+        },
+        {
+            "location": "/hooks/#hooks",
+            "text": "OpenVeo core and plugins may define hooks which you can use to execute an action when a hook is called. Hooks on OpenVeo are more like events waiting for all actions to be complete. Hook actions are executed in the order of registration.",
+            "title": "Hooks"
+        },
+        {
+            "location": "/hooks/#register-an-action-to-an-existing-hook",
+            "text": "To add an action to an existing hook do it in the  init step  of the  plugin's life cycle :  MyPlugin.prototype.init = function() {\n\n  // First get the plugin API defining the hook you want to listen to\n  var coreApi = process.api.getCoreApi();\n\n  // Get the list of hooks from the plugin\n  var CORE_HOOKS = coreApi.getHooks();\n\n  // Register an action on a hook\n  // CORE_HOOKS.ROLES_DELETED hook gives the list of deleted role ids as parameter and the\n  // function to call when action is done\n  coreApi.registerAction(CORE_HOOKS.ROLES_DELETED, function(ids, callback) {\n    console.log(ids);\n    console.log('Do something');\n    callback();\n  });\n\n};",
+            "title": "Register an action to an existing hook"
+        },
+        {
+            "location": "/hooks/#create-a-hook-for-other-plugins",
+            "text": "To create a hook which could be handled by other plugins do as follow:  // Get the API of your plugin\nvar api = process.api.getApi('my-plugin');\n\n// Define data to send to actions\nvar data = {};\n\n// Execute all actions registered to the hook\napi.executeHook(api.getHooks().MY_CUSTOM_HOOK, data, function(error) {\n  console.log('All actions of the hook done if no error');\n});",
+            "title": "Create a hook for other plugins"
+        },
+        {
+            "location": "/template-engine/",
+            "text": "OpenVeo uses \nMustache\n as the template engine. You have to declare a directory containing your template files before using a mustache template file. You can do it in \nconf.js\n file.\n\n\nThen you can call the template using \nrender express function\n in your controller's actions.",
+            "title": "Template engine"
+        },
+        {
+            "location": "/back-end/",
+            "text": "Introduction\n\n\nOpenVeo back end is an \nAngularJS\n single page application served on \n/be\n. That's why OpenVeo Plugins must write their back end pages using AngularJS whereas there is no restriction on front end pages implementation.\n\n\nAs you can see in the generated plugin, an AngularJS module is already written, thus all you have to do is to write new routes and implement your custom back end pages. OpenVeo core offers some features as factories, services, filters and directives that you can use to ease your plugin's development. See \nOpenVeo core documentation\n for more details.\n\n\nAdd a back end page\n\n\nLet's pretend we want to add a new back end page to a \nlibrary\n plugin.\n\n\nConfigure back end menu\n\n\nAs described in \nconf.js documentation\n you can add a page to the back end.\n\n\nOpen \nconf.js\n file and add a new back end page.\n\n\nbackOffice: {\n  menu: [\n    {\n      weight: -50,\n      label: 'Library',\n      subMenu: [\n        {\n          label: 'Book info',\n          path: 'library/bookInfo',\n          permission: 'library-access-book-page'\n        }\n      ]\n    }\n  ]\n}\n\n\n\n\nWe defined a new menu entry for our plugin with \nLibrary\n as a label and a sub menu with one item named \nBook info\n which requires \nlibrary-access-book-page\n permission to see the page. For now there is nothing being the AngularJS route \nlibrary/bookInfo\n. Let's create the route.\n\n\nAdd an AngularJS back end route\n\n\nAs OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.\n\n\nOpen file \napp/client/admin/js/ovLibrary/BookApp.js\n. You can see the AngularJS module corresponding to the plugin. Add the new route:\n\n\n// Add route /library/bookInfo\n$routeProvider.when('/library/bookInfo', {\n  templateUrl: '/library/be/views/bookInfo.html',\n  controller: 'LibraryBookController',\n  title: 'Book page title',\n  access: 'library-access-book-page',\n  resolve: {\n    book: ['$q', function($q) {\n      var p = $q.defer();\n      p.resolve({\n        title: 'Journey to the center of the earth',\n        summary: 'The story begins in May 1863, in the Lidenbrock house in Hamburg, Germany, with Professor Lidenbrock rushing home to peruse his latest purchase, an original runic manuscript of an Icelandic saga written by Snorri Sturluson (\"Heimskringla\"; the chronicle of the Norwegian kings who ruled over Iceland).'\n      });\n      return p.promise;\n    }]\n  }\n});\n\n\n\n\nWe defined a new route \n/library/bookInfo\n with a template, a controller, a page title and a permission to access the page. Let's create the controller and the template.\n\n\nAdd back end page controller\n\n\nCreate a file \napp/client/admin/js/ovLibrary/BookController.js\n:\n\n\n'use strict';\n\n(function(app) {\n\n  /**\n   * Defines a book controller.\n   */\n  function BookController($scope, book) {\n    $scope.title = book.title;\n    $scope.summary = book.summary;\n  }\n\n  app.controller('LibraryBookController', BookController);\n  BookController.$inject = ['$scope', 'book'];\n\n})(angular.module('ov.library'));\n\n\n\n\nOpen \nconf.js\n file and add the newly created file to the list of files to be loaded by OpenVeo:\n\n\nbackOffice: {\n  scriptFiles: {\n    base: [],\n    dev: [\n      '/library/ovLibrary/BookController.js'\n    ]\n  }\n}\n\n\n\n\nAdd back end page template\n\n\nCreate a file \nassert/be/views/bookInfo.html\n:\n\n\n<h1 ng-bind=\"title\"></h1>\n<p ng-bind=\"summary\"></p>",
+            "title": "Back end AngularJS"
+        },
+        {
+            "location": "/back-end/#introduction",
+            "text": "OpenVeo back end is an  AngularJS  single page application served on  /be . That's why OpenVeo Plugins must write their back end pages using AngularJS whereas there is no restriction on front end pages implementation.  As you can see in the generated plugin, an AngularJS module is already written, thus all you have to do is to write new routes and implement your custom back end pages. OpenVeo core offers some features as factories, services, filters and directives that you can use to ease your plugin's development. See  OpenVeo core documentation  for more details.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/back-end/#add-a-back-end-page",
+            "text": "Let's pretend we want to add a new back end page to a  library  plugin.",
+            "title": "Add a back end page"
+        },
+        {
+            "location": "/back-end/#configure-back-end-menu",
+            "text": "As described in  conf.js documentation  you can add a page to the back end.  Open  conf.js  file and add a new back end page.  backOffice: {\n  menu: [\n    {\n      weight: -50,\n      label: 'Library',\n      subMenu: [\n        {\n          label: 'Book info',\n          path: 'library/bookInfo',\n          permission: 'library-access-book-page'\n        }\n      ]\n    }\n  ]\n}  We defined a new menu entry for our plugin with  Library  as a label and a sub menu with one item named  Book info  which requires  library-access-book-page  permission to see the page. For now there is nothing being the AngularJS route  library/bookInfo . Let's create the route.",
+            "title": "Configure back end menu"
+        },
+        {
+            "location": "/back-end/#add-an-angularjs-back-end-route",
+            "text": "As OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.  Open file  app/client/admin/js/ovLibrary/BookApp.js . You can see the AngularJS module corresponding to the plugin. Add the new route:  // Add route /library/bookInfo\n$routeProvider.when('/library/bookInfo', {\n  templateUrl: '/library/be/views/bookInfo.html',\n  controller: 'LibraryBookController',\n  title: 'Book page title',\n  access: 'library-access-book-page',\n  resolve: {\n    book: ['$q', function($q) {\n      var p = $q.defer();\n      p.resolve({\n        title: 'Journey to the center of the earth',\n        summary: 'The story begins in May 1863, in the Lidenbrock house in Hamburg, Germany, with Professor Lidenbrock rushing home to peruse his latest purchase, an original runic manuscript of an Icelandic saga written by Snorri Sturluson (\"Heimskringla\"; the chronicle of the Norwegian kings who ruled over Iceland).'\n      });\n      return p.promise;\n    }]\n  }\n});  We defined a new route  /library/bookInfo  with a template, a controller, a page title and a permission to access the page. Let's create the controller and the template.",
+            "title": "Add an AngularJS back end route"
+        },
+        {
+            "location": "/back-end/#add-back-end-page-controller",
+            "text": "Create a file  app/client/admin/js/ovLibrary/BookController.js :  'use strict';\n\n(function(app) {\n\n  /**\n   * Defines a book controller.\n   */\n  function BookController($scope, book) {\n    $scope.title = book.title;\n    $scope.summary = book.summary;\n  }\n\n  app.controller('LibraryBookController', BookController);\n  BookController.$inject = ['$scope', 'book'];\n\n})(angular.module('ov.library'));  Open  conf.js  file and add the newly created file to the list of files to be loaded by OpenVeo:  backOffice: {\n  scriptFiles: {\n    base: [],\n    dev: [\n      '/library/ovLibrary/BookController.js'\n    ]\n  }\n}",
+            "title": "Add back end page controller"
+        },
+        {
+            "location": "/back-end/#add-back-end-page-template",
+            "text": "Create a file  assert/be/views/bookInfo.html :  <h1 ng-bind=\"title\"></h1>\n<p ng-bind=\"summary\"></p>",
+            "title": "Add back end page template"
+        },
+        {
+            "location": "/tutorial/",
+            "text": "Introduction\n\n\nLet's pretend we want to create a plugin called \nlibrary\n to manage a list of books.\n\n\nCreate the plugin\n\n\nCreate the plugin using the Yeoman generator. Name it \nlibrary\n.\n\n\nyo openveo-plugin library\n\n\n\nRestart server\n\n\nEach time you modify a plugin \nconf.js\n or server sources, you need to restart your server to load your changes.\nBest practice in developpement is to use a source watcher to reload automatically your server each time you save a file.\n\n\nYou can use \nNodemon\n or \nPM2\n\n\n\n\nENTITY\n\n\nCreate an entity\n\n\nLet's pretend we want to create an entity called \nbooks\n. An entity is a content with built-in CRUD (Create Read Update Delete) operations.\n\n\nDeclare the entity\n\n\nFrom the root of the \nlibrary\n plugin locate the file \nconf.js\n and defines a new entity \nbooks\n:\n\n\nentities: {\n  books: 'app/server/controllers/BooksController'\n}\n\n\n\n\nThat's all for the conf.js file. Note that no routes and no permissions need to be created. OpenVeo will create the following HTTP routes for you:\n\n\nPrivate HTTP routes :\n\n\n\n\nget /be/library/books/:id\n - Get a particular book\n\n\nget /be/library/books\n - Get all books\n\n\npost /be/library/books/:id\n - Update a particular book\n\n\nput /be/library/books\n - Add a new book\n\n\ndelete /be/library/books/:id\n - Delete a book\n\n\n\n\nWeb Service end points :\n\n\n\n\nget /library/books/:id\n - Get a particular book\n\n\nget /library/books\n - Get all books\n\n\npost /library/books/:id\n - Update a particular book\n\n\nput /library/books\n - Add a new book\n\n\ndelete /library/books/:id\n - Delete a book\n\n\n\n\nOpenVeo will also automatically create the following permissions:\n\n\n\n\nLIBRARY.PERMISSIONS.GROUP_BOOKS\n\n\nLIBRARY.PERMISSIONS.ADD_BOOKS_NAME\n\n\nLIBRARY.PERMISSIONS.UPDATE_BOOKS_NAME\n\n\nLIBRARY.PERMISSIONS.DELETE_BOOKS_NAME\n\n\n\n\nAn entity must be associated to a controller and a provider. Let's create them.\n\n\nCreate entity controller\n\n\nCreate file \napp/server/controllers/BooksController.js\n:\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar BooksProvider = process.requireLibrary('app/server/providers/BooksProvider.js');\n\n/**\n * Creates a BooksController.\n */\nfunction BooksController(database) {\n  BooksController.super_.call(this);\n}\n\nmodule.exports = BooksController;\nutil.inherits(BooksController, openVeoApi.controllers.EntityController);\n\n/**\n * Gets an instance of the BooksProvider.\n *\n * @method getProvider\n * @return {BooksProvider} The BooksProvider instance\n */\nBooksController.prototype.getProvider = function() {\n  var database = process.api.getCoreApi().getDatabase();\n  return new BooksProvider(database);\n};\n\n// You should consider overriding the following methods from EntityController:\n// BooksController.prototype.getEntitiesAction\n// BooksController.prototype.getEntityAction\n// BooksController.prototype.updateEntityAction\n// BooksController.prototype.addEntitiesAction\n// BooksController.prototype.removeEntitiesAction\n\n\n\n\nA controller associated to an entity must inherits from \nEntityController\n and implements the \ngetProvider\n method. All routes actions are handled by the EntityController. However it is recommended to override these actions to control incoming request parameters.\n\n\nCreate entity provider\n\n\nCreate file \napp/server/providers/BooksProvider.js\n:\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a BooksProvider.\n */\nfunction BooksProvider(database) {\n  BooksProvider.super_.call(this, database, 'library_books');\n}\n\n// BookProvider must extend EntityProvider\nmodule.exports = BooksProvider;\nutil.inherits(BooksProvider, openVeoApi.providers.EntityProvider);\n\n\n\n\nA provider associated to an entity must inherits from \nEntityProvider\n. EntityProvider provides methods to interact with the storage to manipulate the entity (CRUD). The EntityProvider expects the database instance as the first parameter. You can get the current database instance using:\n\n\nvar database = process.api.getCoreApi().getDatabase();\n\n\n\n\nEntityProvider expects, as second parameter, the name of the database collection to use for your entity. A best practice is to prefix the collection by the name of the plugin.\n\n\n\n\nPUBLIC PAGES\n\n\nCreate a public page to display a book\n\n\nLet's pretend we want to add a public page to display information about a book.\n\n\nAdd the HTTP route to display the book\n\n\nFrom the root of the \nlibrary\n plugin locate the file \nconf.js\n.\n\n\nmodule.exports = {\n  http: {\n    routes: {\n      public: {\n        'get /books/:id/read': 'app/server/controllers/BooksController.displayBookAction'\n      }\n    }\n  }\n};\n\n\n\n\nRequesting \n/library/books/1/read\n will call the \ndisplayBookAction\n method of the \nBooksController\n.\n\n\nAs a reminder:\n\n\n\n\npublic HTTP routes will be mounted on \n/library/\n\n\nprivate HTTP routes will be mounted on \n/be/library/\n\n\nweb service routes will be mounted on \n/library/\n (on Web Service's server)\n\n\n\n\nCreate the route action\n\n\nPublic route \n/library/books/:id/read\n has been configured to call the  \ndisplayBookAction\n method of the \nBooksController\n. Let's create the \ndisplayBookAction\n method.\n\n\nOpen the \napp/server/controllers/BooksController.js\n and add the following code at the end of the file:\n\n\n/**\n * Displays a book.\n */\nBooksController.prototype.displayBookAction = function(request, response, next) {\n  var params = null;\n\n  // Validate request parameters\n  try {\n    params = openVeoApi.util.shallowValidateObject(request.params, {\n      id: {type: 'string', required: true}\n    });\n  } catch (error) {\n    return next({\n      code: 0x001,\n      httpCode: 400,\n      module: 'book'\n    });\n  }\n\n  // Retrieve book\n  var booksProvider = this.getProvider();\n  booksProvider.getOne(new ResourceFilter().equal('id', params.id), null, function(error, book) {\n\n    // Display template book.html (created on the next step) using Mustache template\n    response.render('book', book);\n\n  });\n\n};\n\n\n\n\nFor now our public route \n/library/books/:id/read\n isn't working because the \ndisplayBookAction\n method renders a template called \nbook.html\n which is not created yet. Let's create it.\n\n\nCreate the view\n\n\nCreate a file \napp/client/front/views/book.html\n:\n\n\n<!DOCTYPE html>\n<html>\n  <body>\n    <div>\n      <h1>{{title}}</h1>\n      <p>{{summary}}</p>\n    </div>\n  </body>\n</html>\n\n\n\n\nFor now our public route is still not working because Mustache template engine doesn't know where to find templates. Let's tell him.\n\n\nSet template's directory\n\n\nAdd the \napp/client/front/views\n directory to the list of directories handled by Mustache template engine (in \nconf.js\n file):\n\n\nviewsFolders: [\n  'app/client/front/views'\n]\n\n\n\n\nYou can now restart OpenVeo and navigate to \n/library/books/1/read\n to display the book of id \n1\n.\n\n\n\n\nBACK END PAGES\n\n\nCreate a back end page to display book information\n\n\nLet's pretend we want to add a private page (back end page) to display information about a book.\n\n\nConfigure back end menu\n\n\nAs described in \nconf.js documentation\n you can add a page to the back end.\n\n\nOpen \nconf.js\n file and add a new back end page.\n\n\nbackOffice: {\n  menu: [\n    {\n      weight: -50,\n      label: 'LIBRARY.MENU.LIBRARY',\n      subMenu: [\n        {\n          label: 'LIBRARY.MENU.BOOK',\n          path: 'library/bookInfo',\n          permission: 'library-access-book-page'\n        }\n      ]\n    }\n  ]\n}\n\n\n\n\nWe defined a new menu entry for our plugin with label \nLIBRARY.MENU.LIBRARY\n (translation id) and a sub menu with one item named \nLIBRARY.MENU.BOOK\n (translation id) which requires \nlibrary-access-book-page\n permission to see the page. For now there is nothing being the AngularJS route \nlibrary/bookInfo\n. Let's create the route.\n\n\nAdd an AngularJS back end route\n\n\nAs OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.\n\n\nFrom the root of the \nlibrary\n plugin locate the file \napp/client/admin/js/ovLibrary/BookApp.js\n. You can see the AngularJS module corresponding to the plugin. Add the new route:\n\n\n// Add route /library/bookInfo\n$routeProvider.when('/library/bookInfo', {\n  templateUrl: '/library/be/views/bookInfo.html',\n  controller: 'LibraryBookController',\n  title: 'LIBRARY.BOOK.PAGE_TITLE',\n  access: 'library-access-book-page',\n  resolve: {\n    book: ['$q', function($q) {\n      var p = $q.defer();\n      p.resolve({\n        title: 'Journey to the center of the earth',\n        summary: 'The story begins in May 1863, in the Lidenbrock house in Hamburg, Germany, with Professor Lidenbrock rushing home to peruse his latest purchase, an original runic manuscript of an Icelandic saga written by Snorri Sturluson (\"Heimskringla\"; the chronicle of the Norwegian kings who ruled over Iceland).'\n      });\n      return p.promise;\n    }]\n  }\n});\n\n\n\n\nWe defined a new route \n/library/bookInfo\n with a template, a controller, a page title and a permission to access the page. Let's create the controller, the template and the title translation.\n\n\nAdd back end page controller\n\n\nCreate a file \napp/client/admin/js/ovLibrary/BookController.js\n:\n\n\n'use strict';\n\n(function(app) {\n\n  /**\n   * Defines a book controller.\n   */\n  function BookController($scope, book) {\n    $scope.title = book.title;\n    $scope.summary = book.summary;\n  }\n\n  app.controller('LibraryBookController', BookController);\n  BookController.$inject = ['$scope', 'book'];\n\n})(angular.module('ov.library'));\n\n\n\n\nOpen \nconf.js\n file and add the newly created file to the list of files to be loaded by OpenVeo:\n\n\nbackOffice: {\n  scriptFiles: {\n    base: [],\n    dev: [\n      '/library/ovLibrary/BookController.js'\n    ]\n  }\n}\n\n\n\n\nAdd back end page template\n\n\nCreate a file \nassert/be/views/bookInfo.html\n:\n\n\n<h1 ng-bind=\"title\"></h1>\n<p ng-bind=\"summary\"></p>\n\n\n\n\nAdd back end translations\n\n\nYou can translate your back end pages using the back end dictionary called \nadmin-back-office\n. Core will search for an \ni18n\n directory to look for dictionaries.\n\n\nFrom the root of the \nlibrary\n plugin locate the \ni18n\n directory. You can see french and english dictionaries for the back end (\ni18n/admin-back-office-en.json\n and \ni18n/admin-back-office-fr.json\n).\n\n\nAdd new translations in all languages (\ni18n/admin-back-office-en.json\n, \ni18n/admin-back-office-fr.json\n etc.):\n\n\n{\n  \"MENU\": {\n    \"LIBRARY\": \"Library\",\n    \"BOOK\": \"Book\"\n  },\n  \"BOOK\": {\n    \"PAGE_TITLE\": \"My book page\"\n  }\n}\n\n\n\n\nNb :\n For more information on internationalization please refer to the \ni18n documentation\n.",
+            "title": "Tutorial"
+        },
+        {
+            "location": "/tutorial/#introduction",
+            "text": "Let's pretend we want to create a plugin called  library  to manage a list of books.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/tutorial/#create-the-plugin",
+            "text": "Create the plugin using the Yeoman generator. Name it  library .  yo openveo-plugin library",
+            "title": "Create the plugin"
+        },
+        {
+            "location": "/tutorial/#restart-server",
+            "text": "Each time you modify a plugin  conf.js  or server sources, you need to restart your server to load your changes.\nBest practice in developpement is to use a source watcher to reload automatically your server each time you save a file.  You can use  Nodemon  or  PM2",
+            "title": "Restart server"
+        },
+        {
+            "location": "/tutorial/#entity",
+            "text": "",
+            "title": "ENTITY"
+        },
+        {
+            "location": "/tutorial/#create-an-entity",
+            "text": "Let's pretend we want to create an entity called  books . An entity is a content with built-in CRUD (Create Read Update Delete) operations.",
+            "title": "Create an entity"
+        },
+        {
+            "location": "/tutorial/#declare-the-entity",
+            "text": "From the root of the  library  plugin locate the file  conf.js  and defines a new entity  books :  entities: {\n  books: 'app/server/controllers/BooksController'\n}  That's all for the conf.js file. Note that no routes and no permissions need to be created. OpenVeo will create the following HTTP routes for you:  Private HTTP routes :   get /be/library/books/:id  - Get a particular book  get /be/library/books  - Get all books  post /be/library/books/:id  - Update a particular book  put /be/library/books  - Add a new book  delete /be/library/books/:id  - Delete a book   Web Service end points :   get /library/books/:id  - Get a particular book  get /library/books  - Get all books  post /library/books/:id  - Update a particular book  put /library/books  - Add a new book  delete /library/books/:id  - Delete a book   OpenVeo will also automatically create the following permissions:   LIBRARY.PERMISSIONS.GROUP_BOOKS  LIBRARY.PERMISSIONS.ADD_BOOKS_NAME  LIBRARY.PERMISSIONS.UPDATE_BOOKS_NAME  LIBRARY.PERMISSIONS.DELETE_BOOKS_NAME   An entity must be associated to a controller and a provider. Let's create them.",
+            "title": "Declare the entity"
+        },
+        {
+            "location": "/tutorial/#create-entity-controller",
+            "text": "Create file  app/server/controllers/BooksController.js :  'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar BooksProvider = process.requireLibrary('app/server/providers/BooksProvider.js');\n\n/**\n * Creates a BooksController.\n */\nfunction BooksController(database) {\n  BooksController.super_.call(this);\n}\n\nmodule.exports = BooksController;\nutil.inherits(BooksController, openVeoApi.controllers.EntityController);\n\n/**\n * Gets an instance of the BooksProvider.\n *\n * @method getProvider\n * @return {BooksProvider} The BooksProvider instance\n */\nBooksController.prototype.getProvider = function() {\n  var database = process.api.getCoreApi().getDatabase();\n  return new BooksProvider(database);\n};\n\n// You should consider overriding the following methods from EntityController:\n// BooksController.prototype.getEntitiesAction\n// BooksController.prototype.getEntityAction\n// BooksController.prototype.updateEntityAction\n// BooksController.prototype.addEntitiesAction\n// BooksController.prototype.removeEntitiesAction  A controller associated to an entity must inherits from  EntityController  and implements the  getProvider  method. All routes actions are handled by the EntityController. However it is recommended to override these actions to control incoming request parameters.",
+            "title": "Create entity controller"
+        },
+        {
+            "location": "/tutorial/#create-entity-provider",
+            "text": "Create file  app/server/providers/BooksProvider.js :  'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a BooksProvider.\n */\nfunction BooksProvider(database) {\n  BooksProvider.super_.call(this, database, 'library_books');\n}\n\n// BookProvider must extend EntityProvider\nmodule.exports = BooksProvider;\nutil.inherits(BooksProvider, openVeoApi.providers.EntityProvider);  A provider associated to an entity must inherits from  EntityProvider . EntityProvider provides methods to interact with the storage to manipulate the entity (CRUD). The EntityProvider expects the database instance as the first parameter. You can get the current database instance using:  var database = process.api.getCoreApi().getDatabase();  EntityProvider expects, as second parameter, the name of the database collection to use for your entity. A best practice is to prefix the collection by the name of the plugin.",
+            "title": "Create entity provider"
+        },
+        {
+            "location": "/tutorial/#public-pages",
+            "text": "",
+            "title": "PUBLIC PAGES"
+        },
+        {
+            "location": "/tutorial/#create-a-public-page-to-display-a-book",
+            "text": "Let's pretend we want to add a public page to display information about a book.",
+            "title": "Create a public page to display a book"
+        },
+        {
+            "location": "/tutorial/#add-the-http-route-to-display-the-book",
+            "text": "From the root of the  library  plugin locate the file  conf.js .  module.exports = {\n  http: {\n    routes: {\n      public: {\n        'get /books/:id/read': 'app/server/controllers/BooksController.displayBookAction'\n      }\n    }\n  }\n};  Requesting  /library/books/1/read  will call the  displayBookAction  method of the  BooksController .  As a reminder:   public HTTP routes will be mounted on  /library/  private HTTP routes will be mounted on  /be/library/  web service routes will be mounted on  /library/  (on Web Service's server)",
+            "title": "Add the HTTP route to display the book"
+        },
+        {
+            "location": "/tutorial/#create-the-route-action",
+            "text": "Public route  /library/books/:id/read  has been configured to call the   displayBookAction  method of the  BooksController . Let's create the  displayBookAction  method.  Open the  app/server/controllers/BooksController.js  and add the following code at the end of the file:  /**\n * Displays a book.\n */\nBooksController.prototype.displayBookAction = function(request, response, next) {\n  var params = null;\n\n  // Validate request parameters\n  try {\n    params = openVeoApi.util.shallowValidateObject(request.params, {\n      id: {type: 'string', required: true}\n    });\n  } catch (error) {\n    return next({\n      code: 0x001,\n      httpCode: 400,\n      module: 'book'\n    });\n  }\n\n  // Retrieve book\n  var booksProvider = this.getProvider();\n  booksProvider.getOne(new ResourceFilter().equal('id', params.id), null, function(error, book) {\n\n    // Display template book.html (created on the next step) using Mustache template\n    response.render('book', book);\n\n  });\n\n};  For now our public route  /library/books/:id/read  isn't working because the  displayBookAction  method renders a template called  book.html  which is not created yet. Let's create it.",
+            "title": "Create the route action"
+        },
+        {
+            "location": "/tutorial/#create-the-view",
+            "text": "Create a file  app/client/front/views/book.html :  <!DOCTYPE html>\n<html>\n  <body>\n    <div>\n      <h1>{{title}}</h1>\n      <p>{{summary}}</p>\n    </div>\n  </body>\n</html>  For now our public route is still not working because Mustache template engine doesn't know where to find templates. Let's tell him.",
+            "title": "Create the view"
+        },
+        {
+            "location": "/tutorial/#set-templates-directory",
+            "text": "Add the  app/client/front/views  directory to the list of directories handled by Mustache template engine (in  conf.js  file):  viewsFolders: [\n  'app/client/front/views'\n]  You can now restart OpenVeo and navigate to  /library/books/1/read  to display the book of id  1 .",
+            "title": "Set template's directory"
+        },
+        {
+            "location": "/tutorial/#back-end-pages",
+            "text": "",
+            "title": "BACK END PAGES"
+        },
+        {
+            "location": "/tutorial/#create-a-back-end-page-to-display-book-information",
+            "text": "Let's pretend we want to add a private page (back end page) to display information about a book.",
+            "title": "Create a back end page to display book information"
+        },
+        {
+            "location": "/tutorial/#configure-back-end-menu",
+            "text": "As described in  conf.js documentation  you can add a page to the back end.  Open  conf.js  file and add a new back end page.  backOffice: {\n  menu: [\n    {\n      weight: -50,\n      label: 'LIBRARY.MENU.LIBRARY',\n      subMenu: [\n        {\n          label: 'LIBRARY.MENU.BOOK',\n          path: 'library/bookInfo',\n          permission: 'library-access-book-page'\n        }\n      ]\n    }\n  ]\n}  We defined a new menu entry for our plugin with label  LIBRARY.MENU.LIBRARY  (translation id) and a sub menu with one item named  LIBRARY.MENU.BOOK  (translation id) which requires  library-access-book-page  permission to see the page. For now there is nothing being the AngularJS route  library/bookInfo . Let's create the route.",
+            "title": "Configure back end menu"
+        },
+        {
+            "location": "/tutorial/#add-an-angularjs-back-end-route",
+            "text": "As OpenVeo back end is written in AngularJS, each plugin has an AngularJS module to create its back end pages.  From the root of the  library  plugin locate the file  app/client/admin/js/ovLibrary/BookApp.js . You can see the AngularJS module corresponding to the plugin. Add the new route:  // Add route /library/bookInfo\n$routeProvider.when('/library/bookInfo', {\n  templateUrl: '/library/be/views/bookInfo.html',\n  controller: 'LibraryBookController',\n  title: 'LIBRARY.BOOK.PAGE_TITLE',\n  access: 'library-access-book-page',\n  resolve: {\n    book: ['$q', function($q) {\n      var p = $q.defer();\n      p.resolve({\n        title: 'Journey to the center of the earth',\n        summary: 'The story begins in May 1863, in the Lidenbrock house in Hamburg, Germany, with Professor Lidenbrock rushing home to peruse his latest purchase, an original runic manuscript of an Icelandic saga written by Snorri Sturluson (\"Heimskringla\"; the chronicle of the Norwegian kings who ruled over Iceland).'\n      });\n      return p.promise;\n    }]\n  }\n});  We defined a new route  /library/bookInfo  with a template, a controller, a page title and a permission to access the page. Let's create the controller, the template and the title translation.",
+            "title": "Add an AngularJS back end route"
+        },
+        {
+            "location": "/tutorial/#add-back-end-page-controller",
+            "text": "Create a file  app/client/admin/js/ovLibrary/BookController.js :  'use strict';\n\n(function(app) {\n\n  /**\n   * Defines a book controller.\n   */\n  function BookController($scope, book) {\n    $scope.title = book.title;\n    $scope.summary = book.summary;\n  }\n\n  app.controller('LibraryBookController', BookController);\n  BookController.$inject = ['$scope', 'book'];\n\n})(angular.module('ov.library'));  Open  conf.js  file and add the newly created file to the list of files to be loaded by OpenVeo:  backOffice: {\n  scriptFiles: {\n    base: [],\n    dev: [\n      '/library/ovLibrary/BookController.js'\n    ]\n  }\n}",
+            "title": "Add back end page controller"
+        },
+        {
+            "location": "/tutorial/#add-back-end-page-template",
+            "text": "Create a file  assert/be/views/bookInfo.html :  <h1 ng-bind=\"title\"></h1>\n<p ng-bind=\"summary\"></p>",
+            "title": "Add back end page template"
+        },
+        {
+            "location": "/tutorial/#add-back-end-translations",
+            "text": "You can translate your back end pages using the back end dictionary called  admin-back-office . Core will search for an  i18n  directory to look for dictionaries.  From the root of the  library  plugin locate the  i18n  directory. You can see french and english dictionaries for the back end ( i18n/admin-back-office-en.json  and  i18n/admin-back-office-fr.json ).  Add new translations in all languages ( i18n/admin-back-office-en.json ,  i18n/admin-back-office-fr.json  etc.):  {\n  \"MENU\": {\n    \"LIBRARY\": \"Library\",\n    \"BOOK\": \"Book\"\n  },\n  \"BOOK\": {\n    \"PAGE_TITLE\": \"My book page\"\n  }\n}  Nb :  For more information on internationalization please refer to the  i18n documentation .",
+            "title": "Add back end translations"
+        },
+        {
+            "location": "/conf/",
+            "text": "Introduction\n\n\nA consequent part of the development of plugins is made in \nconf.js\n file at plugin's root. \nconf.js\n is used to:\n\n\n\n\nMap HTTP routes on actions\n\n\nCreate entities\n\n\nDefine back end permissions\n\n\nDefine back end menu items\n\n\nLoad back end scripts\n\n\nLoad back end CSS\n\n\nSet the list of directories containing templates\n\n\nDefine image styles\n\n\nDefine Web Service scopes\n\n\nDefine socket namespaces\n\n\nDefine custom configuration\n\n\n\n\nMap HTTP routes on actions\n\n\nHTTP routes are separated into three categories : public, private and Web Service routes.\n\n\nhttp: {\n  routes: {\n    public: {\n      [...]\n    },\n    private: {\n      [...]\n    },\n    ws: {\n      [...]\n    }\n  }\n}\n\n\n\n\nRoute descriptor\n\n\nA route maps an HTTP method and a path to an action (JavaScript function).\n\n\nThe route:\n\n\n'get /test' : 'app/server/controllers/TestController.testGetAction'\n\n\n\nCan be interpreted as:\n\n\n\n\nA GET request on /test will call the function testGetAction exposed by module app/server/controllers/TestController.js\n\n\n\n\nThe route:\n\n\n'post /test' : 'app/server/controllers/TestController.testPostAction'\n\n\n\nCan be interpreted as:\n\n\n\n\nA POST request on /test will call the function testPostAction exposed by module app/server/controllers/TestController.js\n\n\n\n\nThe route:\n\n\n'/test' : 'app/server/controllers/TestController.testAllAction'\n\n\n\nCan be interpreted as:\n\n\n\n\nAll requests on /test (GET, POST, DELETE, PUT) will call the function testAllAction exposed by module app/server/controllers/TestController.js\n\n\n\n\nExample of valid routes:\n\n\nhttp: {\n  routes: {\n    public: {\n      'get /test': 'TestController.getTestAction',\n      'post /test': 'TestController.postTestAction',\n      'put /test': 'TestController.putTestAction',\n      '/test': 'TestController.allTestAction'\n    }\n  }\n}\n\n\n\n\nGroup routes\n\n\nYou can group actions by routes:\n\n\nhttp: {\n  routes: {\n    public: {\n      '*': [\n        'TestController.allFirstAction',\n        'TestController.allSecondAction'\n      ]\n    }\n  }\n}\n\n\n\n\nRoute parameters\n\n\nYou can add parameters using colon character:\n\n\nhttp: {\n  routes: {\n    public: {\n      'DELETE /test/:id': 'TestController.deleteTestAction'\n    }\n  }\n}\n\n\n\n\nCreate TestController\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a TestController.\n */\nfunction TestController() {\n  TestController.super_.call(this);\n}\n\nmodule.exports = TestController;\nutil.inherits(TestController, openVeoApi.controllers.Controller);\n\n/**\n * Defines an example action.\n *\n * @param {Object} request Express HTTP request\n * @param {Object} response Express HTTP response\n * @param {Function} next Express next function to move on the next middleware\n */\nTestController.prototype.exampleAction = function(request, response, next) {\n  response.status(200).send('ok');\n};\n\n\n\n\n\nDefine socket namespaces\n\n\nSocket namespaces are mounted on the OpenVeo Socket server to listen to Socket messages.\n\n\nCreate a socket namespace\n\n\nYou can define new namespaces for the Socket server in \nconf.js\n.\n\nNamespaces are separated into two categories: public and private namespaces.\n\nLet's pretend we want to create a public and a private namespace for a \nlibrary\n plugin.\n\n\nsocket: {\n  namespaces: {\n    public: { // Public namespaces can be accessed by anyone\n      'public-namespace': {\n        [...] // Namespace messages descriptors\n      }\n    },\n    private: { // Private namespaces require a back end authentication\n      'private-namespace': {\n        [...] // Namespace messages descriptors\n      }\n    }\n  }\n}\n\n\n\n\nMessage descriptor\n\n\nA socket message maps a message to an action (JavaScript function).\n\n\nThe message:\n\n\n'my.test.message' : 'app/server/controllers/TestController.testMessageAction'\n\n\n\nCan be interpreted as:\n\n\n\n\nA socket message 'my.test.message' will call the function testMessageAction exposed by module app/server/controllers/TestSocketController.js\n\n\n\n\nThe following messages are automatically sent by the socket server and does not need to be send by the socket client:\n\n\n\n\nconnection\n Client is connected to the socket server\n\n\ndisconnect\n Client has been disconnected from the socket server\n\n\nerror\n An error occurred in client / server connection\n\n\n\n\nLet's pretend we want to handle the default messages and custom messages in our \npublic-namespace\n namespace:\n\n\n'public-namespace': {\n  connection: 'app/server/controllers/TestSocketController.connectAction',\n  disconnect: 'app/server/controllers/TestSocketController.disconnectAction',\n  error: 'app/server/controllers/TestSocketController.errorAction',\n  customMessage1: 'app/server/controllers/TestSocketController.customMessage1Action',\n  customMessage2: 'app/server/controllers/TestSocketController.customMessage2Action'\n}\n\n\n\n\nCreate TestSocketController\n\n\nCreate a file \napp/server/controllers/TestSocketController.js\n:\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar coreApi = process.api.getCoreApi();\n\n/**\n * Creates a TestSocketController.\n *\n * @param {SocketNamespace} The namespace associated to this socket controller.\n */\nfunction TestSocketController(namespace) {\n  TestSocketController.super_.call(this, namespace);\n}\n\nmodule.exports = TestSocketController;\nutil.inherits(TestSocketController, openVeoApi.controllers.SocketController);\n\n/**\n * Handles socket's connection.\n *\n * Socket's connection has been established with a client.\n *\n * @method connectAction\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.connectAction = function(socket) {\n  console.log('Client connected');\n};\n\n/**\n * Handles socket's disconnection.\n *\n * Connection with client has been lost.\n *\n * @method disconnectAction\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.disconnectAction = function(socket) {\n  console.log('Client disconnected');\n};\n\n/**\n * Handles socket's connection errors.\n *\n * An error occurred on socket's communication.\n *\n * @method errorAction\n * @param {Error} error The error\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.errorAction = function(error, socket) {\n  console.log(error);\n};\n\n/**\n * Defines customMessage1 action.\n *\n * @param {Object} data Socket message's datas\n * @param {Socket} socket The opened socket\n * @param {Function} callback The callback to respond to the client\n */\nTestSocketController.prototype.customMessage1Action = function(data, socket, callback) {\n\n  // Send a response to the client\n  callback({\n    property1: 'value1'\n  });\n\n};\n\n/**\n * Defines customMessage2 action.\n *\n * @param {Object} data Socket message's datas\n * @param {Socket} socket The opened socket\n * @param {Function} callback The callback to respond to the client\n */\nTestSocketController.prototype.customMessage2Action = function(data, socket, callback) {\n\n  // Send a message on all namespace's clients\n  this.namespace.emit('test.response', {\n    property2: 'value2'\n  });\n\n};\n\n\n\n\n\nUse socket namespace\n\n\nWe created a socket namespace \npublic-namespace\n for the \nlibrary\n plugin. Namespace is now available on the socket server and is mounted on \n/library/public-namespace\n. All socket messages sent to this namespace will be routed to actions defined in \nconf.js\n file.\n\n\nCreate entities\n\n\nEntities are elements subject to CRUD (\nC\nreate \nR\nead \nU\npdate \nD\nelete). For example, OpenVeo core defines 5 entities:\n\n\n\n\napplications - Web Service client applications\n\n\nusers - Back end users\n\n\nroles - Back end roles\n\n\ngroups - Groups\n\n\ntaxonomies - Taxonomies with associated terms\n\n\n\n\nEach entity will automatically have 3 associated back end permissions : add, update and delete.\n\nTo create a new entity you need to create an EntityController and an EntityProvider.\n\nLet's say we want to create a new entity called \nbooks\n on a plugin named \nlibrary\n.\n\n\nCreate entity provider\n\n\nCreate a file \napp/server/providers/BooksProvider.js\n:\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a BooksProvider.\n */\nfunction BooksProvider(database) {\n  BooksProvider.super_.call(this, database, 'library_books');\n}\n\n// BookProvider must extend EntityProvider\nmodule.exports = BooksProvider;\nutil.inherits(BooksProvider, openVeoApi.providers.EntityProvider);\n\n\n\n\nCreate entity controller\n\n\nCreate a file \napp/server/controllers/BooksController.js\n:\n\n\n'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar BooksProvider = process.requireBook('app/server/providers/BooksProvider.js');\n\n/**\n * Creates a BooksController.\n */\nfunction BooksController(database) {\n  BooksController.super_.call(this);\n}\n\nmodule.exports = BooksController;\nutil.inherits(BooksController, openVeoApi.controllers.EntityController);\n\n/**\n * Gets an instance of the BooksProvider.\n *\n * @method getProvider\n * @return {BooksProvider} The BooksProvider instance\n */\nBooksController.prototype.getProvider = function() {\n  var database = process.api.getCoreApi().getDatabase();\n  return new BooksProvider(database);\n};\n\n\n\n\nDeclare entity\n\n\nYou can now declare your entity in \nconf.js\n:\n\n\nentities: {\n  books: 'app/server/controllers/BooksController'\n}\n\n\n\n\nUse the entity\n\n\nNow that your entity \nbooks\n is created you can see the 3 new permissions in the back end (add, update and delete). You can also perform CRUD operations on your entity using the following private routes (with a user connected to the back end):\n\n\n\n\nget /be/library/books/:id\n - Get a particular book\n\n\nget /be/library/books\n - Get all books\n\n\npost /be/library/books/:id\n - Update a particular book\n\n\nput /be/library/books\n - Add a new book\n\n\ndelete /be/library/books/:id\n - Delete a book\n\n\n\n\nFinally you can perform CRUD operations on your entity using the Web Service (with a user connected to the Web Service) using the following end points:\n\n\n\n\nget /library/books/:id\n - Get a particular book\n\n\nget /library/books\n - Get all books\n\n\npost /library/books/:id\n - Update a particular book\n\n\nput /library/books\n - Add a new book\n\n\ndelete /library/books/:id\n - Delete a book\n\n\n\n\nDefine back end permissions\n\n\nEach role can have n associated permissions. Permissions are described in \nconf.js\n:\n\n\npermissions: [\n  [...]\n]\n\n\n\n\nCreate a permission\n\n\nLet's create new permissions \"sell\" and \"buy\" to sell / buy books.\n\n\npermissions: [\n  {\n    id: 'library-sell-books', // Permission id\n    name: 'Sell', // Permission name\n    description: 'Sell books', // Permission description\n    paths: [ // List of routes descriptors associated to the permission\n      'get /library/books/sell*'\n    ]\n  },\n  {\n    id: 'library-buy-books', // Permission id\n    name: 'Buy', // Permission name\n    description: 'Buy books', // Permission description\n    paths: [ // List of routes descriptors associated to the permission\n      'get /library/books/buy*'\n    ]\n  }\n]\n\n\n\n\nGroup permissions\n\n\nYou can group permissions to organize the list of permissions in the back end.\n\n\nNb\n: Actually OpenVeo only supports one sub level\n\n\npermissions: [\n  {\n    label: 'Library', // Group label\n    permissions: [ // List of permission in the group\n      {\n        id: 'library-sell-books',\n        name: 'Sell',\n        description: 'Sell books',\n        paths: [\n          'get /library/books/sell*'\n        ]\n      },\n      {\n        id: 'library-buy-books',\n        name: 'Buy',\n        description: 'Buy books',\n        paths: [\n          'get /library/books/buy*'\n        ]\n      }\n    ]\n  }\n]\n\n\n\n\nUse permissions\n\n\nYou can assign your permission to a role through the back end or manipulate the permission using \nback end client\n (AngularJS application).\n\n\nDefine back end menu items\n\n\nBack end menu items are described in \nconf.js\n:\n\n\nbackOffice: {\n  menu: [\n    [...]\n  ]\n}\n\n\n\n\nAdd a menu item\n\n\nLet's create two new back end menu items.\n\n\nbackOffice: {\n  menu: [\n    {\n      weight: -5,\n      label: 'Sell books', // Menu item name\n      path: 'library/books/sell-books', // Menu item path\n      permission: 'library-sell-books' // Menu item associated permission\n    },\n    {\n      weight: -6,\n      label: 'Buy books', // Menu item name\n      path: 'library/books/buy-books', // Menu item path\n      permission: 'library-buy-books' // Menu item associated permission\n    }\n  ]\n}\n\n\n\n\nweight\n property helps order menu items, the larger the weight is, the better will be the item position.\n\n\npath\n defines the AngularJS root path (see \nback end client\n)\n\n\npermission\n associates a permission to the menu item, if the connected user doesn't have that permission the item won't be displayed\n\n\nGroup menu items\n\n\nYou can group menu items as sub menu items.\n\n\nNb\n : Actually OpenVeo only supports one sub level of menu items\n\n\nbackOffice: {\n  menu: [\n    {\n      weight: 100, // Position of the item in the menu\n      label: 'Books', // Name of the menu item\n      subMenu: [ // List of sub menu items\n        {\n          label: 'Sell books',\n          path: 'library/books/sell-books',\n          permission: 'library-sell-books'\n        },\n        {\n          label: 'Buy books',\n          path: 'library/books/buy-books',\n          permission: 'book-buy-books'\n        }\n      ]\n    }\n  ]\n}\n\n\n\n\nBack end scripts\n\n\nThe list of JavaScript files to load for the AngularJS back end application are defined in \nconf.js\n:\n\n\nbackOffice: {\n  scriptLibFiles: { // List of back end JavaScript files to load first\n    base: [ // List of scripts to load on both development and production environments\n      [...]\n    ],\n    dev: [ // List of scripts to load on development environment\n      [...]\n    ],\n    prod: [ // List of script to load on production environment\n      [...]\n    ]\n  },\n  scriptFiles: { // List of back end JavaScript files to load next\n    base: [ // List of scripts to load on both development and production environments\n      [...]\n    ],\n    dev: [ // List of scripts to load on development environment\n      [...]\n    ],\n    prod: [ // List of script to load on production environment\n      [...]\n    ]\n  }\n}\n\n\n\n\nBack end CSS\n\n\nThe list of CSS files to load for the AngularJS back end application are defined in \nconf.js\n:\n\n\nbackOffice: {\n  cssFiles: [ // List of CSS to load\n    [...]\n  ]\n}\n\n\n\n\nList of directories containing templates\n\n\nOpenVeo uses \nMustache\n as the template engine. Mustache requires directories where to look for potential templates. The list of directories is defined in \nconf.js\n:\n\n\nviewsFolders: [ // List of directories holding mustache templates\n  [...]\n]\n\n\n\n\nDefine image styles\n\n\nYou can define image styles in \nconf.js\n:\n\n\nimageProcessing: {\n  folders: [ // List of folders which contain images to process on demand\n    {\n      imagesDirectory: 'example/images', // Path of the directory containing images to process relative to project root directory\n      cacheDirectory: 'example/images/.cache' // Path of the directory containing processed images relative to project root directory (default to {imagesDirectory}/.cache)\n    }\n  ],\n  styles: [ // The list of style definitions\n    {\n      id: 'book-style', // Id of the style to apply when requesting an image processing\n      type: 'thumb', // The type of transformation to apply (only \"thumb\" is available right now)\n      width: 200, // Expected width (in px) of the image (default to 10)\n      quality: 50 // Expected quality from 0 to 100 (default to 90 with 100 the best)\n    }\n  }\n}\n\n\n\n\nThen you can call the image with your custom style \nbook-style\n:\n\n\n<img src=\"book/example/images/image1.jpg?style=book-style\"/>\n\n\n\n\nNote that the original image is still available:\n\n\n<img src=\"book/example/images/image1.jpg\"/>\n\n\n\n\nDefine custom configuration\n\n\nYou can define a custom configuration object in \nconf.js\n:\n\n\ncustom: {\n  customProperty1: 'customValue1',\n  customProperty2: 2\n}\n\n\n\n\nNb:\n Custom configuration won't be interpreted but can be retrieved later using OpenVeo API. You can use it as you like.\n\n\nDefine Web Service scopes\n\n\nYou can define Web Service scopes in \nconf.js\n:\n\n\nwebServiceScopes: [\n  {\n    id: 'library-scopeId',\n    name: 'Scope name',\n    description: 'Scope description',\n    paths: [\n      'get /library/books/sell',\n      'get /library/books/buy'\n    ]\n  }\n]\n\n\n\n\nA scope is defined by an id, a name, a description and a list of authorized paths for a Web Service application who has access to this scope.\n\nRoutes like \n/library/books/sell\n or \n/library/books/buy\n will be available for a Web Service application with the scope \nlibrary-scopeId\n in the above example.",
+            "title": "conf.js"
+        },
+        {
+            "location": "/conf/#introduction",
+            "text": "A consequent part of the development of plugins is made in  conf.js  file at plugin's root.  conf.js  is used to:   Map HTTP routes on actions  Create entities  Define back end permissions  Define back end menu items  Load back end scripts  Load back end CSS  Set the list of directories containing templates  Define image styles  Define Web Service scopes  Define socket namespaces  Define custom configuration",
+            "title": "Introduction"
+        },
+        {
+            "location": "/conf/#map-http-routes-on-actions",
+            "text": "HTTP routes are separated into three categories : public, private and Web Service routes.  http: {\n  routes: {\n    public: {\n      [...]\n    },\n    private: {\n      [...]\n    },\n    ws: {\n      [...]\n    }\n  }\n}",
+            "title": "Map HTTP routes on actions"
+        },
+        {
+            "location": "/conf/#route-descriptor",
+            "text": "A route maps an HTTP method and a path to an action (JavaScript function).  The route:  'get /test' : 'app/server/controllers/TestController.testGetAction'  Can be interpreted as:   A GET request on /test will call the function testGetAction exposed by module app/server/controllers/TestController.js   The route:  'post /test' : 'app/server/controllers/TestController.testPostAction'  Can be interpreted as:   A POST request on /test will call the function testPostAction exposed by module app/server/controllers/TestController.js   The route:  '/test' : 'app/server/controllers/TestController.testAllAction'  Can be interpreted as:   All requests on /test (GET, POST, DELETE, PUT) will call the function testAllAction exposed by module app/server/controllers/TestController.js   Example of valid routes:  http: {\n  routes: {\n    public: {\n      'get /test': 'TestController.getTestAction',\n      'post /test': 'TestController.postTestAction',\n      'put /test': 'TestController.putTestAction',\n      '/test': 'TestController.allTestAction'\n    }\n  }\n}",
+            "title": "Route descriptor"
+        },
+        {
+            "location": "/conf/#group-routes",
+            "text": "You can group actions by routes:  http: {\n  routes: {\n    public: {\n      '*': [\n        'TestController.allFirstAction',\n        'TestController.allSecondAction'\n      ]\n    }\n  }\n}",
+            "title": "Group routes"
+        },
+        {
+            "location": "/conf/#route-parameters",
+            "text": "You can add parameters using colon character:  http: {\n  routes: {\n    public: {\n      'DELETE /test/:id': 'TestController.deleteTestAction'\n    }\n  }\n}",
+            "title": "Route parameters"
+        },
+        {
+            "location": "/conf/#create-testcontroller",
+            "text": "'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a TestController.\n */\nfunction TestController() {\n  TestController.super_.call(this);\n}\n\nmodule.exports = TestController;\nutil.inherits(TestController, openVeoApi.controllers.Controller);\n\n/**\n * Defines an example action.\n *\n * @param {Object} request Express HTTP request\n * @param {Object} response Express HTTP response\n * @param {Function} next Express next function to move on the next middleware\n */\nTestController.prototype.exampleAction = function(request, response, next) {\n  response.status(200).send('ok');\n};",
+            "title": "Create TestController"
+        },
+        {
+            "location": "/conf/#define-socket-namespaces",
+            "text": "Socket namespaces are mounted on the OpenVeo Socket server to listen to Socket messages.",
+            "title": "Define socket namespaces"
+        },
+        {
+            "location": "/conf/#create-a-socket-namespace",
+            "text": "You can define new namespaces for the Socket server in  conf.js . \nNamespaces are separated into two categories: public and private namespaces. \nLet's pretend we want to create a public and a private namespace for a  library  plugin.  socket: {\n  namespaces: {\n    public: { // Public namespaces can be accessed by anyone\n      'public-namespace': {\n        [...] // Namespace messages descriptors\n      }\n    },\n    private: { // Private namespaces require a back end authentication\n      'private-namespace': {\n        [...] // Namespace messages descriptors\n      }\n    }\n  }\n}",
+            "title": "Create a socket namespace"
+        },
+        {
+            "location": "/conf/#message-descriptor",
+            "text": "A socket message maps a message to an action (JavaScript function).  The message:  'my.test.message' : 'app/server/controllers/TestController.testMessageAction'  Can be interpreted as:   A socket message 'my.test.message' will call the function testMessageAction exposed by module app/server/controllers/TestSocketController.js   The following messages are automatically sent by the socket server and does not need to be send by the socket client:   connection  Client is connected to the socket server  disconnect  Client has been disconnected from the socket server  error  An error occurred in client / server connection   Let's pretend we want to handle the default messages and custom messages in our  public-namespace  namespace:  'public-namespace': {\n  connection: 'app/server/controllers/TestSocketController.connectAction',\n  disconnect: 'app/server/controllers/TestSocketController.disconnectAction',\n  error: 'app/server/controllers/TestSocketController.errorAction',\n  customMessage1: 'app/server/controllers/TestSocketController.customMessage1Action',\n  customMessage2: 'app/server/controllers/TestSocketController.customMessage2Action'\n}",
+            "title": "Message descriptor"
+        },
+        {
+            "location": "/conf/#create-testsocketcontroller",
+            "text": "Create a file  app/server/controllers/TestSocketController.js :  'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar coreApi = process.api.getCoreApi();\n\n/**\n * Creates a TestSocketController.\n *\n * @param {SocketNamespace} The namespace associated to this socket controller.\n */\nfunction TestSocketController(namespace) {\n  TestSocketController.super_.call(this, namespace);\n}\n\nmodule.exports = TestSocketController;\nutil.inherits(TestSocketController, openVeoApi.controllers.SocketController);\n\n/**\n * Handles socket's connection.\n *\n * Socket's connection has been established with a client.\n *\n * @method connectAction\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.connectAction = function(socket) {\n  console.log('Client connected');\n};\n\n/**\n * Handles socket's disconnection.\n *\n * Connection with client has been lost.\n *\n * @method disconnectAction\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.disconnectAction = function(socket) {\n  console.log('Client disconnected');\n};\n\n/**\n * Handles socket's connection errors.\n *\n * An error occurred on socket's communication.\n *\n * @method errorAction\n * @param {Error} error The error\n * @param {Socket} socket The socket\n */\nTestSocketController.prototype.errorAction = function(error, socket) {\n  console.log(error);\n};\n\n/**\n * Defines customMessage1 action.\n *\n * @param {Object} data Socket message's datas\n * @param {Socket} socket The opened socket\n * @param {Function} callback The callback to respond to the client\n */\nTestSocketController.prototype.customMessage1Action = function(data, socket, callback) {\n\n  // Send a response to the client\n  callback({\n    property1: 'value1'\n  });\n\n};\n\n/**\n * Defines customMessage2 action.\n *\n * @param {Object} data Socket message's datas\n * @param {Socket} socket The opened socket\n * @param {Function} callback The callback to respond to the client\n */\nTestSocketController.prototype.customMessage2Action = function(data, socket, callback) {\n\n  // Send a message on all namespace's clients\n  this.namespace.emit('test.response', {\n    property2: 'value2'\n  });\n\n};",
+            "title": "Create TestSocketController"
+        },
+        {
+            "location": "/conf/#use-socket-namespace",
+            "text": "We created a socket namespace  public-namespace  for the  library  plugin. Namespace is now available on the socket server and is mounted on  /library/public-namespace . All socket messages sent to this namespace will be routed to actions defined in  conf.js  file.",
+            "title": "Use socket namespace"
+        },
+        {
+            "location": "/conf/#create-entities",
+            "text": "Entities are elements subject to CRUD ( C reate  R ead  U pdate  D elete). For example, OpenVeo core defines 5 entities:   applications - Web Service client applications  users - Back end users  roles - Back end roles  groups - Groups  taxonomies - Taxonomies with associated terms   Each entity will automatically have 3 associated back end permissions : add, update and delete. \nTo create a new entity you need to create an EntityController and an EntityProvider. \nLet's say we want to create a new entity called  books  on a plugin named  library .",
+            "title": "Create entities"
+        },
+        {
+            "location": "/conf/#create-entity-provider",
+            "text": "Create a file  app/server/providers/BooksProvider.js :  'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\n\n/**\n * Creates a BooksProvider.\n */\nfunction BooksProvider(database) {\n  BooksProvider.super_.call(this, database, 'library_books');\n}\n\n// BookProvider must extend EntityProvider\nmodule.exports = BooksProvider;\nutil.inherits(BooksProvider, openVeoApi.providers.EntityProvider);",
+            "title": "Create entity provider"
+        },
+        {
+            "location": "/conf/#create-entity-controller",
+            "text": "Create a file  app/server/controllers/BooksController.js :  'use strict';\n\nvar util = require('util');\nvar openVeoApi = require('@openveo/api');\nvar BooksProvider = process.requireBook('app/server/providers/BooksProvider.js');\n\n/**\n * Creates a BooksController.\n */\nfunction BooksController(database) {\n  BooksController.super_.call(this);\n}\n\nmodule.exports = BooksController;\nutil.inherits(BooksController, openVeoApi.controllers.EntityController);\n\n/**\n * Gets an instance of the BooksProvider.\n *\n * @method getProvider\n * @return {BooksProvider} The BooksProvider instance\n */\nBooksController.prototype.getProvider = function() {\n  var database = process.api.getCoreApi().getDatabase();\n  return new BooksProvider(database);\n};",
+            "title": "Create entity controller"
+        },
+        {
+            "location": "/conf/#declare-entity",
+            "text": "You can now declare your entity in  conf.js :  entities: {\n  books: 'app/server/controllers/BooksController'\n}",
+            "title": "Declare entity"
+        },
+        {
+            "location": "/conf/#use-the-entity",
+            "text": "Now that your entity  books  is created you can see the 3 new permissions in the back end (add, update and delete). You can also perform CRUD operations on your entity using the following private routes (with a user connected to the back end):   get /be/library/books/:id  - Get a particular book  get /be/library/books  - Get all books  post /be/library/books/:id  - Update a particular book  put /be/library/books  - Add a new book  delete /be/library/books/:id  - Delete a book   Finally you can perform CRUD operations on your entity using the Web Service (with a user connected to the Web Service) using the following end points:   get /library/books/:id  - Get a particular book  get /library/books  - Get all books  post /library/books/:id  - Update a particular book  put /library/books  - Add a new book  delete /library/books/:id  - Delete a book",
+            "title": "Use the entity"
+        },
+        {
+            "location": "/conf/#define-back-end-permissions",
+            "text": "Each role can have n associated permissions. Permissions are described in  conf.js :  permissions: [\n  [...]\n]",
+            "title": "Define back end permissions"
+        },
+        {
+            "location": "/conf/#create-a-permission",
+            "text": "Let's create new permissions \"sell\" and \"buy\" to sell / buy books.  permissions: [\n  {\n    id: 'library-sell-books', // Permission id\n    name: 'Sell', // Permission name\n    description: 'Sell books', // Permission description\n    paths: [ // List of routes descriptors associated to the permission\n      'get /library/books/sell*'\n    ]\n  },\n  {\n    id: 'library-buy-books', // Permission id\n    name: 'Buy', // Permission name\n    description: 'Buy books', // Permission description\n    paths: [ // List of routes descriptors associated to the permission\n      'get /library/books/buy*'\n    ]\n  }\n]",
+            "title": "Create a permission"
+        },
+        {
+            "location": "/conf/#group-permissions",
+            "text": "You can group permissions to organize the list of permissions in the back end.  Nb : Actually OpenVeo only supports one sub level  permissions: [\n  {\n    label: 'Library', // Group label\n    permissions: [ // List of permission in the group\n      {\n        id: 'library-sell-books',\n        name: 'Sell',\n        description: 'Sell books',\n        paths: [\n          'get /library/books/sell*'\n        ]\n      },\n      {\n        id: 'library-buy-books',\n        name: 'Buy',\n        description: 'Buy books',\n        paths: [\n          'get /library/books/buy*'\n        ]\n      }\n    ]\n  }\n]",
+            "title": "Group permissions"
+        },
+        {
+            "location": "/conf/#use-permissions",
+            "text": "You can assign your permission to a role through the back end or manipulate the permission using  back end client  (AngularJS application).",
+            "title": "Use permissions"
+        },
+        {
+            "location": "/conf/#define-back-end-menu-items",
+            "text": "Back end menu items are described in  conf.js :  backOffice: {\n  menu: [\n    [...]\n  ]\n}",
+            "title": "Define back end menu items"
+        },
+        {
+            "location": "/conf/#add-a-menu-item",
+            "text": "Let's create two new back end menu items.  backOffice: {\n  menu: [\n    {\n      weight: -5,\n      label: 'Sell books', // Menu item name\n      path: 'library/books/sell-books', // Menu item path\n      permission: 'library-sell-books' // Menu item associated permission\n    },\n    {\n      weight: -6,\n      label: 'Buy books', // Menu item name\n      path: 'library/books/buy-books', // Menu item path\n      permission: 'library-buy-books' // Menu item associated permission\n    }\n  ]\n}  weight  property helps order menu items, the larger the weight is, the better will be the item position.  path  defines the AngularJS root path (see  back end client )  permission  associates a permission to the menu item, if the connected user doesn't have that permission the item won't be displayed",
+            "title": "Add a menu item"
+        },
+        {
+            "location": "/conf/#group-menu-items",
+            "text": "You can group menu items as sub menu items.  Nb  : Actually OpenVeo only supports one sub level of menu items  backOffice: {\n  menu: [\n    {\n      weight: 100, // Position of the item in the menu\n      label: 'Books', // Name of the menu item\n      subMenu: [ // List of sub menu items\n        {\n          label: 'Sell books',\n          path: 'library/books/sell-books',\n          permission: 'library-sell-books'\n        },\n        {\n          label: 'Buy books',\n          path: 'library/books/buy-books',\n          permission: 'book-buy-books'\n        }\n      ]\n    }\n  ]\n}",
+            "title": "Group menu items"
+        },
+        {
+            "location": "/conf/#back-end-scripts",
+            "text": "The list of JavaScript files to load for the AngularJS back end application are defined in  conf.js :  backOffice: {\n  scriptLibFiles: { // List of back end JavaScript files to load first\n    base: [ // List of scripts to load on both development and production environments\n      [...]\n    ],\n    dev: [ // List of scripts to load on development environment\n      [...]\n    ],\n    prod: [ // List of script to load on production environment\n      [...]\n    ]\n  },\n  scriptFiles: { // List of back end JavaScript files to load next\n    base: [ // List of scripts to load on both development and production environments\n      [...]\n    ],\n    dev: [ // List of scripts to load on development environment\n      [...]\n    ],\n    prod: [ // List of script to load on production environment\n      [...]\n    ]\n  }\n}",
+            "title": "Back end scripts"
+        },
+        {
+            "location": "/conf/#back-end-css",
+            "text": "The list of CSS files to load for the AngularJS back end application are defined in  conf.js :  backOffice: {\n  cssFiles: [ // List of CSS to load\n    [...]\n  ]\n}",
+            "title": "Back end CSS"
+        },
+        {
+            "location": "/conf/#list-of-directories-containing-templates",
+            "text": "OpenVeo uses  Mustache  as the template engine. Mustache requires directories where to look for potential templates. The list of directories is defined in  conf.js :  viewsFolders: [ // List of directories holding mustache templates\n  [...]\n]",
+            "title": "List of directories containing templates"
+        },
+        {
+            "location": "/conf/#define-image-styles",
+            "text": "You can define image styles in  conf.js :  imageProcessing: {\n  folders: [ // List of folders which contain images to process on demand\n    {\n      imagesDirectory: 'example/images', // Path of the directory containing images to process relative to project root directory\n      cacheDirectory: 'example/images/.cache' // Path of the directory containing processed images relative to project root directory (default to {imagesDirectory}/.cache)\n    }\n  ],\n  styles: [ // The list of style definitions\n    {\n      id: 'book-style', // Id of the style to apply when requesting an image processing\n      type: 'thumb', // The type of transformation to apply (only \"thumb\" is available right now)\n      width: 200, // Expected width (in px) of the image (default to 10)\n      quality: 50 // Expected quality from 0 to 100 (default to 90 with 100 the best)\n    }\n  }\n}  Then you can call the image with your custom style  book-style :  <img src=\"book/example/images/image1.jpg?style=book-style\"/>  Note that the original image is still available:  <img src=\"book/example/images/image1.jpg\"/>",
+            "title": "Define image styles"
+        },
+        {
+            "location": "/conf/#define-custom-configuration",
+            "text": "You can define a custom configuration object in  conf.js :  custom: {\n  customProperty1: 'customValue1',\n  customProperty2: 2\n}  Nb:  Custom configuration won't be interpreted but can be retrieved later using OpenVeo API. You can use it as you like.",
+            "title": "Define custom configuration"
+        },
+        {
+            "location": "/conf/#define-web-service-scopes",
+            "text": "You can define Web Service scopes in  conf.js :  webServiceScopes: [\n  {\n    id: 'library-scopeId',\n    name: 'Scope name',\n    description: 'Scope description',\n    paths: [\n      'get /library/books/sell',\n      'get /library/books/buy'\n    ]\n  }\n]  A scope is defined by an id, a name, a description and a list of authorized paths for a Web Service application who has access to this scope. \nRoutes like  /library/books/sell  or  /library/books/buy  will be available for a Web Service application with the scope  library-scopeId  in the above example.",
+            "title": "Define Web Service scopes"
+        },
+        {
+            "location": "/logger/",
+            "text": "Introduction\n\n\nAll server logs are performed by module \nWinston\n.\n\n\nUse OpenVeo logger\n\n\nBy default OpenVeo core creates one logger named \nopenveo\n. You can use it directly:\n\n\nprocess.logger.silly('Silly log');\nprocess.logger.debug('Debug log');\nprocess.logger.verbose('Verbose log');\nprocess.logger.info('Info log');\nprocess.logger.warn('Warn log');\nprocess.logger.error('Error log');",
+            "title": "Logger"
+        },
+        {
+            "location": "/logger/#introduction",
+            "text": "All server logs are performed by module  Winston .",
+            "title": "Introduction"
+        },
+        {
+            "location": "/logger/#use-openveo-logger",
+            "text": "By default OpenVeo core creates one logger named  openveo . You can use it directly:  process.logger.silly('Silly log');\nprocess.logger.debug('Debug log');\nprocess.logger.verbose('Verbose log');\nprocess.logger.info('Info log');\nprocess.logger.warn('Warn log');\nprocess.logger.error('Error log');",
+            "title": "Use OpenVeo logger"
+        },
+        {
+            "location": "/i18n/",
+            "text": "Introduction\n\n\nPlugin translation dictionaries must be stored in \ni18n\n directory to be detected by the core.\n\n\nTranslate back end pages\n\n\nTo translate back end pages you'll need to add translations into \nadmin-back-office\n dictionaries.\n\n\nLet's pretend we want to add a translation for a back end page of a \nlibrary\n plugin.\n\n\nAdd translation to dictionaries\n\n\ni18n/admin-back-office-en.json\n\n\n{\n  \"BOOK\" : {\n    \"BUY\" : \"Buy\"\n  }\n}\n\n\n\n\ni18n/admin-back-office-fr.json\n\n\n{\n  \"BOOK\" : {\n    \"BUY\" : \"Acheter\"\n  }\n}\n\n\n\n\nUse translation\n\n\nThen you can use the \ntranslate\n filter defined by the core (more information on \nOpenVeo core documentation\n):\n\n\n<label ng-bind=\"LIBRARY.BOOK.BUY | translate\"></label>\n\n\n\n\nNote that the translation id is prefixed by the name of the plugin.\n\n\nTranslate front end pages\n\n\nOpenVeo doesn't provide a particular way of developping the client side of front end pages. There is no JavaScript framework imposed. Thus you should use OpenVeo routes to get a particular dictionary. See \nOpenVeo core documentation\n for more information.",
+            "title": "I18N and I10N"
+        },
+        {
+            "location": "/i18n/#introduction",
+            "text": "Plugin translation dictionaries must be stored in  i18n  directory to be detected by the core.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/i18n/#translate-back-end-pages",
+            "text": "To translate back end pages you'll need to add translations into  admin-back-office  dictionaries.  Let's pretend we want to add a translation for a back end page of a  library  plugin.",
+            "title": "Translate back end pages"
+        },
+        {
+            "location": "/i18n/#add-translation-to-dictionaries",
+            "text": "i18n/admin-back-office-en.json  {\n  \"BOOK\" : {\n    \"BUY\" : \"Buy\"\n  }\n}  i18n/admin-back-office-fr.json  {\n  \"BOOK\" : {\n    \"BUY\" : \"Acheter\"\n  }\n}",
+            "title": "Add translation to dictionaries"
+        },
+        {
+            "location": "/i18n/#use-translation",
+            "text": "Then you can use the  translate  filter defined by the core (more information on  OpenVeo core documentation ):  <label ng-bind=\"LIBRARY.BOOK.BUY | translate\"></label>  Note that the translation id is prefixed by the name of the plugin.",
+            "title": "Use translation"
+        },
+        {
+            "location": "/i18n/#translate-front-end-pages",
+            "text": "OpenVeo doesn't provide a particular way of developping the client side of front end pages. There is no JavaScript framework imposed. Thus you should use OpenVeo routes to get a particular dictionary. See  OpenVeo core documentation  for more information.",
+            "title": "Translate front end pages"
+        },
+        {
+            "location": "/compilation/",
+            "text": "Introduction\n\n\nPlugin's back end pages are written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.\n\n\nCompiling SASS files\n\n\nYou can compile the back end SASS files using the following command:\n\n\ngrunt compass:dist\n\n\n\nOr you can watch SASS files changes using the following command:\n\n\ngrunt\n\n\n\nCompiling JavaScript files\n\n\nYou'll probably want to compile AngularJS files, in production, for better performance. You can do it using:\n\n\ngrunt prod",
+            "title": "CSS / SASS / JS compilation"
+        },
+        {
+            "location": "/compilation/#introduction",
+            "text": "Plugin's back end pages are written using AngularJS and SASS / Compass. SASS files need to be compiled to generate the CSS and JavaScript files can be minified and aggregated for better performance.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/compilation/#compiling-sass-files",
+            "text": "You can compile the back end SASS files using the following command:  grunt compass:dist  Or you can watch SASS files changes using the following command:  grunt",
+            "title": "Compiling SASS files"
+        },
+        {
+            "location": "/compilation/#compiling-javascript-files",
+            "text": "You'll probably want to compile AngularJS files, in production, for better performance. You can do it using:  grunt prod",
+            "title": "Compiling JavaScript files"
+        },
+        {
+            "location": "/coding-standards/",
+            "text": "Plugins should respect OpenVeo coding standards based on Node.js coding standards. \nESLint\n is used to validate coding rules. You can launch a code verification using the following command:\n\n\ngrunt eslint\n\n\n\nNb:\n Both Node.js and AngularJS parts of the plugin must respect the same coding standards",
+            "title": "Coding standards"
+        },
+        {
+            "location": "/unit-tests/",
+            "text": "Node.js unit tests\n\n\nServer side unit tests are performed using \nMocha\n and \nChai\n. You can launch server unit tests with the following command:\n\n\ngrunt mochaTest\n\n\n\nAngularJS unit tests\n\n\nClient side unit tests are performed using \nKarma\n. You can launch client unit tests with the following command:\n\n\ngrunt karma",
+            "title": "Unit tests"
+        },
+        {
+            "location": "/unit-tests/#nodejs-unit-tests",
+            "text": "Server side unit tests are performed using  Mocha  and  Chai . You can launch server unit tests with the following command:  grunt mochaTest",
+            "title": "Node.js unit tests"
+        },
+        {
+            "location": "/unit-tests/#angularjs-unit-tests",
+            "text": "Client side unit tests are performed using  Karma . You can launch client unit tests with the following command:  grunt karma",
+            "title": "AngularJS unit tests"
+        },
+        {
+            "location": "/end-to-end-tests/",
+            "text": "Introduction\n\n\nEnd to end tests are performed using \nProtractor\n and run from \nOpenVeo core\n.\n\n\nYou first have to install and configure tests as described in \ncore documentation\n.\n\n\nWrite tests\n\n\nAll end to end tests must be located in \ntests/client/e2eTests/\n\nSuites must be described in \ntests/client/protractorSuites.json\n\nList of datas to create before launching tests must be available in \ntests/client/e2eTests/database/data.json",
+            "title": "End to end tests"
+        },
+        {
+            "location": "/end-to-end-tests/#introduction",
+            "text": "End to end tests are performed using  Protractor  and run from  OpenVeo core .  You first have to install and configure tests as described in  core documentation .",
+            "title": "Introduction"
+        },
+        {
+            "location": "/end-to-end-tests/#write-tests",
+            "text": "All end to end tests must be located in  tests/client/e2eTests/ \nSuites must be described in  tests/client/protractorSuites.json \nList of datas to create before launching tests must be available in  tests/client/e2eTests/database/data.json",
+            "title": "Write tests"
+        }
+    ]
+}
