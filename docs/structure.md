@@ -13,7 +13,6 @@ When generated, the plugin's structure should look like:
 │   └── server // Server side sources (executed by Node.js)
 │       ├── controllers // Controllers (extending Controller)
 │       │   └── httpErrors.js // Holds the list of HTTP errors used by controllers
-│       ├── models // Models (extending Model)
 │       ├── providers // Providers (extending Provider)
 │       ├── PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)
 │       └── PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)

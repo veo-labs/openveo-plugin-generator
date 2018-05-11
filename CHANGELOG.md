@@ -1,4 +1,8 @@
-# 2.1.0 /
+# 3.0.0 /
+
+## BREAKING CHANGES
+
+- Drop support for OpenVeo &lt;5.0.0
 
 ## DEPENDENCIES
 

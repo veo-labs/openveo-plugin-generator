@@ -58,7 +58,7 @@ OpenVeo will also automatically create the following permissions:
   - **LIBRARY.PERMISSIONS.UPDATE_BOOKS_NAME**
   - **LIBRARY.PERMISSIONS.DELETE_BOOKS_NAME**
 
-An entity must be associated to a controller, a model and a provider. Let's create them.
+An entity must be associated to a controller and a provider. Let's create them.
 
 ## Create entity controller
 
@@ -69,7 +69,6 @@ Create file **app/server/controllers/BooksController.js**:
 
 var util = require('util');
 var openVeoApi = require('@openveo/api');
-var BooksModel = process.requireLibrary('app/server/models/BooksModel.js');
 var BooksProvider = process.requireLibrary('app/server/providers/BooksProvider.js');
 
 /**
@@ -83,51 +82,25 @@ module.exports = BooksController;
 util.inherits(BooksController, openVeoApi.controllers.EntityController);
 
 /**
- * Gets an instance of the BooksModel.
+ * Gets an instance of the BooksProvider.
  *
- * @method getModel
- * @param {Object} request The HTTP request
- * @return {BooksModel} The BooksModel instance
+ * @method getProvider
+ * @return {BooksProvider} The BooksProvider instance
  */
-BooksController.prototype.getModel = function(request) {
+BooksController.prototype.getProvider = function() {
   var database = process.api.getCoreApi().getDatabase();
-  return new BooksModel(new BooksProvider(database));
+  return new BooksProvider(database);
 };
 
 // You should consider overriding the following methods from EntityController:
 // BooksController.prototype.getEntitiesAction
 // BooksController.prototype.getEntityAction
 // BooksController.prototype.updateEntityAction
-// BooksController.prototype.addEntityAction
-// BooksController.prototype.removeEntityAction
+// BooksController.prototype.addEntitiesAction
+// BooksController.prototype.removeEntitiesAction
 ```
 
-A controller associated to an entity must inherits from **EntityController** and implements the **getModel** method. All routes actions are handled by the EntityController. However it is recommended to override these actions to control incoming request parameters.
-
-## Create entity model
-
-Create file **app/server/models/BooksModel.js**:
-
-```javascript
-'use strict';
-
-var util = require('util');
-var openVeoApi = require('@openveo/api');
-
-/**
- * Creates a BooksModel.
- *
- * @param {BooksProvider} booksProvider The book provider to associate to the model
- */
-function BooksModel(booksProvider) {
-  BooksModel.super_.call(this, booksProvider);
-}
-
-module.exports = BooksModel;
-util.inherits(BooksModel, openVeoApi.models.EntityModel);
-```
-
-A model associated to an entity must inherits from **EntityModel**. EntityModel provides methods to manipulate the entity (CRUD).
+A controller associated to an entity must inherits from **EntityController** and implements the **getProvider** method. All routes actions are handled by the EntityController. However it is recommended to override these actions to control incoming request parameters.
 
 ## Create entity provider
 
@@ -217,16 +190,15 @@ BooksController.prototype.displayBookAction = function(request, response, next) 
     });
   }
 
-  // Retrieve books
-  var books = {
-    '1': {
-      title: 'Journey to the center of the earth',
-      summary: 'The story begins in May 1863, in the Lidenbrock house in Hamburg, Germany, with Professor Lidenbrock rushing home to peruse his latest purchase, an original runic manuscript of an Icelandic saga written by Snorri Sturluson ("Heimskringla"; the chronicle of the Norwegian kings who ruled over Iceland).'
-    }
-  };
+  // Retrieve book
+  var booksProvider = this.getProvider();
+  booksProvider.getOne(new ResourceFilter().equal('id', params.id), null, function(error, book) {
 
-  // Display template book.html (created on the next step) using Mustache template
-  response.render('book', books[params.id]);
+    // Display template book.html (created on the next step) using Mustache template
+    response.render('book', book);
+
+  });
+
 };
 ```
 

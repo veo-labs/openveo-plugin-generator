@@ -14,7 +14,6 @@
     "app/client/admin/compass/sass/mixins/_retina.scss",
 
     "app/server/controllers/README.md",
-    "app/server/models/README.md",
     "app/server/providers/README.md",
 
     "docs/developers/compilation.md",

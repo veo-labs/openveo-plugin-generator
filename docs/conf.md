@@ -305,7 +305,7 @@ Entities are elements subject to CRUD (**C**reate **R**ead **U**pdate **D**elete
 - taxonomies - Taxonomies with associated terms
 
 Each entity will automatically have 3 associated back end permissions : add, update and delete.<br/>
-To create a new entity you need to create a new EntityController, EntityModel and EntityProvider.<br/>
+To create a new entity you need to create an EntityController and an EntityProvider.<br/>
 Let's say we want to create a new entity called **books** on a plugin named **library**.
 
 ## Create entity provider
@@ -330,29 +330,6 @@ module.exports = BooksProvider;
 util.inherits(BooksProvider, openVeoApi.providers.EntityProvider);
 ```
 
-## Create entity model
-
-Create a file **app/server/models/BooksModel.js**:
-
-```javascript
-'use strict';
-
-var util = require('util');
-var openVeoApi = require('@openveo/api');
-
-/**
- * Creates a BooksModel.
- *
- * @param {BooksProvider} booksProvider The book provider to associate to the model
- */
-function BooksModel(booksProvider) {
-  BooksModel.super_.call(this, booksProvider);
-}
-
-module.exports = BooksModel;
-util.inherits(BooksModel, openVeoApi.models.EntityModel);
-```
-
 ## Create entity controller
 
 Create a file **app/server/controllers/BooksController.js**:
@@ -362,7 +339,6 @@ Create a file **app/server/controllers/BooksController.js**:
 
 var util = require('util');
 var openVeoApi = require('@openveo/api');
-var BooksModel = process.requireBook('app/server/models/BooksModel.js');
 var BooksProvider = process.requireBook('app/server/providers/BooksProvider.js');
 
 /**
@@ -376,15 +352,14 @@ module.exports = BooksController;
 util.inherits(BooksController, openVeoApi.controllers.EntityController);
 
 /**
- * Gets an instance of the BooksModel.
+ * Gets an instance of the BooksProvider.
  *
- * @method getModel
- * @param {Object} request The HTTP request
- * @return {BooksModel} The BooksModel instance
+ * @method getProvider
+ * @return {BooksProvider} The BooksProvider instance
  */
-BooksController.prototype.getModel = function(request) {
+BooksController.prototype.getProvider = function() {
   var database = process.api.getCoreApi().getDatabase();
-  return new BooksModel(new BooksProvider(database));
+  return new BooksProvider(database);
 };
 ```
 
