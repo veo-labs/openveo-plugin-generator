@@ -599,6 +599,7 @@ imageProcessing: {
   styles: [ // The list of style definitions
     {
       id: 'book-style', // Id of the style to apply when requesting an image processing
+      type: 'thumb', // The type of transformation to apply (only "thumb" is available right now)
       width: 200, // Expected width (in px) of the image (default to 10)
       quality: 50 // Expected quality from 0 to 100 (default to 90 with 100 the best)
     }
