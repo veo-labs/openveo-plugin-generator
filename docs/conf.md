@@ -411,20 +411,27 @@ permissions: [
     id: 'library-sell-books', // Permission id
     name: 'Sell', // Permission name
     description: 'Sell books', // Permission description
-    paths: [ // List of routes descriptors associated to the permission
-      'get /library/books/sell*'
+    paths: [ // List of rules associated to the permission
+      'get /library/books/:id/sell'
     ]
   },
   {
     id: 'library-buy-books', // Permission id
     name: 'Buy', // Permission name
     description: 'Buy books', // Permission description
-    paths: [ // List of routes descriptors associated to the permission
-      'get /library/books/buy*'
+    paths: [ // List of rules associated to the permission
+      'get /library/books/:id/buy'
     ]
   }
 ]
 ```
+
+A permission is defined by:
+
+  - an **id** which must be unique and prefix by the name of your plugin
+  - a **name** displayed in OpenVeo administration interface when listing permissions (it could be a translation id)
+  - a **description** not actually used (it could be a translation id)
+  - a list of **rules** this permission authorizes. In the above example, a user with permission **Sell** can perform requests on route **get /library/books/25/sell**. It uses a parameter (**:id**) to match routes containing dynamic parts. It is also possible to use a wildcard at the end of the rule like **/library/books/***
 
 ## Group permissions
 
@@ -442,7 +449,7 @@ permissions: [
         name: 'Sell',
         description: 'Sell books',
         paths: [
-          'get /library/books/sell*'
+          'get /library/books/:id/sell'
         ]
       },
       {
@@ -450,7 +457,7 @@ permissions: [
         name: 'Buy',
         description: 'Buy books',
         paths: [
-          'get /library/books/buy*'
+          'get /library/books/:id/buy'
         ]
       }
     ]
@@ -632,9 +639,9 @@ custom: {
 
 **Nb:** Custom configuration won't be interpreted but can be retrieved later using OpenVeo API. You can use it as you like.
 
-# Define Web Service scopes
+# Define web service scopes
 
-You can define Web Service scopes in **conf.js**:
+You can define web service scopes in **conf.js**:
 
 ```js
 webServiceScopes: [
@@ -650,5 +657,9 @@ webServiceScopes: [
 ]
 ```
 
-A scope is defined by an id, a name, a description and a list of authorized paths for a Web Service application who has access to this scope.<br/>
-Routes like **/library/books/sell** or **/library/books/buy** will be available for a Web Service application with the scope **library-scopeId** in the above example.
+A scope is defined by:
+
+  - an **id** which must be unique and prefix by the name of your plugin
+  - a **name** displayed in OpenVeo administration interface when listing scopes (it could be a translation id)
+  - a **description** not actually used (it could be a translation id)
+  - a list of **rules** this scope authorizes. In the above example, a client application with scope **Scope name** can perform requests on two endpoints: **get /library/books/sell** and **get /library/books/buy**. Both endpoints could have been grouped into one rule **get /library/books/***. It is also possible to deal with paths containing dynamic parts like **get /library/books/25/sell** using a rule with a parameter: **get /library/books/:id/sell**
