@@ -44,22 +44,21 @@ module.exports = {
       }
     ],
     scriptLibFiles: {
-      base: [],
       dev: [],
       prod: []
     },
     scriptFiles: {
-      base: [],
       dev: [
-        '/<%= originalPluginName %>/ov<%= Plugin %>/<%= Plugin %>App.js',
-        '/<%= originalPluginName %>/ov<%= Plugin %>/<%= Plugin %>Controller.js'
+        'ov<%= Plugin %>/<%= Plugin %>App.js',
+        'ov<%= Plugin %>/<%= Plugin %>Controller.js'
       ],
       prod: [
-        '/<%= originalPluginName %>/be/js/openveo<%= Plugin %>.js'
+        'be/js/openveo<%= Plugin %>.js'
       ]
     },
     cssFiles: [
-      '/<%= originalPluginName %>/be/css/<%= plugin %>.css'
+      'be/css/<%= plugin %>.css'
     ]
-  }
+  },
+  libraries: []
 };

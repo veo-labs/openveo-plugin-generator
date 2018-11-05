@@ -11,9 +11,9 @@ module.exports = function(config) {
 
     // List of files / patterns to load in the browser
     files: [
-      'assets/lib/angular/angular.js',
-      'assets/lib/angular-route/angular-route.js',
-      'assets/lib/angular-mocks/angular-mocks.js',
+      'node_modules/angular/angular.js',
+      'node_modules/angular-route/angular-route.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'tests/client/unitTests/i18n/I18nApp.js',
       'app/client/admin/js/ov<%= Plugin %>/<%= Plugin %>App.js',
       'app/client/admin/js/ov<%= Plugin %>/**/*.js',

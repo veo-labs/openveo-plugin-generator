@@ -1,3 +1,9 @@
+# 4.0.0 / YYYY-MM-DD
+
+## BREAKING CHANGES
+
+- Drop support for OpenVeo &lt;8.0.0
+
 # 3.0.0 / 2018-05-11
 
 ## BREAKING CHANGES

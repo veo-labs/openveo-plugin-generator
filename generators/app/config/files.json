@@ -36,7 +36,6 @@
   ],
   "templated": [
     "CHANGELOG.md",
-    "bower.json",
     "package.json",
     "README.md",
     "conf.js",
@@ -86,7 +85,6 @@
     ".gitignore",
     ".npmignore",
     ".eslintrc",
-    ".bowerrc",
 
     "app/client/.eslintrc",
 

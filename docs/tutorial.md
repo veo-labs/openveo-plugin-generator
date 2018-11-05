@@ -326,7 +326,7 @@ backOffice: {
   scriptFiles: {
     base: [],
     dev: [
-      '/library/ovLibrary/BookController.js'
+      'ovLibrary/BookController.js'
     ]
   }
 }

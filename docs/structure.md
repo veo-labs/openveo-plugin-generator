@@ -17,11 +17,10 @@ When generated, the plugin's structure should look like:
 │       ├── PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)
 │       └── PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)
 ├── assets // Public directory for static files (mounted on /PLUGIN_NAME/)
-│   ├── be // Back end pages resources
-│   │   ├── css // Generated CSS files for the back end pages
-│   │   ├── js // Generated JavaScript files for the back end pages
-│   │   └── views // AngularJS partials for the back end pages
-│   └── lib // Client side libraries (installed through bower)
+│   └── be // Back end pages resources
+│       ├── css // Generated CSS files for the back end pages
+│       ├── js // Generated JavaScript files for the back end pages
+│       └── views // AngularJS partials for the back end pages
 ├── docs // Markdown documentation of the project
 ├── i18n // Translation dictionaries
 ├── migrations // Migration scripts
@@ -31,14 +30,12 @@ When generated, the plugin's structure should look like:
 │   │   ├── unitTests // Unit tests
 │   │   └── e2eTests // End to end tests using protractor
 │   └── server // Server side unit tests
-├── .bowerrc // Bower configuration file
 ├── .eslintrc // Eslint rules
 ├── .gitattributes // Git attributes configuration file
 ├── .npmignore // NPM ignore configuration file
 ├── CHANGELOG.md // Plugin's change logs
 ├── Gruntfile.js // Grunt configuration file
 ├── README.md // Plugin's README
-├── bower.json // Bower configuration file
 ├── conf.js // Plugin's configuration file
 ├── index.js // Plugin's main file
 ├── mkdocs.yml // MkDocs configuration file

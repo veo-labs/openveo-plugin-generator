@@ -538,6 +538,31 @@ backOffice: {
 }
 ```
 
+# Libraries
+
+The list of libraries to load are defined in **conf.js**:
+
+```js
+libraries: [
+  {
+
+    // The name of the library as defined in package.json file
+    name: 'angular',
+
+    // The mount path to use to access the library, it will be automatically prefixed by the plugin mount path
+    mountPath: 'angular-custom-mount-path',
+
+    // The list of files to automatically load in the back office with paths relative to the library directory
+    // Library will still be mounted even if there is no files to automatically load in the back office
+    files: ['angular.min.js', 'angular-csp.css']
+
+  },
+  [...]
+]
+```
+
+**Nb:** library files are loaded before the back end scripts below
+
 # Back end scripts
 
 The list of JavaScript files to load for the AngularJS back end application are defined in **conf.js**:
@@ -545,9 +570,6 @@ The list of JavaScript files to load for the AngularJS back end application are 
 ```js
 backOffice: {
   scriptLibFiles: { // List of back end JavaScript files to load first
-    base: [ // List of scripts to load on both development and production environments
-      [...]
-    ],
     dev: [ // List of scripts to load on development environment
       [...]
     ],
@@ -556,9 +578,6 @@ backOffice: {
     ]
   },
   scriptFiles: { // List of back end JavaScript files to load next
-    base: [ // List of scripts to load on both development and production environments
-      [...]
-    ],
     dev: [ // List of scripts to load on development environment
       [...]
     ],
