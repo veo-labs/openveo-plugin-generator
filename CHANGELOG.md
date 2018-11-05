@@ -4,6 +4,10 @@
 
 - Drop support for OpenVeo &lt;8.0.0
 
+## BUG FIXES
+
+- Fix "grunt remove:doc" which hasn't worked since version 2.0.0 for both project and generated plugin
+
 # 3.0.0 / 2018-05-11
 
 ## BREAKING CHANGES
