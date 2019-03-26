@@ -41,7 +41,7 @@
     "yuidoc-theme-blue": "0.1.9"
   },
   "peerDependencies": {
-    "@openveo/core": "8.*"
+    "@openveo/core": ">=8.*"
   },
   "scripts": {
     "prepack": "grunt prod",

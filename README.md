@@ -17,7 +17,7 @@ From OpenVeo root directory:
 
 # Documentation
 
-Documentation is available on [Github pages](http://veo-labs.github.io/openveo-plugin-generator/3.0.0/index.html).
+Documentation is available on [Github pages](http://veo-labs.github.io/openveo-plugin-generator/4.0.0/index.html).
 
 # Contributors
 
