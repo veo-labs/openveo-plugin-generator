@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Getting started - Openveo Plugin Generator</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Getting started";
+    var mkdocs_page_input_path = "getting-started.md";
+    var mkdocs_page_url = "/getting-started/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Openveo Plugin Generator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">INTRODUCTION</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>PLUGIN DEVELOPERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Getting started</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#generate-a-plugin">Generate a plugin</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#link-your-plugin">Link your plugin</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#add-openveoapi-to-your-plugin">Add @openveo/api to your plugin</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#build-your-plugin">Build your plugin</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#install-your-plugin">Install your plugin</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#start-restart-openveo">Start / Restart OpenVeo</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#verify-that-your-plugin-is-working">Verify that your plugin is working</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#whats-next">What's next?</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../structure/">Plugin structure</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plugin-life-cycle/">Plugin life cycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hooks/">Hooks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../template-engine/">Template engine</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../back-end/">Back end AngularJS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tutorial/">Tutorial</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../conf/">conf.js</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logger/">Logger</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../i18n/">I18N and I10N</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../compilation/">CSS / SASS / JS compilation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../coding-standards/">Coding standards</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../unit-tests/">Unit tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../end-to-end-tests/">End to end tests</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Openveo Plugin Generator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>PLUGIN DEVELOPERS &raquo;</li>
+        
+      
+    
+    <li>Getting started</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/veo-labs/openveo-plugin-generator" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="generate-a-plugin">Generate a plugin</h1>
+<p>OpenVeo Plugin Generator helps you creates a new <a href="https://github.com/veo-labs/openveo-core">OpenVeo</a> plugin by generating the default plugin's structure. To generate a plugin, run the generator using:</p>
+<pre><code>cd /WORKSPACE_PATH
+yo openveo-plugin
+</code></pre>
+<p>You will be prompted for information. Don't worry if you made a mistake, nothing is immutable. </br>
+At the end of the installation a new directory has been created containing the sources of your plugin.</p>
+<p>Your workspace should look like this:</p>
+<pre><code>.
+├── openveo-core
+├── openveo-PLUGIN_NAME
+</code></pre>
+
+<h1 id="link-your-plugin">Link your plugin</h1>
+<p>To easily install your plugin into OpenVeo core you need to make it a global NPM package using <a href="https://docs.npmjs.com/cli/link">NPM links</a>:</p>
+<pre><code>cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+npm link
+</code></pre>
+<h1 id="add-openveoapi-to-your-plugin">Add @openveo/api to your plugin</h1>
+<pre><code>cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+npm link @openveo/api
+</code></pre>
+<h1 id="build-your-plugin">Build your plugin</h1>
+<p>Plugin front end has to be built.</p>
+<pre><code>cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+grunt prod
+</code></pre>
+<h1 id="install-your-plugin">Install your plugin</h1>
+<p>Once a link has been made on your plugin you can install it using:</p>
+<pre><code>cd /WORKSPACE_PATH/openveo-core
+npm link openveo-PLUGIN_NAME
+</code></pre>
+<h1 id="start-restart-openveo">Start / Restart OpenVeo</h1>
+<p>Your plugin is now created. You can start / restart OpenVeo:</p>
+<pre><code>cd /WORKSPACE_PATH/openveo-core
+node server.js
+</code></pre>
+<h1 id="verify-that-your-plugin-is-working">Verify that your plugin is working</h1>
+<p>You can now access OpenVeo back end. From back end menu you should see a new entry with the name of your plugin. It should lead you to a TODO page.</p>
+<h1 id="whats-next">What's next?</h1>
+<p>Now that you have a full operational plugin, you probably want to know more about it. The next pages will lead you to all you have to know about plugin's development.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../structure/" class="btn btn-neutral float-right" title="Plugin structure">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../prerequisites/" class="btn btn-neutral" title="Prerequisites"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/veo-labs/openveo-plugin-generator" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../prerequisites/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../structure/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

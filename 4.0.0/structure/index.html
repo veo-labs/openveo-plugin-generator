@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Plugin structure - Openveo Plugin Generator</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Plugin structure";
+    var mkdocs_page_input_path = "structure.md";
+    var mkdocs_page_url = "/structure/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Openveo Plugin Generator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">INTRODUCTION</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>PLUGIN DEVELOPERS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../prerequisites/">Prerequisites</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../getting-started/">Getting started</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Plugin structure</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#structure">Structure</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#dive-into-plugins-files">Dive into plugin's files</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugins-directory">Plugin's directory</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugins-main-files">Plugin's main files</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugin-class">Plugin class</a></li>
+                
+                    <li><a class="toctree-l4" href="#plugin-api">Plugin API</a></li>
+                
+                    <li><a class="toctree-l4" href="#resources">Resources</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../plugin-life-cycle/">Plugin life cycle</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../hooks/">Hooks</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../template-engine/">Template engine</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../back-end/">Back end AngularJS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../tutorial/">Tutorial</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../conf/">conf.js</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../logger/">Logger</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../i18n/">I18N and I10N</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../compilation/">CSS / SASS / JS compilation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../coding-standards/">Coding standards</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../unit-tests/">Unit tests</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../end-to-end-tests/">End to end tests</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Openveo Plugin Generator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>PLUGIN DEVELOPERS &raquo;</li>
+        
+      
+    
+    <li>Plugin structure</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/veo-labs/openveo-plugin-generator" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="structure">Structure</h1>
+<p>When generated, the plugin's structure should look like:</p>
+<pre><code>.
+├── app // Project's sources
+│   ├── client // Client side sources (executed in a browser)
+│   │   ├── admin // Client side sources for the back end pages
+│   │   │   ├── compass // SCSS files of the back end pages
+│   │   │   └── js // JavaScript files of the back end pages
+│   │   │       └── ovPluginName // All JavaScript files of the plugin's AngularJS module
+│   │   └── front // Client side sources for front end pages
+│   └── server // Server side sources (executed by Node.js)
+│       ├── controllers // Controllers (extending Controller)
+│       │   └── httpErrors.js // Holds the list of HTTP errors used by controllers
+│       ├── providers // Providers (extending Provider)
+│       ├── PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)
+│       └── PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)
+├── assets // Public directory for static files (mounted on /PLUGIN_NAME/)
+│   └── be // Back end pages resources
+│       ├── css // Generated CSS files for the back end pages
+│       ├── js // Generated JavaScript files for the back end pages
+│       └── views // AngularJS partials for the back end pages
+├── docs // Markdown documentation of the project
+├── i18n // Translation dictionaries
+├── migrations // Migration scripts
+├── tasks // Grunt tasks
+├── tests // Tests
+│   ├── client // Client side tests
+│   │   ├── unitTests // Unit tests
+│   │   └── e2eTests // End to end tests using protractor
+│   └── server // Server side unit tests
+├── .eslintrc // Eslint rules
+├── .gitattributes // Git attributes configuration file
+├── .npmignore // NPM ignore configuration file
+├── CHANGELOG.md // Plugin's change logs
+├── Gruntfile.js // Grunt configuration file
+├── README.md // Plugin's README
+├── conf.js // Plugin's configuration file
+├── index.js // Plugin's main file
+├── mkdocs.yml // MkDocs configuration file
+└── package.json // NPM configuration file
+</code></pre>
+
+<h1 id="dive-into-plugins-files">Dive into plugin's files</h1>
+<h2 id="plugins-directory">Plugin's directory</h2>
+<p>After executing the plugin's generator a directory <strong>openveo-PLUGIN_NAME</strong> should be available in your workspace.</p>
+<h2 id="plugins-main-files">Plugin's main files</h2>
+<p><strong>index.js</strong> exposes:</p>
+<ul>
+<li>The Plugin class. If this class does not extend the Plugin class, defined in module <a href="https://github.com/veo-labs/openveo-api">@openveo/api</a>, the plugin won't be loaded by the core.</li>
+</ul>
+<p><strong>processRequire.js</strong> defines:</p>
+<ul>
+<li>A <strong>process.rootPLUGIN_NAME</strong> property holding the absolute path of the plugin's root directory which you can use everywhere in your plugin</li>
+<li>A <strong>process.requirePLUGIN_NAME</strong> property holding a function to require a Node.js module using a path relative to the plugin's root path. As the root of the application is the core directory using Node.js <strong>require</strong> function will load a module from the core root directory. Best practice is to use relative path to require a module in your plugin or use the function <strong>process.requirePLUGIN_NAME</strong> with a path relative to the root of your plugin.</li>
+</ul>
+<h2 id="plugin-class">Plugin class</h2>
+<p>A plugin must have a class which extends <strong>Plugin</strong> class (defined in module <a href="https://github.com/veo-labs/openveo-api">@openveo/api</a>).</p>
+<p>Locate file <strong>app/server/PLUGIN_NAMEPlugin.js</strong>.</p>
+<p><strong>PLUGIN_NAMEPlugin.js</strong> extends <strong>Plugin</strong> class and has the following properties:</p>
+<ul>
+<li><strong>router</strong> The express HTTP router holding all public routes of the plugin</li>
+<li><strong>privateRouter</strong> The express HTTP router holding all private routes of the plugin (require a back end authentication)</li>
+<li><strong>webServiceRouter</strong> The express HTTP router holding all Web Service routes of the plugin (require Web Service authentication)</li>
+<li><strong>api</strong> The API exposed, by the plugin, to other plugins (must be an instance of <strong>PluginApi</strong>)</li>
+<li><strong>init</strong> A method part of the <a href="../plugin-life-cycle/">plugin's life cycle</a>, automatically called by the core before starting the servers</li>
+<li><strong>start</strong> A method part of the <a href="../plugin-life-cycle/">plugin's life cycle</a>, automatically called by the core after the init step</li>
+</ul>
+<p>All these properties are optional.</p>
+<h2 id="plugin-api">Plugin API</h2>
+<p>A plugin can expose APIs to other plugins by creating a class extending the PluginApi class.</p>
+<p>Locate file <strong>app/server/PLUGIN_NAMEPluginApi.js</strong>.</p>
+<p><strong>PLUGIN_NAMEPluginApi.js</strong> extends <strong>PluginApi</strong>. All methods and properties will be exposed to other plugins through the <strong>api</strong> property of the Plugin.</p>
+<h2 id="resources">Resources</h2>
+<p>All files inside <strong>assets</strong> directory are served by the HTTP server as they are. You can put here images, front JavaScript files, CSS files and so on. The core will mount this directory on <strong>/PLUGIN_NAME/</strong>, thus to access image <strong>assets/test.jpg</strong> you have to call <strong>/PLUGIN_NAME/test.jpg</strong>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plugin-life-cycle/" class="btn btn-neutral float-right" title="Plugin life cycle">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../getting-started/" class="btn btn-neutral" title="Getting started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/veo-labs/openveo-plugin-generator" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../getting-started/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../plugin-life-cycle/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
