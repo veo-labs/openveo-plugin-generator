@@ -23,6 +23,11 @@ To easily install your plugin into OpenVeo core you need to make it a global NPM
     cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
     npm link
 
+# Add @openveo/api to your plugin
+
+    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+    npm link @openveo/api
+
 # Build your plugin
 
 Plugin front end has to be built.
