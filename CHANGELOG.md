@@ -10,6 +10,7 @@
 - **lodash** has been upgraded from 4.17.4 to **4.17.15**
 - **yeoman-assert** has been removed as it wasn't used
 - **yeoman-test** has been removed as it wasn't used
+- **yosay** has been upgraded from 1.2.1 to **2.0.2**
 
 # 4.0.0 / 2019-03-26
 
