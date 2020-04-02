@@ -4,6 +4,10 @@
 
 - Drop support for NodeJS &lt; 12.4.0 and NPM &lt; 6.9.0
 
+## DEPENDENCIES
+
+- **chalk** has been upgraded from 1.1.3 to **4.0.0**
+
 # 4.0.0 / 2019-03-26
 
 ## BREAKING CHANGES
