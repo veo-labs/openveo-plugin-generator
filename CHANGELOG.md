@@ -1,4 +1,4 @@
-# 4.0.0 / YYYY-MM-DD
+# 5.0.0 / YYYY-MM-DD
 
 ## BREAKING CHANGES
 
