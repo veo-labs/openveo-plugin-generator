@@ -7,6 +7,7 @@
 ## DEPENDENCIES
 
 - **chalk** has been upgraded from 1.1.3 to **4.0.0**
+- **lodash** has been upgraded from 4.17.4 to **4.17.15**
 
 # 4.0.0 / 2019-03-26
 
