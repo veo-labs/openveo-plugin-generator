@@ -42,15 +42,18 @@
     "@openveo/core": ">=9.*"
   },
   "scripts": {
-    "prepack": "grunt prod",
-    "eslint": "grunt eslint",
-    "mocha": "grunt mochaTest",
-    "karma": "grunt karma"
+    "build": "npx grunt prod",
+    "build:scss": "npx grunt compass:dist",
+    "test": "npm run test:client && npm run test:server",
+    "test:client": "npx grunt karma",
+    "test:server": "npx grunt mochaTest",
+    "watch": "npx grunt",
+    "prepack": "npm run build",
+    "lint": "npx grunt eslint"
   },
   "precommit": [
-    "eslint",
-    "mocha",
-    "karma"
+    "lint",
+    "test"
   ],
   "engines": {
     "node": ">=16.3.0",

@@ -14,8 +14,7 @@ To install OpenVeo <%= Plugin %> you first need to install OpenVeo Core if not a
     mkdir openveo-core
 
     # Install OpenVeo core in this directory
-    cd /WORKSPACE_PATH/openveo-core
-    npm install @openveo/core
+    # See OpenVeo core documentation for more information
 
 Your workspace should look like this :
 
@@ -54,19 +53,18 @@ Your workspace should look like this :
 ├── <%= pluginName %>
 ```
 
+## Install project's dependencies
+
+    cd /WORKSPACE_PATH/openveo-<%= originalPluginName %>
+    npm ci
+
 ## Link openveo-api and openveo-test
 
 When installing OpenVeo Core we created NPM links for @openveo/api and @openveo/test. We can now refer to this links.
 
     # Install dependencies @openveo/api and @openveo/test using NPM links
     cd /WORKSPACE_PATH/<%= pluginName %>
-    npm link @openveo/api
-    npm link @openveo/test
-
-## Install project's dependencies
-
-    cd /WORKSPACE_PATH/openveo-<%= originalPluginName %>
-    npm install
+    npm link @openveo/api @openveo/test
 
 # Install plugin
 

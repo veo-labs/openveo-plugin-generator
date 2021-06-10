@@ -6,14 +6,14 @@ Plugin's back end pages are written using AngularJS and SASS / Compass. SASS fil
 
 You can compile the back end SASS files using the following command:
 
-    grunt compass:dist
+    npm run build:scss
 
 Or you can watch SASS files changes using the following command:
 
-    grunt
+    npm run watch
 
-# Compiling JavaScript files
+# Compiling for production
 
-You'll probably want to compile AngularJS files, in production, for better performance. You can do it using:
+You'll probably want to also compile AngularJS files along with SASS files, for production, for better performance. You can do it using:
 
-    grunt prod
+    npm run build

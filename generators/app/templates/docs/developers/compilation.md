@@ -10,14 +10,14 @@ In order to manage those compilations, we use [Grunt](http://gruntjs.com/) - A J
 
 You can compile the plugin's back end SASS files using the following command (from plugin's root directory) :
 
-    grunt compass:dist
+    npm run build:scss
 
 Or you can watch SASS files changes using the following command (from plugin's root directory) :
 
-    grunt
+    npm run watch
 
 # Compiling JavaScript files
 
 You'll probably want to compile AngularJS files for production. You can do it using (from plugin's root directory) :
 
-    grunt prod
+    npm run build

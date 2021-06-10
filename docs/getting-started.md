@@ -16,24 +16,29 @@ Your workspace should look like this:
 ├── openveo-PLUGIN_NAME
 ```
 
+# Install project's dependencies
+
+    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+    npm ci
+
+# Add @openveo/api and @openveo/test to your plugin
+
+    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+    npm link @openveo/api @openveo/test
+
+# Build your plugin
+
+Plugin has to be built.
+
+    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
+    npm run build
+
 # Link your plugin
 
 To easily install your plugin into OpenVeo core you need to make it a global NPM package using [NPM links](https://docs.npmjs.com/cli/link):
 
     cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
     npm link
-
-# Add @openveo/api to your plugin
-
-    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
-    npm link @openveo/api
-
-# Build your plugin
-
-Plugin front end has to be built.
-
-    cd /WORKSPACE_PATH/openveo-PLUGIN_NAME
-    grunt prod
 
 # Install your plugin
 
