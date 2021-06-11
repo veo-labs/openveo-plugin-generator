@@ -42,12 +42,11 @@
   },
   "scripts": {
     "build": "npx grunt build-back-office-client",
-    "build:scss": "npx grunt compass",
     "doc": "npx grunt doc",
     "test": "npm run test:client && npm run test:server",
     "test:client": "npx grunt karma",
     "test:server": "npx grunt mochaTest",
-    "watch": "npx grunt",
+    "watch": "npx grunt watch",
     "prepack": "npm run build",
     "lint": "npx grunt eslint"
   },

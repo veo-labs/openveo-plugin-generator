@@ -16,7 +16,6 @@
     "app/server/controllers/README.md",
     "app/server/providers/README.md",
 
-    "docs/developers/compilation.md",
     "docs/developers/end-to-end-tests.md",
     "docs/developers/unit-tests.md",
 
@@ -30,8 +29,7 @@
     "tasks/mochaTest.js",
     "tasks/project.js",
     "tasks/remove.js",
-    "tasks/rename.js",
-    "tasks/watch.js"
+    "tasks/rename.js"
   ],
   "templated": [
     "CHANGELOG.md",
@@ -45,6 +43,7 @@
     "Gruntfile.js",
 
     "docs/index.md",
+    "docs/developers/compilation.md",
     "docs/developers/installation.md",
 
     "tasks/compass.js",
@@ -52,6 +51,7 @@
     "tasks/eslint.js",
     "tasks/mkdocs.js",
     "tasks/uglify.js",
+    "tasks/watch.js",
     "tasks/yuidoc.js",
 
     "i18n/admin-back-office-en.json",

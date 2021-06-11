@@ -6,18 +6,12 @@ OpenVeo does not automatically compile SASS and JavaScript files for its plugins
 
 In order to manage those compilations, we use [Grunt](http://gruntjs.com/) - A Javascript task runner. Many tasks are already written, but you can add your own.
 
-# Compiling SASS files
+# Compiling OpenVeo <%= Plugin %> back office client
 
-You can compile the plugin's back end SASS files using the following command (from plugin's root directory) :
-
-    npm run build:scss
-
-Or you can watch SASS files changes using the following command (from plugin's root directory) :
-
-    npm run watch
-
-# Compiling JavaScript files
-
-You'll probably want to compile AngularJS files for production. You can do it using (from plugin's root directory) :
+You can compile OpenVeo <%= Plugin %> the back office client use:
 
     npm run build
+
+To compile OpenVeo <%= Plugin %> back office when a file is modified use:
+
+    npm run watch
