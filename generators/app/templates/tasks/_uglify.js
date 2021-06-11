@@ -4,8 +4,8 @@
 // For more information about Grunt uglify, have a look at https://www.npmjs.com/package/grunt-contrib-uglify
 module.exports = {
 
-  // Obfuscate project's client JavaScript files
-  dist: {
+  // Obfuscate back office client JavaScript files
+  'back-office': {
     files: [
       {
         expand: true, // Enable dynamic expansion.

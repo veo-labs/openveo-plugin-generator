@@ -57,7 +57,7 @@ module.exports = function(grunt) {
   // Build back office client
   grunt.registerTask('build-back-office-client', [
     'compass',
-    'uglify:dist',
+    'uglify:back-office',
     'concat:back-office-libraries',
     'concat:back-office'
   ]);
