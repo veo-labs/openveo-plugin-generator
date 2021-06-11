@@ -44,6 +44,7 @@
   "scripts": {
     "build": "npx grunt prod",
     "build:scss": "npx grunt compass:dist",
+    "doc": "npx grunt doc",
     "test": "npm run test:client && npm run test:server",
     "test:client": "npx grunt karma",
     "test:server": "npx grunt mochaTest",
