@@ -19,10 +19,10 @@ module.exports = function() {
   // Change folder to install dependencies
   process.chdir(this.properties.url);
 
-  this.spawnCommand('npm', ['link', '@openveo/api', '@openveo/test']);
-
   this.installDependencies({
     bower: false,
     npm: true
   });
+
+  this.spawnCommand('npm', ['link', '@openveo/api', '@openveo/test']);
 };
