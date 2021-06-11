@@ -41,7 +41,7 @@
     "@openveo/core": ">=9.*"
   },
   "scripts": {
-    "build": "npx grunt prod",
+    "build": "npx grunt build-back-office-client",
     "build:scss": "npx grunt compass",
     "doc": "npx grunt doc",
     "test": "npm run test:client && npm run test:server",

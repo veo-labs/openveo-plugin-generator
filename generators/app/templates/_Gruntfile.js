@@ -58,7 +58,7 @@ module.exports = function(grunt) {
   grunt.registerTask('concatPlugin', ['uglify:dist', 'concat:back-office-libraries', 'concat:back-office']);
 
   // Prepare project for production
-  grunt.registerTask('prod', ['compass', 'concatPlugin']);
+  grunt.registerTask('build-back-office-client', ['compass', 'concatPlugin']);
 
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
