@@ -32,6 +32,9 @@ module.exports = function(grunt) {
     env: process.env
   };
 
+  // Set "withSourceMaps" property which will be used by grunt tasks to set appropriate configuration
+  process.withSourceMaps = (process.argv.length > 3 && process.argv[3] === '--with-source-maps') ? true : false;
+
   grunt.initConfig(config);
   grunt.config.merge(loadConfig('./tasks'));
 
@@ -49,13 +52,13 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
 
   // Listen to changes on SCSS files and generate CSS files
-  grunt.registerTask('default', ['compass:dev', 'watch']);
+  grunt.registerTask('default', ['compass', 'watch']);
 
   // Minify and concat back end AngularJS Javascript files
   grunt.registerTask('concatPlugin', ['uglify:dist', 'concat:lib', 'concat:js']);
 
   // Prepare project for production
-  grunt.registerTask('prod', ['compass:dist', 'concatPlugin']);
+  grunt.registerTask('prod', ['compass', 'concatPlugin']);
 
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);

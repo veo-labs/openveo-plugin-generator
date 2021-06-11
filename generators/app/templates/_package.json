@@ -42,7 +42,7 @@
   },
   "scripts": {
     "build": "npx grunt prod",
-    "build:scss": "npx grunt compass:dist",
+    "build:scss": "npx grunt compass",
     "doc": "npx grunt doc",
     "test": "npm run test:client && npm run test:server",
     "test:client": "npx grunt karma",
