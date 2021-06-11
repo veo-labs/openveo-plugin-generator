@@ -43,12 +43,12 @@
   "scripts": {
     "build": "npx grunt build-back-office-client",
     "doc": "npx grunt doc",
+    "lint": "npx grunt eslint",
+    "prepack": "npm run build",
     "test": "npm run test:client && npm run test:server",
     "test:client": "npx grunt karma",
     "test:server": "npx grunt mochaTest",
-    "watch": "npx grunt watch",
-    "prepack": "npm run build",
-    "lint": "npx grunt eslint"
+    "watch": "npx grunt watch"
   },
   "precommit": [
     "lint",
