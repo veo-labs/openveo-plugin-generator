@@ -19,14 +19,11 @@ function getMinifiedJSFiles(files) {
 }
 
 module.exports = {
-  lib: {
 
-    // Concatenate back office JavaScript library files
+  // Concatenate back office JavaScript library files
+  'back-office-libraries': {
     src: getMinifiedJSFiles(applicationConf['backOffice']['scriptLibFiles']['dev']),
-
-    // Concatenate all files into libOpenveo<%= Plugin %>.js
     dest: '<%- project.beJSAssets %>/libOpenveo<%= Plugin %>.js'
-
   },
   js: {
 
