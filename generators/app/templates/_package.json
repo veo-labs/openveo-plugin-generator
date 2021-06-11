@@ -37,9 +37,6 @@
     "pre-commit": "^1.2.2",
     "yuidoc-theme-blue": "^0.1.9"
   },
-  "peerDependencies": {
-    "@openveo/core": ">=9.*"
-  },
   "scripts": {
     "build": "npx grunt build-back-office-client",
     "doc": "npx grunt doc",
