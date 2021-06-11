@@ -50,7 +50,4 @@ module.exports = function(grunt) {
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
-  // Deploy documentation to github pages
-  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
-
 };

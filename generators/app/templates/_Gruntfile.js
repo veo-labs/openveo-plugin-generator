@@ -44,7 +44,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mkdocs');
-  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
@@ -60,8 +59,5 @@ module.exports = function(grunt) {
 
   // Generate documentation
   grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
-
-  // Deploy documentation to github pages
-  grunt.registerTask('deploy-doc', ['doc', 'gh-pages:doc']);
 
 };
