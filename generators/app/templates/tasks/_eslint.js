@@ -5,7 +5,7 @@
 module.exports = {
 
   // Validate the whole project
-  validate: {
+  <%= plugin %>: {
     src: [
       'index.js',
       'conf.js',

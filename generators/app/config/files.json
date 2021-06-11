@@ -26,7 +26,6 @@
     "migrations/README.md"
   ],
   "tasks": [
-    "tasks/eslint.js",
     "tasks/karma.js",
     "tasks/mochaTest.js",
     "tasks/project.js",
@@ -50,6 +49,7 @@
 
     "tasks/compass.js",
     "tasks/concat.js",
+    "tasks/eslint.js",
     "tasks/mkdocs.js",
     "tasks/uglify.js",
     "tasks/yuidoc.js",
