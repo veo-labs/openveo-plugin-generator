@@ -22,7 +22,6 @@ module.exports = function() {
   this.spawnCommand('npm', ['link', '@openveo/api', '@openveo/test']);
 
   this.installDependencies({
-    skipInstall: this.options['skip-install'],
     bower: false,
     npm: true
   });
