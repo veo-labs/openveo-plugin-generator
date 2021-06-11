@@ -34,7 +34,7 @@ module.exports = {
   },
 
   // Plugin unit tests
-  plugin: {
+  'back-office': {
     configFile: 'tests/client/karmaConf.js'
   }
 
