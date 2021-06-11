@@ -25,13 +25,11 @@ module.exports = {
     src: getMinifiedJSFiles(applicationConf['backOffice']['scriptLibFiles']['dev']),
     dest: '<%- project.beJSAssets %>/libOpenveo<%= Plugin %>.js'
   },
-  js: {
 
-    // Concatenate all back office JavaScript files
+  // Concatenate all back office JavaScript files
+  'back-office': {
     src: getMinifiedJSFiles(applicationConf['backOffice']['scriptFiles']['dev']),
-
-    // Concatenate all files into openveo<%= Plugin %>.js
     dest: '<%- project.beJSAssets %>/openveo<%= Plugin %>.js'
-
   }
+
 };
