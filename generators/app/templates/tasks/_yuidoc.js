@@ -4,8 +4,8 @@
 // For more information about Grunt yuidoc, have a look at https://www.npmjs.com/package/grunt-contrib-yuidoc
 module.exports = {
 
-  // Client side back end documentation
-  backEnd: {
+  // Client side back office client documentation
+  'back-office': {
     name: 'OpenVeo <%= Plugin %> AngularJS back end',
     description: 'AngularJS OpenVeo <%= Plugin %> plugin back end documentation',
     version: '<%- pkg.version %>',
