@@ -8,6 +8,7 @@
 
 - **chalk** has been upgraded from 4.0.0 to **4.1.2**
 - **eslint** has been upgraded from 22.0.0 to **23.0.0**
+- **lodash** has been upgraded from 4.17.15 to **4.17.21**
 - **grunt-eslint** has been removed
 - **grunt-gh-pages** has been removed
 - **grunt-mkdocs** has been removed
