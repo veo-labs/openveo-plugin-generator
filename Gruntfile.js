@@ -42,7 +42,6 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-mkdocs');
-  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
   grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
