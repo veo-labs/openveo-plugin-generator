@@ -7,6 +7,7 @@
 ## DEPENDENCIES
 
 - **grunt-gh-pages** has been removed
+- **grunt-mkdocs** has been removed
 
 # 5.0.0 / 2020-05-04
 

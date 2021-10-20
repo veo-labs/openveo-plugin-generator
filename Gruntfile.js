@@ -3,7 +3,6 @@
 /* eslint no-sync: 0 */
 var path = require('path');
 var fs = require('fs');
-var openVeoApi = require('@openveo/api');
 
 process.rootBoiler = __dirname;
 process.requireBoiler = function(filePath) {
@@ -41,12 +40,5 @@ module.exports = function(grunt) {
   grunt.config.merge(loadConfig('./tasks'));
 
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-mkdocs');
-
-  grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
-  grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
-
-  // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
 };
