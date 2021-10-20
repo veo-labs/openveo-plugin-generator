@@ -39,14 +39,9 @@ ehthumbs.db
 /site
 /mkdocs.yml
 
-# Grunt
-/Gruntfile.js
-/tasks
-/.grunt
-
 # Git
 .gitignore
 .gitattributes
 
 # Eslint
-.eslintrc
+.eslintrc.json

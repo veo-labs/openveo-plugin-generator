@@ -32,15 +32,14 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
-    "grunt-cli": "^1.3.2",
-    "grunt-eslint": "^22.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-node": "^11.1.0",
     "pre-commit": "^1.2.2"
   },
   "scripts": {
     "doc": "mkdocs build -c -d \"./site/$(echo $npm_package_version)\"",
     "doc:deploy": "npx ovDeployGithubPages \"site/$(echo $npm_package_version)\"",
-    "lint": "npx grunt eslint",
+    "lint": "npx eslint \"generators/*/config/*.js\" \"generators/*/src/*.js\" \"generators/*/index.js\"",
     "postpublish": "npm run doc && npm run doc:deploy"
   },
   "precommit": [

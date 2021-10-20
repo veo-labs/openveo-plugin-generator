@@ -6,6 +6,8 @@
 
 ## DEPENDENCIES
 
+- **eslint** has been upgraded from 22.0.0 to **23.0.0**
+- **grunt-eslint** has been removed
 - **grunt-gh-pages** has been removed
 - **grunt-mkdocs** has been removed
 

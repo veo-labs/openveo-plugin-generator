@@ -22,8 +22,5 @@ ehthumbs.db
 # Documentation
 /site
 
-# Grunt
-/.grunt
-
 # NPM dependencies
 /node_modules
