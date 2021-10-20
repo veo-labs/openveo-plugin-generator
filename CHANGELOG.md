@@ -6,6 +6,7 @@
 
 ## DEPENDENCIES
 
+- **chalk** has been upgraded from 4.0.0 to **4.1.2**
 - **eslint** has been upgraded from 22.0.0 to **23.0.0**
 - **grunt-eslint** has been removed
 - **grunt-gh-pages** has been removed
