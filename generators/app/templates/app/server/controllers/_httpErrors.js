@@ -1,28 +1,28 @@
 'use strict';
 
 /**
- * @module controllers
+ * @module <%= plugin %>/controllers/httpErrors
  */
 
 /**
  * The list of HTTP errors with, for each error, its associated hexadecimal code and HTTP return code.
- * HTTP errors are sent by {{#crossLinkModule "controllers"}}{{/crossLinkModule}}.
+ * HTTP errors are sent by "controllers".
  *
  * @example
- *     var HTTP_ERRORS = process.require<%= Plugin %>('app/server/httpErrors.js');
- *     console.log(HTTP_ERRORS.UNKNOWN_ERROR);
+ * var HTTP_ERRORS = process.require<%= Plugin %>('app/server/httpErrors.js');
+ * console.log(HTTP_ERRORS.UNKNOWN_ERROR);
  *
- * @class HTTP_ERRORS
- * @static
+ * @namespace
  */
 var HTTP_ERRORS = {
 
   /**
    * Unidentified error.
    *
-   * @property UNKNOWN_ERROR
-   * @type Object
-   * @final
+   * @const
+   * @type {Object}
+   * @default
+   * @inner
    */
   UNKNOWN_ERROR: {
     code: 0x001,

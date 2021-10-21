@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * @module <%= plugin %>
+ * @module <%= plugin %>/<%= Plugin %>PluginApi
  */
 
 var util = require('util');
@@ -10,12 +10,14 @@ var openVeoApi = require('@openveo/api');
 /**
  * Defines a <%= Plugin %>PluginApi holding plugin's APIs.
  *
- *     // Get API
- *     var api = process.api.getApi('<%= originalPluginName %>');
+ * @example
+ * // Get API
+ * var api = process.api.getApi('<%= originalPluginName %>');
  *
  * @class <%= Plugin %>PluginApi
  * @constructor
  * @extends PluginApi
+ * @see {@link https://github.com/veo-labs/openveo-api|OpenVeo API documentation} for more information about PluginApi
  */
 function <%= Plugin %>PluginApi() {
   <%= Plugin %>PluginApi.super_.call(this);

@@ -24,6 +24,7 @@
 - **karma** has been upgraded from 4.4.1 to **6.3.4**
 - **karma-mocha** has been upgraded from 1.3.0 to **2.0.1**
 - **mocha** has been upgraded from 7.1.1 to **9.1.1**
+- **yuidoc** has been replaced by **JSDoc**
 
 # 5.0.0 / 2020-05-04
 

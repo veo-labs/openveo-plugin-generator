@@ -42,7 +42,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-yuidoc');
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-eslint');
@@ -60,6 +59,6 @@ module.exports = function(grunt) {
   ]);
 
   // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'yuidoc', 'rename:doc']);
+  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
 };

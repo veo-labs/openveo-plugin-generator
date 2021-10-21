@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @module ov.<%= plugin %>
+ */
+
 (function(angular) {
 
   // Define <%= Plugin %>'s back end module that will be loaded by the core

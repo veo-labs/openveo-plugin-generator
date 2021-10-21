@@ -13,6 +13,7 @@
     "app/client/admin/compass/sass/mixins/_responsive.scss",
     "app/client/admin/compass/sass/mixins/_retina.scss",
 
+    "app/server/jsdocTypes.js",
     "app/server/controllers/README.md",
     "app/server/providers/README.md",
 
@@ -22,7 +23,11 @@
     "tests/client/unitTests/i18n/I18nApp.js",
     "tests/client/e2eTests/resources/data.json",
 
-    "migrations/README.md"
+    "migrations/README.md",
+
+    "jsdoc.js",
+    "jsdoc-back-office.js",
+    "jsdoc-server.js"
   ],
   "tasks": [
     "tasks/karma.js",
@@ -35,6 +40,8 @@
     "CHANGELOG.md",
     "package.json",
     "README.md",
+    "DOC-BACK-OFFICE.md",
+    "DOC-SERVER.md",
     "conf.js",
     "index.js",
     "processRequire.js",
@@ -52,7 +59,6 @@
     "tasks/mkdocs.js",
     "tasks/uglify.js",
     "tasks/watch.js",
-    "tasks/yuidoc.js",
 
     "i18n/admin-back-office-en.json",
     "i18n/admin-back-office-fr.json",

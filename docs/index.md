@@ -7,7 +7,7 @@ It helps you create a plugin ready for development with:
   - Full operational grunt tasks for:
     - unit testing server and client sides
     - compiling JavaScript and CSS for client side
-    - generating code documentation (using [YUI](http://yuilibrary.com/))
+    - generating code documentation (using [JSDoc](https://jsdoc.app))
     - generating markdown documentation (using [MkDocs](http://www.mkdocs.org/))
   - A basic back end page example with internationalization
   - Default plugin files with minimum configuration
