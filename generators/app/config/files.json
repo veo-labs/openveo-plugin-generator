@@ -27,7 +27,9 @@
 
     "jsdoc.js",
     "jsdoc-back-office.js",
-    "jsdoc-server.js"
+    "jsdoc-server.js",
+
+    "compass.rb"
   ],
   "tasks": [
     "tasks/project.js"
@@ -49,11 +51,7 @@
     "docs/developers/compilation.md",
     "docs/developers/installation.md",
 
-    "tasks/compass.js",
-    "tasks/concat.js",
     "tasks/eslint.js",
-    "tasks/uglify.js",
-    "tasks/watch.js",
 
     "i18n/admin-back-office-en.json",
     "i18n/admin-back-office-fr.json",
@@ -76,7 +74,9 @@
     "tests/client/e2eTests/tests/todo/page.js",
 
     "tests/server/init.js",
-    "tests/server/plugin/{{Plugin}}PluginApi.js"
+    "tests/server/plugin/{{Plugin}}PluginApi.js",
+
+    "scripts/build.js"
   ],
   "folders": [
     "app/client/admin/js/ov"

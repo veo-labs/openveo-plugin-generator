@@ -2,7 +2,7 @@
 
 /* eslint no-sync: 0 */
 var fs = require('fs');
-var openVeoApi = require('@openveo/api');
+
 require('./processRequire.js');
 
 /**
@@ -38,18 +38,6 @@ module.exports = function(grunt) {
   grunt.initConfig(config);
   grunt.config.merge(loadConfig('./tasks'));
 
-  grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-eslint');
-
-  // Build back office client
-  grunt.registerTask('build-back-office-client', [
-    'compass',
-    'uglify:back-office',
-    'concat:back-office-libraries',
-    'concat:back-office'
-  ]);
 
 };

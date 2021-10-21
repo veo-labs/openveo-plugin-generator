@@ -5,7 +5,10 @@
   "env": {
 
     // Add node.js environment globals
-    "node": true
+    "node": true,
+
+    // Enable ECMAScript 2017 features
+    "es2017": true
 
   },
   "rules": {

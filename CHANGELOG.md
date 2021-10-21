@@ -3,6 +3,7 @@
 ## BREAKING CHANGES
 
 - No longer tested on NodeJS &lt; 16.3.0 and NPM &lt; 7.15.1
+- Drop support for OpenVeo Core &lt; 10.0.0
 
 ## DEPENDENCIES
 
@@ -20,6 +21,10 @@
 
 - **angular** has been upgraded from 1.5.5 to **1.6.4**
 - **chai** has been upgraded from 4.0.2 to **4.3.4**
+- **grunt-contrib-compass** has been removed
+- **grunt-contrib-concat** has been removed
+- **grunt-contrib-uglify** has been removed
+- **grunt-contrib-watch** has been removed
 - **grunt-karma** has been removed
 - **grunt-mkdocs** has been removed
 - **grunt-mocha-test** has been removed
