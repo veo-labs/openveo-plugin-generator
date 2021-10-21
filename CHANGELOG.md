@@ -19,6 +19,7 @@
 ### PLUGINS
 
 - **angular** has been upgraded from 1.5.5 to **1.6.4**
+- **chai** has been upgraded from 4.0.2 to **4.3.4**
 
 # 5.0.0 / 2020-05-04
 
