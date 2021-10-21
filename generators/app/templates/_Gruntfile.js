@@ -43,10 +43,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.loadNpmTasks('grunt-mkdocs');
-
-  grunt.registerMultiTask('rename', openVeoApi.grunt.renameTask(grunt));
-  grunt.registerMultiTask('remove', openVeoApi.grunt.removeTask(grunt));
 
   // Build back office client
   grunt.registerTask('build-back-office-client', [
@@ -55,8 +51,5 @@ module.exports = function(grunt) {
     'concat:back-office-libraries',
     'concat:back-office'
   ]);
-
-  // Generate documentation
-  grunt.registerTask('doc', ['remove:doc', 'mkdocs', 'rename:doc']);
 
 };

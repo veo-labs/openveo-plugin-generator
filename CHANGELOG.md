@@ -21,6 +21,7 @@
 - **angular** has been upgraded from 1.5.5 to **1.6.4**
 - **chai** has been upgraded from 4.0.2 to **4.3.4**
 - **grunt-karma** has been removed
+- **grunt-mkdocs** has been removed
 - **grunt-mocha-test** has been removed
 - **karma** has been upgraded from 4.4.1 to **6.3.4**
 - **karma-mocha** has been upgraded from 1.3.0 to **2.0.1**

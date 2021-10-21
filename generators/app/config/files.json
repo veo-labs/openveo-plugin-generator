@@ -30,9 +30,7 @@
     "jsdoc-server.js"
   ],
   "tasks": [
-    "tasks/project.js",
-    "tasks/remove.js",
-    "tasks/rename.js"
+    "tasks/project.js"
   ],
   "templated": [
     "CHANGELOG.md",
@@ -54,7 +52,6 @@
     "tasks/compass.js",
     "tasks/concat.js",
     "tasks/eslint.js",
-    "tasks/mkdocs.js",
     "tasks/uglify.js",
     "tasks/watch.js",
 
