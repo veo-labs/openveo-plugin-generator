@@ -1,28 +1,22 @@
 'use strict';
 
-/* eslint node/no-sync: 0 */
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs/promises');
+const path = require('path');
 
-var config = require('../config/files');
+const config = require('../config/files');
 
-module.exports = function() {
-  var self = this;
+module.exports = async function() {
+  const renamePromises = [];
 
-  config.folders.forEach(function(folder) {
-    var basename = path.basename(folder);
-    var renamed = folder.replace(basename, basename + self.properties.templated.Plugin);
-
-    fs.renameSync(self.properties.url + '/' + folder, self.properties.url + '/' + renamed);
+  config.folders.forEach((folder) => {
+    const basename = path.basename(folder);
+    const renamed = folder.replace(basename, basename + this.properties.templated.Plugin);
+    renamePromises.push(fs.rename(`${this.destinationPath(folder)}`, `${this.destinationPath(renamed)}`));
   });
 
-  // Change folder to install dependencies
-  process.chdir(this.properties.url);
+  await Promise.all(renamePromises);
+  await this.spawnCommand('npm', ['install']);
+  await this.spawnCommand('npm', ['link', '@openveo/api', '@openveo/test']);
 
-  this.installDependencies({
-    bower: false,
-    npm: true
-  });
-
-  this.spawnCommand('npm', ['link', '@openveo/api', '@openveo/test']);
+  return Promise.resolve();
 };

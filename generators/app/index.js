@@ -1,40 +1,51 @@
 'use strict';
 
-var Generator = require('yeoman-generator');
+const Generator = require('yeoman-generator');
 
-var prompting = require('./src/prompting');
-var writing = require('./src/writing');
-var configuring = require('./src/configuring');
-var install = require('./src/install');
-var end = require('./src/end');
+const prompting = require('./src/prompting');
+const writing = require('./src/writing');
+const configuring = require('./src/configuring');
+const install = require('./src/install');
+const end = require('./src/end');
 
-module.exports = Generator.extend({
-  constructor: function(args, opts) {
-    Generator.call(this, args, opts);
+module.exports = class extends Generator {
+
+  constructor(args, opts) {
+    super(args, opts);
 
     // Arguments
     this.argument('pluginName', {
       type: String,
-      desc: 'Optional plugin name to avoid being prompted',
+      description: 'Optional plugin name to avoid being prompted',
       required: false
     });
 
-  },
+  }
 
-  initializing: function() {
+  initializing() {
     this.properties = {
       templated: {},
       url: ''
     };
-  },
+  }
 
-  prompting: prompting,
+  prompting() {
+    return prompting.bind(this)();
+  }
 
-  configuring: configuring,
+  configuring() {
+    return configuring.bind(this)();
+  }
 
-  writing: writing,
+  writing() {
+    return writing.bind(this)();
+  }
 
-  install: install,
+  install() {
+    return install.bind(this)();
+  }
 
-  end: end
-});
+  end() {
+    return end.bind(this)();
+  }
+};
