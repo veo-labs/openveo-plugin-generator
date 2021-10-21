@@ -6,6 +6,8 @@
 
 ## DEPENDENCIES
 
+### GENERATOR
+
 - **chalk** has been upgraded from 4.0.0 to **4.1.2**
 - **eslint** has been upgraded from 22.0.0 to **23.0.0**
 - **lodash** has been upgraded from 4.17.15 to **4.17.21**
@@ -13,6 +15,10 @@
 - **grunt-gh-pages** has been removed
 - **grunt-mkdocs** has been removed
 - **yeoman-generator** has been upgraded from 1.0.1 to **5.4.2**
+
+### PLUGINS
+
+- **angular** has been upgraded from 1.5.5 to **1.6.4**
 
 # 5.0.0 / 2020-05-04
 
