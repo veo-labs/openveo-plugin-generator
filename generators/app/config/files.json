@@ -31,7 +31,6 @@
   ],
   "tasks": [
     "tasks/karma.js",
-    "tasks/mochaTest.js",
     "tasks/project.js",
     "tasks/remove.js",
     "tasks/rename.js"
@@ -95,6 +94,7 @@
     "app/client/.eslintrc",
 
     "tests/client/.eslintrc",
-    "tests/server/.eslintrc"
+    "tests/server/.eslintrc",
+    "tests/server/.mocharc.json"
   ]
 }
