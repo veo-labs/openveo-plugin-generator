@@ -30,7 +30,6 @@
     "jsdoc-server.js"
   ],
   "tasks": [
-    "tasks/karma.js",
     "tasks/project.js",
     "tasks/remove.js",
     "tasks/rename.js"
