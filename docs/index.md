@@ -4,7 +4,7 @@ OpenVeo Plugin Generator is a [Yeoman](http://yeoman.io/) plugin generator for [
 
 It helps you create a plugin ready for development with:
 
-  - Full operational grunt tasks for:
+  - Full operational NPM scripts for:
     - unit testing server and client sides
     - compiling JavaScript and CSS for client side
     - generating code documentation (using [JSDoc](https://jsdoc.app))

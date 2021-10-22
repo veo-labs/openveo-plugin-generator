@@ -31,9 +31,6 @@
 
     "compass.rb"
   ],
-  "tasks": [
-    "tasks/project.js"
-  ],
   "templated": [
     "CHANGELOG.md",
     "package.json",
@@ -45,13 +42,9 @@
     "processRequire.js",
     "mkdocs.yml",
 
-    "Gruntfile.js",
-
     "docs/index.md",
     "docs/developers/compilation.md",
     "docs/developers/installation.md",
-
-    "tasks/eslint.js",
 
     "i18n/admin-back-office-en.json",
     "i18n/admin-back-office-fr.json",
@@ -85,12 +78,14 @@
     ".gitattributes",
     ".gitignore",
     ".npmignore",
-    ".eslintrc",
+    ".eslintrc.json",
 
-    "app/client/.eslintrc",
+    "app/client/.eslintrc.json",
 
-    "tests/client/.eslintrc",
-    "tests/server/.eslintrc",
+    "scripts/.eslintrc.json",
+
+    "tests/client/.eslintrc.json",
+    "tests/server/.eslintrc.json",
     "tests/server/.mocharc.json"
   ]
 }

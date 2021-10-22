@@ -21,8 +21,12 @@
 
 - **angular** has been upgraded from 1.5.5 to **1.6.4**
 - **chai** has been upgraded from 4.0.2 to **4.3.4**
+- **eslint** has been upgraded from 22.0.0 to **23.0.0**
+- **grunt** has been removed
+- **grunt-cli** has been removed
 - **grunt-contrib-compass** has been removed
 - **grunt-contrib-concat** has been removed
+- **grunt-eslint** has been removed
 - **grunt-contrib-uglify** has been removed
 - **grunt-contrib-watch** has been removed
 - **grunt-karma** has been removed

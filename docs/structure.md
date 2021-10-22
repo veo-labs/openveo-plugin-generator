@@ -8,14 +8,14 @@ When generated, the plugin's structure should look like:
 │   │   ├── admin // Client side sources for the back end pages
 │   │   │   ├── compass // SCSS files of the back end pages
 │   │   │   └── js // JavaScript files of the back end pages
-│   │   │       └── ovPluginName // All JavaScript files of the plugin's AngularJS module
+│   │   │       └── ov // All JavaScript files of the plugin's AngularJS module
 │   │   └── front // Client side sources for front end pages
 │   └── server // Server side sources (executed by Node.js)
 │       ├── controllers // Controllers (extending Controller)
 │       │   └── httpErrors.js // Holds the list of HTTP errors used by controllers
 │       ├── providers // Providers (extending Provider)
 │       ├── PLUGIN_NAMEPlugin.js // The plugin class (extending Plugin)
-│       └── PLUGIN_NAMEPluginApi.js // The pluginApi class (extending PluginApi)
+│       └── PLUGIN_NAMEPluginApi.js // The PluginApi class (extending PluginApi)
 ├── assets // Public directory for static files (mounted on /PLUGIN_NAME/)
 │   └── be // Back end pages resources
 │       ├── css // Generated CSS files for the back end pages
@@ -24,7 +24,6 @@ When generated, the plugin's structure should look like:
 ├── docs // Markdown documentation of the project
 ├── i18n // Translation dictionaries
 ├── migrations // Migration scripts
-├── tasks // Grunt tasks
 ├── tests // Tests
 │   ├── client // Client side tests
 │   │   ├── unitTests // Unit tests
@@ -34,14 +33,12 @@ When generated, the plugin's structure should look like:
 ├── .gitattributes // Git attributes configuration file
 ├── .npmignore // NPM ignore configuration file
 ├── CHANGELOG.md // Plugin's change logs
-├── Gruntfile.js // Grunt configuration file
 ├── README.md // Plugin's README
 ├── conf.js // Plugin's configuration file
 ├── index.js // Plugin's main file
 ├── mkdocs.yml // MkDocs configuration file
 └── package.json // NPM configuration file
 ```
-
 
 # Dive into plugin's files
 

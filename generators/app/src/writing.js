@@ -47,7 +47,6 @@ module.exports = async function() {
   };
 
   await Promise.all(config.src.map((src) => copyFile(src)));
-  await Promise.all(config.tasks.map((task) => copyFile(task)));
   await Promise.all(config.templated.map((templatedFile) => copyTemplatedFile(templatedFile)));
   await Promise.all(config.dots.map((dotFile) => copyDotFile(dotFile)));
   return Promise.resolve();
