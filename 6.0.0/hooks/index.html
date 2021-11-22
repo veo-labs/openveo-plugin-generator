@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Hooks - Openveo Plugin Generator</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hooks";
+    var mkdocs_page_input_path = "hooks.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Openveo Plugin Generator</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">INTRODUCTION</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PLUGIN DEVELOPERS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../prerequisites/">Prerequisites</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../getting-started/">Getting started</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../structure/">Plugin structure</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../plugin-life-cycle/">Plugin life cycle</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Hooks</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#hooks">Hooks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#register-an-action-to-an-existing-hook">Register an action to an existing hook</a></li>
+        
+            <li><a class="toctree-l4" href="#create-a-hook-for-other-plugins">Create a hook for other plugins</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../template-engine/">Template engine</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../back-end/">Back end AngularJS</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../tutorial/">Tutorial</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../conf/">conf.js</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../logger/">Logger</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../i18n/">I18N and I10N</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../compilation/">CSS / SASS / JS compilation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../coding-standards/">Coding standards</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../unit-tests/">Unit tests</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../end-to-end-tests/">End to end tests</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Openveo Plugin Generator</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>PLUGIN DEVELOPERS &raquo;</li>
+        
+      
+    
+    <li>Hooks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/veo-labs/openveo-plugin-generator/edit/master/docs/hooks.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hooks">Hooks</h1>
+<p>OpenVeo core and plugins may define hooks which you can use to execute an action when a hook is called. Hooks on OpenVeo are more like events waiting for all actions to be complete. Hook actions are executed in the order of registration.</p>
+<h2 id="register-an-action-to-an-existing-hook">Register an action to an existing hook</h2>
+<p>To add an action to an existing hook do it in the <strong>init step</strong> of the <a href="../plugin-life-cycle/">plugin's life cycle</a>:</p>
+<pre><code class="js">MyPlugin.prototype.init = function() {
+
+  // First get the plugin API defining the hook you want to listen to
+  var coreApi = process.api.getCoreApi();
+
+  // Get the list of hooks from the plugin
+  var CORE_HOOKS = coreApi.getHooks();
+
+  // Register an action on a hook
+  // CORE_HOOKS.ROLES_DELETED hook gives the list of deleted role ids as parameter and the
+  // function to call when action is done
+  coreApi.registerAction(CORE_HOOKS.ROLES_DELETED, function(ids, callback) {
+    console.log(ids);
+    console.log('Do something');
+    callback();
+  });
+
+};
+</code></pre>
+
+<h2 id="create-a-hook-for-other-plugins">Create a hook for other plugins</h2>
+<p>To create a hook which could be handled by other plugins do as follow:</p>
+<pre><code class="js">// Get the API of your plugin
+var api = process.api.getApi('my-plugin');
+
+// Define data to send to actions
+var data = {};
+
+// Execute all actions registered to the hook
+api.executeHook(api.getHooks().MY_CUSTOM_HOOK, data, function(error) {
+  console.log('All actions of the hook done if no error');
+});
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../template-engine/" class="btn btn-neutral float-right" title="Template engine">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../plugin-life-cycle/" class="btn btn-neutral" title="Plugin life cycle"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/veo-labs/openveo-plugin-generator/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../plugin-life-cycle/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../template-engine/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
