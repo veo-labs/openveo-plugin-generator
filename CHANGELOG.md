@@ -1,4 +1,4 @@
-# 6.0.0 / YYYY-MM-DD
+# 6.0.0 / 2021-11-22
 
 ## BREAKING CHANGES
 
